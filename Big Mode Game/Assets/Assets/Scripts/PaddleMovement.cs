@@ -14,12 +14,6 @@ public class PaddleMovement : MonoBehaviour
     [SerializeField]
     Rigidbody2D ballRb;
 
-    [SerializeField]
-    float ballLaunchSpeed;
-
-    [SerializeField]
-    float ballFriction;
-
     private bool canLaunchBall = true;
 
     // Start is called before the first frame update
@@ -49,7 +43,7 @@ public class PaddleMovement : MonoBehaviour
         {
             ballRb.transform.SetParent(null);
             ballRb.simulated = true;
-            ballRb.AddForce(Vector2.up * ballLaunchSpeed, ForceMode2D.Impulse);
+            ballRb.AddForce(Vector2.up * ballRb.gameObject.GetComponent<BallController>().ballSpeed, ForceMode2D.Impulse);
             canLaunchBall = !canLaunchBall;
         }
 

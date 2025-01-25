@@ -2,17 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public static Transform blocks;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
