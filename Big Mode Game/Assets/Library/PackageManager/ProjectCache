@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638733713516095836
-    m_Hash: 2405387192
+      ticks: 638733859199803279
+    m_Hash: 947626093
   m_LockFileStatus:
     m_FilePath: E:/BIGMODE/Big Mode Game/Assets/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638733713520050074
-    m_Hash: 517873031
+      ticks: 638733859199803279
+    m_Hash: 28772972
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
