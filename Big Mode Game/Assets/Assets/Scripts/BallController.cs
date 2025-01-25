@@ -12,7 +12,7 @@ public class BallController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        prevVelocity = Vector2.one;
+        prevVelocity = Vector2.zero;
 
         // Inform the level manager that there is another ball
         BasicLevelManager.Instance.SpawnedBallCount++;
@@ -20,20 +20,35 @@ public class BallController : MonoBehaviour
 
     private void LateUpdate()
     {
-        // Jank to prevent directional velocity from being 0 and keeping the move speed constant
-        if (Mathf.Abs(rb.velocity.x) <= 0.25f)
+        // Jank to prevent directional velocity from being 0 on an axis
+        if (Mathf.Abs(rb.velocity.x) <= 0.75f)
         {
-            rb.velocity += new Vector2(prevVelocity.x * 1.5f, 0);
+            // Determine if velocity is positive or negative
+            if (prevVelocity.x > 0)
+            {
+                rb.velocity += new Vector2(5, 0);
+            }
+            else 
+            {
+                rb.velocity -= new Vector2(5, 0);
+            }
         }
         else 
         {
             prevVelocity.x = rb.velocity.x;        
         }
 
-        if (Mathf.Abs(rb.velocity.y) <= 0.25f)
+        if (Mathf.Abs(rb.velocity.y) <= 0.75f)
         {
-            float yDir = rb.velocity.y >= 0 ? 1 : -1;
-            rb.velocity += new Vector2(0, prevVelocity.y * 1.5f);
+            // Determine if velocity is positive or negative
+            if (prevVelocity.y > 0)
+            {
+                rb.velocity += new Vector2(0, 5);
+            }
+            else
+            {
+                rb.velocity -= new Vector2(0, 5);
+            }
         }
         else 
         {

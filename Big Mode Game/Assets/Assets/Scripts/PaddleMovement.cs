@@ -51,8 +51,9 @@ public class PaddleMovement : MonoBehaviour
         }
 
         // Launch the ball
-        if (Input.GetKeyDown(KeyCode.Space) && ballRef != null)
+        if (Input.GetKeyDown(KeyCode.Space) /*&& ballRef != null*/)
         {
+            if(ballRef == null) SpawnBall();
             ballRef.SetParent(null);
             Rigidbody2D ballRb = ballRef.GetComponent<Rigidbody2D>();
             ballRb.simulated = true;
@@ -72,7 +73,7 @@ public class PaddleMovement : MonoBehaviour
     /// </summary>
     public void SpawnBall()
     {
-        ballRef = Instantiate(ballPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.identity);
+        ballRef = Instantiate(ballPrefab, transform.position + (Vector3.up * 0.35f), Quaternion.identity);
         ballRef.SetParent(transform);
     }
 }
