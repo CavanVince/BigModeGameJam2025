@@ -20,13 +20,11 @@ public class BallController : MonoBehaviour
         {
             float xDir = rb.velocity.x >= 0 ? 1 : -1;
             rb.velocity += new Vector2(xDir * 2, 0);
-            Debug.Log("Hor");
         }
         if (Mathf.Abs(rb.velocity.y) <= 0.25f)
         {
             float yDir = rb.velocity.y >= 0 ? 1 : -1;
             rb.velocity += new Vector2(0, yDir * 2);
-            Debug.Log("Vert");
         }
 
         rb.velocity = rb.velocity.normalized * ballSpeed;
