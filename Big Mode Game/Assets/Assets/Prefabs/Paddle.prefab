@@ -145,7 +145,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -174,8 +174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddleSpeed: 300
   ballRb: {fileID: 7898662558440028898}
-  ballLaunchSpeed: 10
-  ballFriction: 1000
 --- !u!1001 &39337964278473928
 PrefabInstance:
   m_ObjectHideFlags: 0

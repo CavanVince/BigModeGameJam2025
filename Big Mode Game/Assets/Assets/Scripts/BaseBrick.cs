@@ -12,17 +12,10 @@ public class BaseBrick : MonoBehaviour
     {
         // Animate brick
         animator = GetComponent<Animator>();
-        animIntervalTime = Random.Range(5, 10);
-        StartAnim();
-    }
-
-    /// <summary>
-    /// Helper function to start animation timer. Also called in shine animation.
-    /// </summary>
-    public void StartAnim() 
-    {
+        animIntervalTime = Random.Range(5f, 10f);
         StartCoroutine(PlayAnimation());
     }
+
 
     /// <summary>
     /// Coroutine to animate the brick at a random interval
@@ -30,9 +23,9 @@ public class BaseBrick : MonoBehaviour
     /// <returns></returns>
     IEnumerator PlayAnimation()
     {
-        animator.SetBool("Play", false);
         yield return new WaitForSeconds(animIntervalTime);
-        animator.SetBool("Play", true);
+        animator.Play("Base Layer.Shine", 0, 0.25f);
+        StartCoroutine(PlayAnimation());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

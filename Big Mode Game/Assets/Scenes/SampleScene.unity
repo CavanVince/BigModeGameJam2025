@@ -1222,6 +1222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Brick (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 557768341878457509, guid: 81e301ac5865aeb4fafe03735e3e7827,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4004454103284648985, guid: 81e301ac5865aeb4fafe03735e3e7827,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1794,6 +1799,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Red Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 557768341878457509, guid: 0cd085b533bfa844faffdb0385760240,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4004454103284648985, guid: 0cd085b533bfa844faffdb0385760240,
         type: 3}
@@ -5296,11 +5306,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 8033924953577280668, guid: c1fc04ca4c838404eba1a6c622f06931,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: c0210aa9c0ff03343a99c8c5830146ab, type: 2}
     - target: {fileID: 8300051736746826252, guid: c1fc04ca4c838404eba1a6c622f06931,
         type: 3}
       propertyPath: m_LocalPosition.x

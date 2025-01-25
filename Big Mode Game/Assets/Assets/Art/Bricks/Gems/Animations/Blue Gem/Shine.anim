@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Red Gem Animation
+  m_Name: Shine
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1881305696, guid: 585330f829859ca4fbedc702428d3963, type: 3}
+      value: {fileID: -113970535, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
     - time: 0.083333336
-      value: {fileID: -818841676, guid: 585330f829859ca4fbedc702428d3963, type: 3}
+      value: {fileID: -1425347000, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
     - time: 0.16666667
-      value: {fileID: -291878622, guid: 585330f829859ca4fbedc702428d3963, type: 3}
+      value: {fileID: 393888581, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
     - time: 0.25
-      value: {fileID: 1982673802, guid: 585330f829859ca4fbedc702428d3963, type: 3}
+      value: {fileID: 1234584502, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,10 +50,10 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1881305696, guid: 585330f829859ca4fbedc702428d3963, type: 3}
-    - {fileID: -818841676, guid: 585330f829859ca4fbedc702428d3963, type: 3}
-    - {fileID: -291878622, guid: 585330f829859ca4fbedc702428d3963, type: 3}
-    - {fileID: 1982673802, guid: 585330f829859ca4fbedc702428d3963, type: 3}
+    - {fileID: -113970535, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
+    - {fileID: -1425347000, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
+    - {fileID: 393888581, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
+    - {fileID: 1234584502, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -78,12 +78,4 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events:
-  - time: 0.25
-    functionName: StartAnim
-    data: 
-    objectReferenceParameter: {fileID: 557768341878457509, guid: 0cd085b533bfa844faffdb0385760240,
-      type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
+  m_Events: []
