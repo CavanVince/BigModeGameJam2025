@@ -32,8 +32,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -4, z: 0}
   m_LocalScale: {x: 20, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6584025764512517326}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &123356349202972853
@@ -172,85 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2436d86ebb874c7459710fcad7c7571c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paddleSpeed: 300
-  ballRb: {fileID: 7898662558440028898}
---- !u!1001 &39337964278473928
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 8300051736746826252}
-    m_Modifications:
-    - target: {fileID: 5974671743572147660, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_Name
-      value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.20000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1231e61fadc755b49896e5d6d82ba978, type: 3}
---- !u!4 &6584025764512517326 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
+  paddleSpeed: 400
+  ballPrefab: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
     type: 3}
-  m_PrefabInstance: {fileID: 39337964278473928}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &7898662558440028898 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 7860591235952516650, guid: 1231e61fadc755b49896e5d6d82ba978,
-    type: 3}
-  m_PrefabInstance: {fileID: 39337964278473928}
-  m_PrefabAsset: {fileID: 0}

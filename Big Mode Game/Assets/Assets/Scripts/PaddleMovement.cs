@@ -10,17 +10,17 @@ public class PaddleMovement : MonoBehaviour
     [SerializeField]
     float paddleSpeed;
 
-
     [SerializeField]
-    Rigidbody2D ballRb;
-
-    private bool canLaunchBall = true;
+    Transform ballPrefab;
+    private Transform ballRef;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         inputDirection = Vector2.zero;
+
+        SpawnBall();
     }
 
     // Update is called once per frame
@@ -29,29 +29,40 @@ public class PaddleMovement : MonoBehaviour
         // Gather the input direction
         inputDirection = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.A)) 
+        if (Input.GetKey(KeyCode.A))
         {
             inputDirection -= Vector2.right;
         }
-        if (Input.GetKey(KeyCode.D)) 
+        if (Input.GetKey(KeyCode.D))
         {
             inputDirection += Vector2.right;
         }
 
         // Launch the ball
-        if (Input.GetKeyDown(KeyCode.Space) && canLaunchBall) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            ballRb.transform.SetParent(null);
+            if(ballRef == null) SpawnBall();
+
+            ballRef.SetParent(null);
+            Rigidbody2D ballRb = ballRef.GetComponent<Rigidbody2D>();
             ballRb.simulated = true;
             ballRb.AddForce(Vector2.up * ballRb.gameObject.GetComponent<BallController>().ballSpeed, ForceMode2D.Impulse);
-            canLaunchBall = !canLaunchBall;
+            ballRef = null;
         }
-
     }
 
     private void FixedUpdate()
     {
         // Apply the velocity
         rb.velocity = inputDirection * paddleSpeed * Time.deltaTime;
+    }
+
+    /// <summary>
+    /// Spawn the ball on top of the paddle
+    /// </summary>
+    public void SpawnBall()
+    {
+        ballRef = Instantiate(ballPrefab, transform.position + (Vector3.up * 0.25f), Quaternion.identity);
+        ballRef.SetParent(transform);
     }
 }

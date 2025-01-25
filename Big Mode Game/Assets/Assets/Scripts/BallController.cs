@@ -20,7 +20,7 @@ public class BallController : MonoBehaviour
         // Jank to prevent directional velocity from being 0 and keeping the move speed constant
         if (Mathf.Abs(rb.velocity.x) <= 0.25f)
         {
-            rb.velocity += new Vector2(prevVelocity.x, 0);
+            rb.velocity += new Vector2(prevVelocity.x * 1.5f, 0);
         }
         else 
         {
@@ -30,7 +30,7 @@ public class BallController : MonoBehaviour
         if (Mathf.Abs(rb.velocity.y) <= 0.25f)
         {
             float yDir = rb.velocity.y >= 0 ? 1 : -1;
-            rb.velocity += new Vector2(0, prevVelocity.y);
+            rb.velocity += new Vector2(0, prevVelocity.y * 1.5f);
         }
         else 
         {
