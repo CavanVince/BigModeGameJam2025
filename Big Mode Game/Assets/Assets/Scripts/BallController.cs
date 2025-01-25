@@ -17,10 +17,10 @@ public class BallController : MonoBehaviour
 
     private void LateUpdate()
     {
+        // Jank to prevent Y velocity from being 0 and keeping the move speed constant
         if (rb.velocity.y.Equals(0))
         {
             rb.velocity += new Vector2(0, previousYDir * 2);
-            Debug.Log("hit");
         }
         else
         {
