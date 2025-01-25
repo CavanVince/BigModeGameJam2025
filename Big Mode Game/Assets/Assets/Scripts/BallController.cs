@@ -13,6 +13,9 @@ public class BallController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         prevVelocity = Vector2.one;
+
+        // Inform the level manager that there is another ball
+        BasicLevelManager.Instance.SpawnedBallCount++;
     }
 
     private void LateUpdate()
@@ -38,6 +41,15 @@ public class BallController : MonoBehaviour
         }
 
         rb.velocity = rb.velocity.normalized * ballSpeed;
+    }
+
+    private void OnDestroy()
+    {
+        // Inform the level manager that a ball was destroyed
+        BasicLevelManager.Instance.SpawnedBallCount--;
+
+        // Notify the level manager that the ball was destroyed
+        BasicLevelManager.Instance.CheckGameOver();
     }
 
 }

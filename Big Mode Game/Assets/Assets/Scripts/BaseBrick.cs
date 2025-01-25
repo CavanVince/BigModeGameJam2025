@@ -32,8 +32,15 @@ public class BaseBrick : MonoBehaviour
     {
         if (collision.transform.CompareTag("Ball") == true)
         {
-            BasicLevelManager.Instance.CheckPlayerWon();
             Destroy(gameObject);
         }
+    }
+
+    /// <summary>
+    /// Check if the player won when the brick is destroyed
+    /// </summary>
+    private void OnDestroy()
+    {
+        BasicLevelManager.Instance.CheckPlayerWon();
     }
 }

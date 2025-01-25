@@ -7,6 +7,8 @@ public class PaddleMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 inputDirection;
 
+    public static PaddleMovement Instance;
+
     [SerializeField]
     float paddleSpeed;
 
@@ -17,6 +19,16 @@ public class PaddleMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Singleton pattern
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
         rb = GetComponent<Rigidbody2D>();
         inputDirection = Vector2.zero;
 
@@ -39,10 +51,8 @@ public class PaddleMovement : MonoBehaviour
         }
 
         // Launch the ball
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && ballRef != null)
         {
-            if(ballRef == null) SpawnBall();
-
             ballRef.SetParent(null);
             Rigidbody2D ballRb = ballRef.GetComponent<Rigidbody2D>();
             ballRb.simulated = true;
