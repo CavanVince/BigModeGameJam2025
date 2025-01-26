@@ -53,16 +53,6 @@ public class PaddleMovement : MonoBehaviour
             inputDirection += Vector2.right;
         }
 
-        // Gather rotational input
-        if (Input.GetKey(KeyCode.LeftArrow) && ((transform.rotation.eulerAngles.z < 45) || (transform.rotation.eulerAngles.z > 305))) 
-        {
-            transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
-        }
-        if (Input.GetKey(KeyCode.RightArrow) && ((transform.rotation.eulerAngles.z < 55) || transform.rotation.eulerAngles.z > 315)) 
-        {
-            transform.Rotate(new Vector3(0, 0, -rotationSpeed * Time.deltaTime));
-        }
-
 
         // Launch the ball
         if (Input.GetKeyDown(KeyCode.Space) && ballRef != null)
@@ -87,6 +77,6 @@ public class PaddleMovement : MonoBehaviour
     public void SpawnBall()
     {
         ballRef = Instantiate(ballPrefab, transform.position + (Vector3.up * 0.35f), Quaternion.identity);
-        ballRef.SetParent(transform);
+        ballRef.SetParent(transform, true);
     }
 }

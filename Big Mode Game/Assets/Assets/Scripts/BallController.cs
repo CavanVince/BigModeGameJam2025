@@ -22,7 +22,7 @@ public class BallController : MonoBehaviour
     private void LateUpdate()
     {
         // Jank to prevent directional velocity from being 0 on an axis
-        if (Mathf.Abs(rb.velocity.x) <= 0.75f)
+        if (Mathf.Abs(rb.velocity.x) <= 0.15f)
         {
             // Determine if velocity is positive or negative
             if (prevVelocity.x > 0)
@@ -39,7 +39,7 @@ public class BallController : MonoBehaviour
             prevVelocity.x = rb.velocity.x;        
         }
 
-        if (Mathf.Abs(rb.velocity.y) <= 0.75f)
+        if (Mathf.Abs(rb.velocity.y) <= 0.15f)
         {
             // Determine if velocity is positive or negative
             if (prevVelocity.y > 0)
@@ -59,15 +59,18 @@ public class BallController : MonoBehaviour
         rb.velocity = rb.velocity.normalized * ballSpeed;
     }
 
-    private void OnDestroy()
+    /// <summary>
+    /// Destroy the ball
+    /// </summary>
+    public void DestroyBall() 
     {
-        if (BasicLevelManager.Instance == null) return;
-
         // Inform the level manager that a ball was destroyed
         BasicLevelManager.Instance.SpawnedBallCount--;
 
         // Notify the level manager that the ball was destroyed
         BasicLevelManager.Instance.CheckGameOver();
+
+        Destroy(gameObject);
     }
 
 }

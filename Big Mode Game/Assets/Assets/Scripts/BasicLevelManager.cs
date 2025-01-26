@@ -12,7 +12,7 @@ public class BasicLevelManager : MonoBehaviour
     public int SpawnedBallCount { get; set; }
 
     // The number of balls the player has left
-    public int PlayerBallCount {  get; private set; }
+    public int PlayerBallCount { get; private set; }
 
     private void Start()
     {
@@ -21,7 +21,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             Instance = this;
         }
-        else 
+        else
         {
             Destroy(this);
         }
@@ -33,9 +33,9 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// Determine if the player destroyed all of the bricks
     /// </summary>
-    public void CheckPlayerWon() 
+    public void CheckPlayerWon()
     {
-        if (brickParent.childCount == 0) 
+        if (brickParent.childCount - 1 == 0)
         {
             Debug.Log("You Win!");
         }
@@ -44,11 +44,11 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// Determine if the player is out of balls
     /// </summary>
-    public void CheckGameOver() 
+    public void CheckGameOver()
     {
         if (SpawnedBallCount == 0 && PlayerBallCount > 0)
         {
-            PaddleMovement.Instance.SpawnBall();
+            if (PaddleMovement.Instance != null) PaddleMovement.Instance.SpawnBall();
             PlayerBallCount--;
         }
         else if (PlayerBallCount <= 0)

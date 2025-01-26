@@ -9,7 +9,7 @@ public class KillBox : MonoBehaviour
         // Destroy the ball
         if (collision.transform.CompareTag("Ball") == true) 
         {
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<BallController>().DestroyBall();
         }
     }
 }

@@ -8,6 +8,10 @@ public class DoubleHitBrick : MonoBehaviour
     private SpriteRenderer spriteRender;
     private int hitCount = 2;
 
+    [SerializeField]
+    Sprite crackedSprite;
+
+
     private void Start()
     {
         spriteRender = gameObject.GetComponent<SpriteRenderer>();
@@ -20,11 +24,11 @@ public class DoubleHitBrick : MonoBehaviour
             hitCount--;
             if (hitCount == 1)
             {
-                spriteRender.color = Color.red;
+                spriteRender.sprite = crackedSprite;
             }
             else
             {
-                Destroy(gameObject);
+                DestroyBrick();
             }
         }
     }
@@ -32,10 +36,9 @@ public class DoubleHitBrick : MonoBehaviour
     /// <summary>
     /// Check if the player won when the brick is destroyed
     /// </summary>
-    private void OnDestroy()
+    public void DestroyBrick() 
     {
-        if (BasicLevelManager.Instance == null) return;
-
         BasicLevelManager.Instance.CheckPlayerWon();
+        Destroy(gameObject);
     }
 }
