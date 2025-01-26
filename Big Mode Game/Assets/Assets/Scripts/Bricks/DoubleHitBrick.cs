@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class DoubleHitBrick : MonoBehaviour
@@ -33,6 +34,8 @@ public class DoubleHitBrick : MonoBehaviour
     /// </summary>
     private void OnDestroy()
     {
+        if (BasicLevelManager.Instance == null) return;
+
         BasicLevelManager.Instance.CheckPlayerWon();
     }
 }

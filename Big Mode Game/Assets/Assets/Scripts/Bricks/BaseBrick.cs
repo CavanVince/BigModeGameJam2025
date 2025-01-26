@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -41,6 +42,8 @@ public class BaseBrick : MonoBehaviour
     /// </summary>
     private void OnDestroy()
     {
+        if (BasicLevelManager.Instance == null) return;
+
         BasicLevelManager.Instance.CheckPlayerWon();
     }
 }

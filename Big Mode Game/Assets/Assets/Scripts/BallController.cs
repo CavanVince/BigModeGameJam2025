@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -60,6 +61,8 @@ public class BallController : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (BasicLevelManager.Instance == null) return;
+
         // Inform the level manager that a ball was destroyed
         BasicLevelManager.Instance.SpawnedBallCount--;
 

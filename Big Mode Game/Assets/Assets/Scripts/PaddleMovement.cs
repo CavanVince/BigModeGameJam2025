@@ -13,6 +13,9 @@ public class PaddleMovement : MonoBehaviour
     float paddleSpeed;
 
     [SerializeField]
+    float rotationSpeed;
+
+    [SerializeField]
     Transform ballPrefab;
     private Transform ballRef;
 
@@ -50,10 +53,20 @@ public class PaddleMovement : MonoBehaviour
             inputDirection += Vector2.right;
         }
 
-        // Launch the ball
-        if (Input.GetKeyDown(KeyCode.Space) /*&& ballRef != null*/)
+        // Gather rotational input
+        if (Input.GetKey(KeyCode.LeftArrow) && ((transform.rotation.eulerAngles.z < 45) || (transform.rotation.eulerAngles.z > 305))) 
         {
-            if(ballRef == null) SpawnBall();
+            transform.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && ((transform.rotation.eulerAngles.z < 55) || transform.rotation.eulerAngles.z > 315)) 
+        {
+            transform.Rotate(new Vector3(0, 0, -rotationSpeed * Time.deltaTime));
+        }
+
+
+        // Launch the ball
+        if (Input.GetKeyDown(KeyCode.Space) && ballRef != null)
+        {
             ballRef.SetParent(null);
             Rigidbody2D ballRb = ballRef.GetComponent<Rigidbody2D>();
             ballRb.simulated = true;
