@@ -5,15 +5,13 @@ using UnityEngine;
 public class PaddleMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Vector2 inputDirection;
 
     public static PaddleMovement Instance;
 
-    [SerializeField]
-    float paddleSpeed;
+    public Vector2 InputDirection { get; private set; }
 
     [SerializeField]
-    float rotationSpeed;
+    float paddleSpeed;
 
     [SerializeField]
     Transform ballPrefab;
@@ -33,7 +31,7 @@ public class PaddleMovement : MonoBehaviour
         }
 
         rb = GetComponent<Rigidbody2D>();
-        inputDirection = Vector2.zero;
+        InputDirection = Vector2.zero;
 
         SpawnBall();
     }
@@ -42,15 +40,15 @@ public class PaddleMovement : MonoBehaviour
     void Update()
     {
         // Gather the input direction
-        inputDirection = Vector2.zero;
+        InputDirection = Vector2.zero;
 
         if (Input.GetKey(KeyCode.A))
         {
-            inputDirection -= Vector2.right;
+            InputDirection -= Vector2.right;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            inputDirection += Vector2.right;
+            InputDirection += Vector2.right;
         }
 
 
@@ -68,7 +66,7 @@ public class PaddleMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Apply the velocity
-        rb.velocity = inputDirection * paddleSpeed * Time.deltaTime;
+        rb.velocity = InputDirection * paddleSpeed * Time.deltaTime;
     }
 
     /// <summary>
