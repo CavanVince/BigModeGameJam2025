@@ -7,16 +7,43 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    // Ball correction vals
     public float ballSpeed;
     private Vector2 prevVelocity;
+
+    // Speed up vals
+    private float speedUpTimer;
+    private float startSpeedTime;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         prevVelocity = Vector2.zero;
 
+        speedUpTimer = 0;
+        startSpeedTime = speedUpTimer;
+
         // Inform the level manager that there is another ball
         BasicLevelManager.Instance.SpawnedBallCount++;
+    }
+
+    private void Update()
+    {
+        // Decay the speed up timer if it's running
+        if (speedUpTimer == 0) return;
+
+        speedUpTimer -= Time.deltaTime;
+        if (speedUpTimer <= 0) speedUpTimer = 0;
+    }
+
+    /// <summary>
+    /// Speed the ball up for a set amount of time
+    /// </summary>
+    public void SpeedUp(float speedMult) 
+    {
+        speedUpTimer = 20;
+        startSpeedTime = speedUpTimer;
+        rb.velocity *= speedMult;
     }
 
     private void LateUpdate()
@@ -31,7 +58,15 @@ public class BallController : MonoBehaviour
             prevVelocity.y = rb.velocity.y;
         }
 
-        rb.velocity = rb.velocity.normalized * ballSpeed;
+        Vector2 normalizedVel = rb.velocity.normalized;
+        if (speedUpTimer == 0)
+        {
+            rb.velocity = normalizedVel * ballSpeed;
+        }
+        else 
+        {
+            rb.velocity = (normalizedVel * ballSpeed) + (((normalizedVel * rb.velocity.magnitude) - (normalizedVel * ballSpeed)) * (speedUpTimer/ startSpeedTime));
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
