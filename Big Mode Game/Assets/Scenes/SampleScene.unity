@@ -880,6 +880,7 @@ GameObject:
   - component: {fileID: 355057577}
   - component: {fileID: 355057576}
   - component: {fileID: 355057575}
+  - component: {fileID: 355057579}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -971,6 +972,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &355057579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355057574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6b5092ffc9bba4cb66d0012f2f5b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1291165798}
 --- !u!4 &391968541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4004454103284648985, guid: 81e301ac5865aeb4fafe03735e3e7827,
@@ -7593,7 +7607,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1291165797}
   m_Father: {fileID: 355057578}

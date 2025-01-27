@@ -14,6 +14,16 @@ public class BasicLevelManager : MonoBehaviour
     // The number of balls the player has left
     public int PlayerBallCount { get; private set; }
 
+    /// <summary>
+    /// The player's score
+    /// </summary>
+    public int PlayerScore { get; private set; }
+
+    /// <summary>
+    /// The score multiplier
+    /// </summary>
+    public int ScoreMult { get; private set; }
+
     private void Start()
     {
         // Singleton pattern
@@ -26,8 +36,13 @@ public class BasicLevelManager : MonoBehaviour
             Destroy(this);
         }
 
+        // Ball count
         SpawnedBallCount = 0;
         PlayerBallCount = 4;
+
+        // Player score
+        PlayerScore = 0;
+        ScoreMult = 1;
     }
 
     /// <summary>
@@ -55,5 +70,25 @@ public class BasicLevelManager : MonoBehaviour
         {
             Debug.Log("Game Over!");
         }
+    }
+
+    /// <summary>
+    /// Adds score to the player's score multiplied by the player's current score multiplier
+    /// </summary>
+    /// <param name="score">The new score to add</param>
+    public void AddScore(int score)
+    {
+        PlayerScore += score * ScoreMult;
+        ScoreMult++;
+
+        UiManager.Instance.UpdateScoreUI();
+    }
+
+    /// <summary>
+    /// Resets the player's score multiplier
+    /// </summary>
+    public void ResetScoreMult()
+    {
+        ScoreMult = 1;
     }
 }

@@ -77,4 +77,13 @@ public class PaddleMovement : MonoBehaviour
         ballRef = Instantiate(ballPrefab, transform.position + (Vector3.up * 0.35f), Quaternion.identity);
         ballRef.SetParent(transform, true);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Ball") == true && BasicLevelManager.Instance.SpawnedBallCount == 1) 
+        {
+            // Reset the player's score multiplier when the ball hits the paddle
+            BasicLevelManager.Instance.ResetScoreMult();
+        }
+    }
 }

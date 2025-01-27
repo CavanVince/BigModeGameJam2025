@@ -1,27 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class ElasticBrick : MonoBehaviour
+public class ElasticBrick : BrickParent
 {
     [SerializeField]
     float speedMult;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Ball") == true)
-        {
-            collision.gameObject.GetComponent<BallController>().SpeedUp(speedMult);
-            DestroyBrick();
-        }
-    }
+        base.OnCollisionEnter2D(collision);
 
-    /// <summary>
-    /// Check if the player won when the brick is destroyed
-    /// </summary>
-    private void DestroyBrick()
-    {
-        BasicLevelManager.Instance.CheckPlayerWon();
-        Destroy(gameObject);
+        collision.gameObject.GetComponent<BallController>().SpeedUp(speedMult);
+
+        Vector3 startScale = transform.localScale;
+        transform.DOScale(startScale * 1.25f, 0.1f).OnComplete(() => 
+        {
+            transform.DOScale(startScale, 0.1f).OnComplete(() =>
+            {
+                DestroyBrick();
+            });
+        });
     }
 }
