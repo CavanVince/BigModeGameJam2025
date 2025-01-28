@@ -134,6 +134,9 @@ public class BallController : MonoBehaviour
     /// </summary>
     public void DestroyBall()
     {
+        // Reset the player's mult
+        BasicLevelManager.Instance.ResetScoreMult();
+
         // Inform the level manager that a ball was destroyed
         BasicLevelManager.Instance.SpawnedBallCount--;
 

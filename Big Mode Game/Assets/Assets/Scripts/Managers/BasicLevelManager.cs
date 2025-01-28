@@ -11,10 +11,10 @@ public class BasicLevelManager : MonoBehaviour
     public Transform brickParent;
 
     // The number of balls currently in the world
-    public int SpawnedBallCount { get; set; }
+    public int SpawnedBallCount { get; set; } = 0;
 
     // The number of balls the player has left
-    public int PlayerBallCount { get; set; }
+    public int PlayerBallCount { get; set; } = 5;
 
     public static Action<Transform> SpawnedBall;
 
@@ -27,12 +27,12 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// The score multiplier
     /// </summary>
-    public int ScoreMult { get; private set; }
+    public int ScoreMult { get; set; }
 
     /// <summary>
     /// The minimum multilpier to apply to the score multiplier
     /// </summary>
-    public int MinScoreMult { get; set; }
+    public int MinScoreMult { get; set; } = 1;
     #endregion
 
     #region Paddle Ball
@@ -58,16 +58,9 @@ public class BasicLevelManager : MonoBehaviour
             Destroy(this);
         }
 
-        // Ball count
-        SpawnedBallCount = 0;
-        PlayerBallCount = 4;
-
         // Player score
         PlayerScore = 0;
-        MinScoreMult = 1;
         ScoreMult = MinScoreMult;
-
-
 
         // Initialize trinkets
         SirBounceAlot sirBounceAlot = new SirBounceAlot();
@@ -76,6 +69,7 @@ public class BasicLevelManager : MonoBehaviour
         SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
         BoosterRocket boosterRocket = new BoosterRocket();
+
 
         // Spawn the starting ball
         SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
@@ -105,6 +99,7 @@ public class BasicLevelManager : MonoBehaviour
 
         if (spawnOnPaddle)
         {
+            PlayerBallCount--;
             paddleBall = Instantiate(ballPrefab, spawnLocation, Quaternion.identity);
             SpawnedBall?.Invoke(paddleBall);
             paddleBall.SetParent(PaddleMovement.Instance.transform, true);
@@ -137,7 +132,6 @@ public class BasicLevelManager : MonoBehaviour
         if (SpawnedBallCount == 0 && PlayerBallCount > 0)
         {
             SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
-            PlayerBallCount--;
         }
         else if (PlayerBallCount <= 0)
         {
@@ -162,6 +156,7 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void ResetScoreMult()
     {
+        if (SpawnedBallCount > 1) return;
         ScoreMult = MinScoreMult;
     }
 }

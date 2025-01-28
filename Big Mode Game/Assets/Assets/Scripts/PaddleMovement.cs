@@ -55,7 +55,7 @@ public class PaddleMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Ball") == true && BasicLevelManager.Instance.SpawnedBallCount == 1) 
+        if (collision.transform.CompareTag("Ball") == true) 
         {
             // Reset the player's score multiplier when the ball hits the paddle
             BasicLevelManager.Instance.ResetScoreMult();
