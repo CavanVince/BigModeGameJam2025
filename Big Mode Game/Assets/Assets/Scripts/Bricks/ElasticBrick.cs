@@ -14,8 +14,14 @@ public class ElasticBrick : BrickParent
     private void Start()
     {
         animator = GetComponent<Animator>();
-        animIntervalTime = Random.Range(2.5f, 7f);
+        animIntervalTime = Random.Range(3f, 10f);
         StartCoroutine(StartTimer());
+
+        // Random chance to bubble on start
+        if (Random.Range(0, 20) == 0)
+        {
+            animator.Play($"Base Layer.Bubble Gem Anim", 0, 0.25f);
+        }
     }
 
     IEnumerator StartTimer() 

@@ -75,6 +75,7 @@ public class BasicLevelManager : MonoBehaviour
         HealthPotion healthPotion = new HealthPotion();
         SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
+        BoosterRocket boosterRocket = new BoosterRocket();
 
         // Spawn the starting ball
         SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);

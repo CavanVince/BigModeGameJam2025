@@ -10,8 +10,8 @@ public class PaddleMovement : MonoBehaviour
 
     public Vector2 InputDirection { get; private set; }
 
-    [SerializeField]
-    float paddleSpeed;
+
+    public float paddleSpeed;
 
 
     void Awake()

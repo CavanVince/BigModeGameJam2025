@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc9989617d0e9ac40a1e7684fa91c671
+guid: 3c6d2cf98ef2e2840920add745786f8f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WizardEmotion_0
+      name: Goblin_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f92623e34afaaf6428df901ea625a86e
-      internalID: 1150638815
+      spriteID: f2942b481fdbe604faee1d49549e47d8
+      internalID: -1841990332
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardEmotion_1
+      name: Goblin_Idle_1
       rect:
         serializedVersion: 2
         x: 64
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ecf7ed10b5e5a14d8050ae42e575026
-      internalID: -1925015304
+      spriteID: 0807ce94d99d0df4ab6488a0b7a7d912
+      internalID: 158361244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardEmotion_2
+      name: Goblin_Idle_2
       rect:
         serializedVersion: 2
         x: 128
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 424cd65fbcf73ae47b84177421e5a461
-      internalID: 49632326
+      spriteID: f458ac9be4fce9d41836c5247020eba5
+      internalID: -896534193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardEmotion_3
+      name: Goblin_Idle_3
       rect:
         serializedVersion: 2
         x: 192
@@ -174,8 +174,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7a92a4c1514d074384865798beb3d31
-      internalID: 1648416681
+      spriteID: 556dc58f778cce74ea590f9ac036a226
+      internalID: -115264564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aba877b0efa84244a6cd791d6e96f6d
+      internalID: 1848404231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b903fc67578aed24fa604cf040ca79ca
+      internalID: 160518573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Idle_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec6d794d3655ef40b058cfc872246ba
+      internalID: -809034792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_Idle_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bd448af0798884485fbe68ff990323
+      internalID: -500913602
       vertices: []
       indices: 
       edges: []
@@ -183,7 +267,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3d446c29b93258340a62d0b2abd0af56
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -191,10 +275,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WizardEmotion_0: 1150638815
-      WizardEmotion_1: -1925015304
-      WizardEmotion_2: 49632326
-      WizardEmotion_3: 1648416681
+      Goblin_Idle_0: -1841990332
+      Goblin_Idle_1: 158361244
+      Goblin_Idle_2: -896534193
+      Goblin_Idle_3: -115264564
+      Goblin_Idle_4: 1848404231
+      Goblin_Idle_5: 160518573
+      Goblin_Idle_6: -809034792
+      Goblin_Idle_7: -500913602
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
