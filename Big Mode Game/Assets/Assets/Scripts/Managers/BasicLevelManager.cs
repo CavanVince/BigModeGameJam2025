@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,16 @@ public class BasicLevelManager : MonoBehaviour
 {
     public static BasicLevelManager Instance;
 
+    // The container for the level's brick prefabs
     public Transform brickParent;
 
     // The number of balls currently in the world
     public int SpawnedBallCount { get; set; }
 
     // The number of balls the player has left
-    public int PlayerBallCount { get; private set; }
+    public int PlayerBallCount { get; set; }
 
+    #region Player Score
     /// <summary>
     /// The player's score
     /// </summary>
@@ -23,8 +26,20 @@ public class BasicLevelManager : MonoBehaviour
     /// The score multiplier
     /// </summary>
     public int ScoreMult { get; private set; }
+    #endregion
 
-    private void Start()
+    #region Paddle Ball
+
+    public Transform ballPrefab;
+
+    // Reference to the ball on attached to the paddle
+    private Transform paddleBall = null;
+
+    public Action<Transform> LaunchedBallFromPaddle;
+
+    #endregion
+
+    private void Awake()
     {
         // Singleton pattern
         if (Instance == null)
@@ -43,6 +58,50 @@ public class BasicLevelManager : MonoBehaviour
         // Player score
         PlayerScore = 0;
         ScoreMult = 1;
+
+
+
+        // Initialize trinkets
+        SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        Shotgun shotgun = new Shotgun();
+        HealthPotion healthPotion = new HealthPotion();
+        SpellOfGigantification spell = new SpellOfGigantification();
+
+        // Spawn the starting ball
+        SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
+    }
+
+    private void Update()
+    {
+        // Launch the ball if it's attached to the paddle
+        if (Input.GetKeyDown(KeyCode.Space) && paddleBall != null)
+        {
+            LaunchedBallFromPaddle?.Invoke(paddleBall.transform);
+            paddleBall.GetComponent<BallController>().LaunchBall(Vector2.up * paddleBall.gameObject.GetComponent<BallController>().ballSpeed);
+            paddleBall = null;
+        }
+    }
+
+    /// <summary>
+    /// Spawns a ball at the desired location
+    /// </summary>
+    /// <param name="spawnLocation">The location to spawn the ball</param>
+    /// <param name="spawnOnPaddle">Should the ball be attached to the paddle</param>
+    /// <returns></returns>
+    public BallController SpawnBall(Vector3 spawnLocation, bool spawnOnPaddle = false)
+    {
+        SpawnedBallCount++;
+
+        if (spawnOnPaddle)
+        {
+            paddleBall = Instantiate(ballPrefab, spawnLocation, Quaternion.identity);
+            paddleBall.SetParent(PaddleMovement.Instance.transform, true);
+            return paddleBall.GetComponent<BallController>();
+        }
+        else
+        {
+            return Instantiate(ballPrefab, spawnLocation, Quaternion.identity).GetComponent<BallController>();
+        }
     }
 
     /// <summary>
@@ -63,7 +122,7 @@ public class BasicLevelManager : MonoBehaviour
     {
         if (SpawnedBallCount == 0 && PlayerBallCount > 0)
         {
-            if (PaddleMovement.Instance != null) PaddleMovement.Instance.SpawnBall();
+            SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
             PlayerBallCount--;
         }
         else if (PlayerBallCount <= 0)

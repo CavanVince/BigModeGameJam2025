@@ -14,6 +14,8 @@ public class ElasticBrick : BrickParent
 
         collision.gameObject.GetComponent<BallController>().SpeedUp(speedMult);
 
+        GetComponent<BoxCollider2D>().enabled = false;
+
         Vector3 startScale = transform.localScale;
         transform.DOScale(startScale * 1.25f, 0.1f).OnComplete(() => 
         {

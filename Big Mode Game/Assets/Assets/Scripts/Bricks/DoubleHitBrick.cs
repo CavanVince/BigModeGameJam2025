@@ -12,7 +12,7 @@ public class DoubleHitBrick : BrickParent
     Sprite crackedSprite;
 
 
-    private void Start()
+    private void Awake()
     {
         spriteRender = gameObject.GetComponent<SpriteRenderer>();
     }

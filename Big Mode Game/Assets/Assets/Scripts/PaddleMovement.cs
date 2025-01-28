@@ -13,12 +13,8 @@ public class PaddleMovement : MonoBehaviour
     [SerializeField]
     float paddleSpeed;
 
-    [SerializeField]
-    Transform ballPrefab;
-    private Transform ballRef;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Singleton pattern
         if (Instance == null)
@@ -32,8 +28,6 @@ public class PaddleMovement : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         InputDirection = Vector2.zero;
-
-        SpawnBall();
     }
 
     // Update is called once per frame
@@ -50,17 +44,6 @@ public class PaddleMovement : MonoBehaviour
         {
             InputDirection += Vector2.right;
         }
-
-
-        // Launch the ball
-        if (Input.GetKeyDown(KeyCode.Space) && ballRef != null)
-        {
-            ballRef.SetParent(null);
-            Rigidbody2D ballRb = ballRef.GetComponent<Rigidbody2D>();
-            ballRb.simulated = true;
-            ballRb.AddForce(Vector2.up * ballRb.gameObject.GetComponent<BallController>().ballSpeed, ForceMode2D.Impulse);
-            ballRef = null;
-        }
     }
 
     private void FixedUpdate()
@@ -69,14 +52,6 @@ public class PaddleMovement : MonoBehaviour
         rb.velocity = InputDirection * paddleSpeed * Time.deltaTime;
     }
 
-    /// <summary>
-    /// Spawn the ball on top of the paddle
-    /// </summary>
-    public void SpawnBall()
-    {
-        ballRef = Instantiate(ballPrefab, transform.position + (Vector3.up * 0.35f), Quaternion.identity);
-        ballRef.SetParent(transform, true);
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

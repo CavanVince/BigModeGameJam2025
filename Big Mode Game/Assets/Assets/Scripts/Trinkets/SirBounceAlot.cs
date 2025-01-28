@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+/// <summary>
+/// Every 10 bounces spawn another ball
+/// </summary>
+public class SirBounceAlot : TrinketParent
+{
+    private int bounceCounter = 0;
+
+    public SirBounceAlot() 
+    {
+        BallController.ballBounced += TriggerPassive;
+    }
+
+    public override void TriggerPassive(Transform ballTransform)
+    {
+        bounceCounter++;
+        if (bounceCounter >= 10) 
+        {
+            BallController tempBall = BasicLevelManager.Instance.SpawnBall(ballTransform.position);
+            tempBall.LaunchBall(new Vector2(Random.Range(-1,1f) * tempBall.ballSpeed, Random.Range(-1,1f) * tempBall.ballSpeed));
+            bounceCounter = 0;
+        }
+    }
+}
