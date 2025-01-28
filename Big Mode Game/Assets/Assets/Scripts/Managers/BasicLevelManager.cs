@@ -16,6 +16,8 @@ public class BasicLevelManager : MonoBehaviour
     // The number of balls the player has left
     public int PlayerBallCount { get; set; }
 
+    public static Action<Transform> SpawnedBall;
+
     #region Player Score
     /// <summary>
     /// The player's score
@@ -26,6 +28,11 @@ public class BasicLevelManager : MonoBehaviour
     /// The score multiplier
     /// </summary>
     public int ScoreMult { get; private set; }
+
+    /// <summary>
+    /// The minimum multilpier to apply to the score multiplier
+    /// </summary>
+    public int MinScoreMult { get; set; }
     #endregion
 
     #region Paddle Ball
@@ -35,7 +42,7 @@ public class BasicLevelManager : MonoBehaviour
     // Reference to the ball on attached to the paddle
     private Transform paddleBall = null;
 
-    public Action<Transform> LaunchedBallFromPaddle;
+    public static Action<Transform> LaunchedBallFromPaddle;
 
     #endregion
 
@@ -57,7 +64,8 @@ public class BasicLevelManager : MonoBehaviour
 
         // Player score
         PlayerScore = 0;
-        ScoreMult = 1;
+        MinScoreMult = 1;
+        ScoreMult = MinScoreMult;
 
 
 
@@ -66,6 +74,7 @@ public class BasicLevelManager : MonoBehaviour
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();
         SpellOfGigantification spell = new SpellOfGigantification();
+        Greaseball greaseBall = new Greaseball();
 
         // Spawn the starting ball
         SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
@@ -92,15 +101,19 @@ public class BasicLevelManager : MonoBehaviour
     {
         SpawnedBallCount++;
 
+
         if (spawnOnPaddle)
         {
             paddleBall = Instantiate(ballPrefab, spawnLocation, Quaternion.identity);
+            SpawnedBall?.Invoke(paddleBall);
             paddleBall.SetParent(PaddleMovement.Instance.transform, true);
             return paddleBall.GetComponent<BallController>();
         }
         else
         {
-            return Instantiate(ballPrefab, spawnLocation, Quaternion.identity).GetComponent<BallController>();
+            Transform newBall = Instantiate(ballPrefab, spawnLocation, Quaternion.identity);
+            SpawnedBall?.Invoke(newBall);
+            return newBall.GetComponent<BallController>();
         }
     }
 
@@ -138,7 +151,7 @@ public class BasicLevelManager : MonoBehaviour
     public void AddScore(int score)
     {
         PlayerScore += score * ScoreMult;
-        ScoreMult++;
+        ScoreMult += MinScoreMult;
 
         UiManager.Instance.UpdateScoreUI();
     }
@@ -148,6 +161,6 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void ResetScoreMult()
     {
-        ScoreMult = 1;
+        ScoreMult = MinScoreMult;
     }
 }

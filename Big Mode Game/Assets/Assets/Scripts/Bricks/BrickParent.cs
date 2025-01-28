@@ -13,6 +13,18 @@ public class BrickParent : MonoBehaviour
     [SerializeField]
     int score = 100;
 
+    /// <summary>
+    /// The destruction particles
+    /// </summary>
+    [SerializeField]
+    GameObject particles;
+
+    /// <summary>
+    /// The material to render on the destruction particles
+    /// </summary>
+    [SerializeField]
+    Material particleMat;
+
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Ball") != true) return;
@@ -27,6 +39,14 @@ public class BrickParent : MonoBehaviour
     protected virtual void DestroyBrick() 
     {
         BasicLevelManager.Instance.CheckPlayerWon();
+
+        // Render particles
+        if (particles != null) 
+        {
+            GameObject spawnedParticle = Instantiate(particles, transform.position, Quaternion.identity);
+            spawnedParticle.GetComponent<ParticleSystemRenderer>().material = particleMat;
+        }
+
         Destroy(gameObject);
     }
 }

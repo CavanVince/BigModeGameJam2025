@@ -127,6 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8d9c5dc73b3dad4a90d864efaf583b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
+  particles: {fileID: 8502583489414702222, guid: c4d4a1781d858234593560cb3add72f9,
+    type: 3}
+  particleMat: {fileID: 2100000, guid: f6abb39d0a7b23e4e8006f16daa25f94, type: 2}
 --- !u!61 &3018001909199541301
 BoxCollider2D:
   m_ObjectHideFlags: 0

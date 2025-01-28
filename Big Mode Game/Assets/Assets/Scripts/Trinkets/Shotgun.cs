@@ -9,7 +9,7 @@ public class Shotgun : TrinketParent
 {
     public Shotgun() 
     {
-        BasicLevelManager.Instance.LaunchedBallFromPaddle += TriggerPassive;
+        BasicLevelManager.LaunchedBallFromPaddle += TriggerPassive;
     }
 
     public override void TriggerPassive(Transform trans) 

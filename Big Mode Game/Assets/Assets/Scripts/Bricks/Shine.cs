@@ -11,7 +11,7 @@ public class Shine : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animIntervalTime = Random.Range(5f, 10f);
+        animIntervalTime = Random.Range(2.5f, 7f);
         StartCoroutine(StartTimer());
     }
 

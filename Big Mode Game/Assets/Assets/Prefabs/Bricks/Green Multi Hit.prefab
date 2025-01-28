@@ -172,6 +172,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db4aae0a22c3f847b437a7ae74ce01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
+  particles: {fileID: 8502583489414702222, guid: c4d4a1781d858234593560cb3add72f9,
+    type: 3}
+  particleMat: {fileID: 2100000, guid: f6abb39d0a7b23e4e8006f16daa25f94, type: 2}
   crackedSprite: {fileID: 1593126953, guid: ab5ce85f64586ee46bd2d1e7447c35cb, type: 3}
 --- !u!1001 &9203231503639228433
 PrefabInstance:
