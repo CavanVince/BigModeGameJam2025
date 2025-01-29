@@ -98,7 +98,7 @@ public class UiManager : MonoBehaviour
     /// Activate the post level scene
     /// </summary>
     /// <param name="playerWon">Did the player win?</param>
-    public void ActivatePostLevelScreen(bool playerWon) 
+    public void ActivatePostLevelScreen(bool playerWon)
     {
         // Turn down the alpha of the backdrop
         Color oriBackdropColor = levelReportBackdrop.color;
@@ -111,25 +111,22 @@ public class UiManager : MonoBehaviour
         brickBackdrop.anchoredPosition = new Vector3(0, -brickBackdrop.rect.y * 2, 0);
 
         // Squash the wizard box
-        Vector2 wizardScale = wizardBox.localScale;
-        wizardBox.localScale = new Vector2(wizardBox.localScale.x, 0);
-
-        // Disable the wizard text
-        wizardText.SetActive(false);
+        Vector3 wizardScale = wizardBox.localScale;
+        wizardBox.localScale = Vector3.zero;
 
         // Enable the UI element
         levelReportBackdrop.gameObject.SetActive(true);
 
         // Slowly increase the alpha of the backdrop
-        levelReportBackdrop.DOColor(oriBackdropColor, 0.5f).SetEase(Ease.Linear).OnComplete(() => 
+        levelReportBackdrop.DOColor(oriBackdropColor, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             // Drop down the brick overlay
-            brickBackdrop.DOMoveY(anchoredPos, 1.5f).SetEase(Ease.OutBounce).OnComplete(() => 
+            brickBackdrop.DOMoveY(anchoredPos, 1.5f).SetEase(Ease.OutBounce).OnComplete(() =>
             {
                 // Scale up wizard box
-                wizardBox.DOScale(wizardScale, 0.25f).SetDelay(0.5f).OnComplete(() => 
+                wizardBox.DOScale(wizardScale, 0.25f).SetDelay(0.5f).OnComplete(() =>
                 {
-                    wizardText.SetActive(true);
+                    wizardBox.GetComponent<FloatTween>().enabled = true;
                 });
             });
         });

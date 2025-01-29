@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDelay: 1
 --- !u!1001 &28403670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -828,6 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDelay: 1
 --- !u!4 &318833644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4004454103284648985, guid: 75023e33850a8e0429e03fa426c8d164,
@@ -1464,6 +1466,7 @@ GameObject:
   - component: {fileID: 466812288}
   - component: {fileID: 466812290}
   - component: {fileID: 466812289}
+  - component: {fileID: 466812291}
   m_Layer: 5
   m_Name: Wizard
   m_TagString: Untagged
@@ -1528,6 +1531,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466812287}
   m_CullTransparentMesh: 1
+--- !u!95 &466812291
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466812287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c10e4f7825aa9547bfaa3ea807bf2b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &477077137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4510,6 +4534,7 @@ GameObject:
   - component: {fileID: 881422622}
   - component: {fileID: 881422624}
   - component: {fileID: 881422623}
+  - component: {fileID: 881422625}
   m_Layer: 5
   m_Name: Wizard Box
   m_TagString: Untagged
@@ -4530,6 +4555,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 466812288}
+  - {fileID: 2062165287}
   m_Father: {fileID: 2027928561}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4575,6 +4601,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881422621}
   m_CullTransparentMesh: 1
+--- !u!114 &881422625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881422621}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomDelay: 0
 --- !u!1001 &888290362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7729,6 +7768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDelay: 1
 --- !u!4 &1172518218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2027207978594934370, guid: 11a82d8abf9e32b42be7ea0d926539cb,
@@ -8912,6 +8952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDelay: 1
 --- !u!1001 &1527105278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9077,6 +9118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDelay: 1
 --- !u!4 &1543764015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2027207978594934370, guid: 11a82d8abf9e32b42be7ea0d926539cb,
@@ -10249,6 +10291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7a76077bdd4a63418b5a4ebb1da90d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomDelay: 1
 --- !u!1001 &1938746721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10790,7 +10833,6 @@ RectTransform:
   m_Children:
   - {fileID: 1396144038}
   - {fileID: 881422622}
-  - {fileID: 2062165287}
   m_Father: {fileID: 1961531538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10878,11 +10920,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2027928561}
+  m_Father: {fileID: 881422622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 126, y: -335.5069}
+  m_AnchoredPosition: {x: 126, y: 0.000030517578}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062165288
@@ -10905,10 +10947,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ARE YOU BLIND?!?!?
+  m_text: My dead aunt could do better...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 6861128943280156680, guid: 797dc4bd891f29b488666c25a9f30e08,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10971,7 +11014,7 @@ MonoBehaviour:
   m_margin: {x: -182.91078, y: 0, z: -257.0638, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2062165289
