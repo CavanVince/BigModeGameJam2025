@@ -14,7 +14,7 @@ public class Map : MonoBehaviour
     Node[,] emptyMap = new Node[9, 7];
     public GameObject[,] nodePrefabs = new GameObject[9, 7];
     Node previousNode;
-
+    public Material lineMaterial;
 
 
     void Start()
@@ -54,6 +54,7 @@ public class Map : MonoBehaviour
 
                 Instantiate(nestedLineRenderer, currentNodeTransform.position, Quaternion.identity, currentNodeTransform);
                 lr.SetPositions(new Vector3[] { new Vector3(currentNode.row * 15, currentNode.column * 15, 0), nodePrefabs[childNode.row, childNode.column].transform.position });
+                lr.material = lineMaterial;
                 if (seenNodes.Contains(childNode))
                 {
                     continue;
@@ -126,7 +127,7 @@ public class Map : MonoBehaviour
     NodeTypes getRandomNode()
     {
 
-        NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.BOSS, NodeTypes.CHEST, NodeTypes.MYSTERY, NodeTypes.REST, NodeTypes.SHOP };
+        NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.MYSTERY, NodeTypes.SHOP };
         return possibleNodes[Random.Range(0, possibleNodes.Length)];
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicLevelManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class BasicLevelManager : MonoBehaviour
     public int PlayerBallCount { get; set; } = 5;
 
     public static Action<Transform> SpawnedBall;
+
+    bool levelComplete = false;
 
     #region Player Score
     /// <summary>
@@ -84,6 +87,10 @@ public class BasicLevelManager : MonoBehaviour
             paddleBall.GetComponent<BallController>().LaunchBall(Vector2.up * paddleBall.gameObject.GetComponent<BallController>().ballSpeed);
             paddleBall = null;
         }
+        else if (levelComplete && Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(sceneName: "Map");
+        }
     }
 
     /// <summary>
@@ -122,6 +129,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             Debug.Log("You Win!");
             UiManager.Instance.ActivatePostLevelScreen(true);
+            levelComplete = true;
         }
     }
 
@@ -138,6 +146,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             Debug.Log("Game Over!");
             UiManager.Instance.ActivatePostLevelScreen(false);
+            levelComplete = true;
         }
     }
 

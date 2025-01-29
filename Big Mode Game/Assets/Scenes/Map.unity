@@ -290,9 +290,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NodePrefab: {fileID: 7605588272936330066, guid: 546ed22315595a244ba7f0fd8c2777d9,
     type: 3}
-  enemy: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  mystery: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  shop: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  enemy: {fileID: 1671130526, guid: 99725195683c7b44caabffe7155dd015, type: 3}
+  mystery: {fileID: 1811720035, guid: 99725195683c7b44caabffe7155dd015, type: 3}
+  shop: {fileID: -1034922378, guid: 99725195683c7b44caabffe7155dd015, type: 3}
+  lineMaterial: {fileID: 2100000, guid: 4ceaa890517f8994cb9196f8447c78e3, type: 2}
 --- !u!4 &361812196
 Transform:
   m_ObjectHideFlags: 0
