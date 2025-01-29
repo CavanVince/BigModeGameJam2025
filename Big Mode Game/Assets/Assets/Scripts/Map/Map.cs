@@ -12,7 +12,7 @@ public class Map : MonoBehaviour
     public Sprite mystery;
     public Sprite shop;
     Node[,] emptyMap = new Node[9, 7];
-    GameObject[,] nodePrefabs = new GameObject[9, 7];
+    public GameObject[,] nodePrefabs = new GameObject[9, 7];
     Node previousNode;
 
 
@@ -94,8 +94,10 @@ public class Map : MonoBehaviour
                         newNode.GetComponent<SpriteRenderer>().sprite = shop;
                         break;
                 }
+                NodeHandler nodeHandler = newNode.GetComponent<NodeHandler>();
+                nodeHandler.node = emptyMap[row, column];
+                nodeHandler.map = this;
             }
-
 
             if (previousNode != null)
             {
