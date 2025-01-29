@@ -63,12 +63,12 @@ public class BasicLevelManager : MonoBehaviour
         ScoreMult = MinScoreMult;
 
         // Initialize trinkets
-        SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();
         SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
-        BoosterRocket boosterRocket = new BoosterRocket();
+        BoosterRocket boosterRocket = new BoosterRocket();*/
 
 
         // Spawn the starting ball
@@ -121,6 +121,7 @@ public class BasicLevelManager : MonoBehaviour
         if (brickParent.childCount - 1 == 0)
         {
             Debug.Log("You Win!");
+            UiManager.Instance.ActivatePostLevelScreen(true);
         }
     }
 
@@ -136,6 +137,7 @@ public class BasicLevelManager : MonoBehaviour
         else if (PlayerBallCount <= 0)
         {
             Debug.Log("Game Over!");
+            UiManager.Instance.ActivatePostLevelScreen(false);
         }
     }
 
@@ -158,5 +160,6 @@ public class BasicLevelManager : MonoBehaviour
     {
         if (SpawnedBallCount > 1) return;
         ScoreMult = MinScoreMult;
+        UiManager.Instance.UpdateMultUI();
     }
 }
