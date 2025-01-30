@@ -14,7 +14,9 @@ public class NodeHandler : MonoBehaviour
         if(node.row <= 0)
         {
             this.GetComponent<BoxCollider2D>().enabled = true;
+
         }
+        
 
     }
     void Update()
