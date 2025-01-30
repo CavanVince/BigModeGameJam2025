@@ -19,9 +19,24 @@ public class BallController : MonoBehaviour
     // Event for ball bouncing
     public static Action<Transform> ballBounced;
 
+    #region Audio
+    private AudioSource audioSource;
+
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip brickBreakAudio;
+
+    [SerializeField]
+    private AudioClip wallAudio;
+
+    [SerializeField]
+    private AudioClip paddleAudio;
+    #endregion
+
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         prevVelocity = Vector2.zero;
 
@@ -91,13 +106,18 @@ public class BallController : MonoBehaviour
         {
             // Notify other scripts of ball bouncing
             ballBounced?.Invoke(transform);
+
+            // Play audio
+            float newPitch = 1 + Mathf.Clamp(BasicLevelManager.Instance.ComboCounter / 16f, 0, 2);
+            PlaySoundEffect(brickBreakAudio, newPitch);
             return;
         }
 
         // If the ball collided with the paddle, add to it's horizontal velocity and return (simulate friction only for paddle)
         else if (collision.transform.CompareTag("Paddle") == true)
         {
-            rb.velocity += PaddleMovement.Instance.InputDirection * 2;
+            rb.velocity += PaddleMovement.Instance.InputDirection * 2 + Vector2.one * 0.25f;
+            PlaySoundEffect(paddleAudio);
             return;
         }
 
@@ -127,6 +147,9 @@ public class BallController : MonoBehaviour
                 rb.velocity -= new Vector2(0, 0.5f);
             }
         }
+
+        // Hit something else, play audio
+        PlaySoundEffect(wallAudio);
     }
 
     /// <summary>
@@ -144,6 +167,21 @@ public class BallController : MonoBehaviour
         BasicLevelManager.Instance.CheckGameOver();
 
         Destroy(gameObject);
+    }
+
+    /// <summary>
+    /// Plays a sound effect
+    /// </summary>
+    /// <param name="clip">Audio clip to play</param>
+    private void PlaySoundEffect(AudioClip clip, float pitch = 1) 
+    {
+        GameObject audioGameObject = new GameObject();
+        AudioSource audioSource = audioGameObject.AddComponent<AudioSource>();
+        audioSource.loop = false;
+        audioSource.pitch = pitch;
+        audioSource.clip = clip;
+        audioSource.Play();
+        Destroy(audioGameObject, 10);
     }
 
 }

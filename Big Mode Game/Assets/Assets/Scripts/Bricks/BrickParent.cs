@@ -28,20 +28,21 @@ public class BrickParent : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Ball") != true) return;
-        
-        // Notify score manager & audio manager that brick was hit
+
+        // Notify score manager manager that brick was hit
         BasicLevelManager.Instance.AddScore(score);
+        BasicLevelManager.Instance.ComboCounter++;
     }
 
     /// <summary>
     /// Code to call when brick is destroyed
     /// </summary>
-    protected virtual void DestroyBrick() 
+    protected virtual void DestroyBrick()
     {
         BasicLevelManager.Instance.CheckPlayerWon();
 
         // Render particles
-        if (particles != null) 
+        if (particles != null)
         {
             GameObject spawnedParticle = Instantiate(particles, transform.position, Quaternion.identity);
             spawnedParticle.GetComponent<ParticleSystemRenderer>().material = particleMat;
