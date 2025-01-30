@@ -11,8 +11,9 @@ public class Map : MonoBehaviour
     public Sprite enemy;
     public Sprite mystery;
     public Sprite shop;
-    Node[,] emptyMap = new Node[9, 7];
-    public GameObject[,] nodePrefabs = new GameObject[9, 7];
+    public Sprite boss;
+    Node[,] emptyMap = new Node[5, 4];
+    public GameObject[,] nodePrefabs = new GameObject[5, 4];
     Node previousNode;
     public Material lineMaterial;
 
@@ -21,8 +22,11 @@ public class Map : MonoBehaviour
     {
 
         generatePath(0, 1);
+        generatePath(0, 2);
         generatePath(0, 3);
-        generatePath(0, 5);
+
+        
+
         drawMap();
     }
 
@@ -53,7 +57,8 @@ public class Map : MonoBehaviour
                 Transform currentNodeTransform = nodePrefabs[currentNode.row, currentNode.column].transform;
 
                 Instantiate(nestedLineRenderer, currentNodeTransform.position, Quaternion.identity, currentNodeTransform);
-                lr.SetPositions(new Vector3[] { new Vector3(currentNode.row * 15, currentNode.column * 15, 0), nodePrefabs[childNode.row, childNode.column].transform.position });
+
+                lr.SetPositions(new Vector3[] { new Vector3(currentNode.column * 15, currentNode.row * 15, 0), nodePrefabs[childNode.row, childNode.column].transform.position });
                 lr.material = lineMaterial;
                 if (seenNodes.Contains(childNode))
                 {
@@ -73,13 +78,14 @@ public class Map : MonoBehaviour
         previousNode = null;
 
 
-        while (row < emptyMap.GetLength(0))
+        while (row < emptyMap.GetLength(0) - 1)
         {
             GameObject newNode;
             if (emptyMap[row, column] == null)
             {
                 emptyMap[row, column] = new Node(getRandomNode(), row, column);
-                newNode = Instantiate(NodePrefab, new Vector3(row * 15, column * 15, 0), Quaternion.identity);
+                newNode = Instantiate(NodePrefab, new Vector3(column * 15, row * 15, 0), Quaternion.identity);
+                
                 nodePrefabs[row, column] = newNode;
                 emptyMap[row, column].row = row;
                 emptyMap[row, column].column = column;
@@ -121,14 +127,42 @@ public class Map : MonoBehaviour
             row = row + 1;
             column = column + offset;
         }
-
+        column = emptyMap.GetLength(1) / 2;
+        if (emptyMap[row, column] == null)
+        {
+            emptyMap[row, column] = new Node(NodeTypes.BOSS, row, column);
+            emptyMap[row, column].row = row;
+            emptyMap[row, column].column = column;
+            nodePrefabs[row, column] = Instantiate(NodePrefab, new Vector3((column + .5f) * 15, row * 15, 0), Quaternion.identity);
+            nodePrefabs[row, column].GetComponent<SpriteRenderer>().sprite = boss;
+            NodeHandler nodeHandler = nodePrefabs[row, column].GetComponent<NodeHandler>();
+            nodeHandler.node = emptyMap[row, column];
+            nodeHandler.map = this;
+        }
+        if (!previousNode.childNodes.Contains(emptyMap[row, column])) 
+        {
+            previousNode.childNodes.Add(emptyMap[row, column]);
+        }
+        
     }
 
     NodeTypes getRandomNode()
     {
+        int randomNodeGen = Random.Range(0, 101);
+        NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.MYSTERY, NodeTypes.SHOP};
 
-        NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.MYSTERY, NodeTypes.SHOP };
-        return possibleNodes[Random.Range(0, possibleNodes.Length)];
+        if (randomNodeGen <= 35) 
+        {
+            return possibleNodes[2];
+        }
+        else if(randomNodeGen >= 45)
+        {
+            return possibleNodes[0];
+        }
+        else 
+        {
+            return possibleNodes[1];
+        } 
     }
 }
 
