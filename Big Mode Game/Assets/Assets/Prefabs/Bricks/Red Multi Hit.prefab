@@ -176,6 +176,7 @@ MonoBehaviour:
   particles: {fileID: 8502583489414702222, guid: c4d4a1781d858234593560cb3add72f9,
     type: 3}
   particleMat: {fileID: 2100000, guid: 7c1a0adbdd9845647b0488c62200cef2, type: 2}
+  brickAudio: {fileID: 8300000, guid: d1d510e7338ab1545ba6e57c1d5ec656, type: 3}
   crackedSprite: {fileID: 1460695674, guid: 61f8f45b066f5cd4ba92aa8e8553eac1, type: 3}
 --- !u!1001 &441262096655260771
 PrefabInstance:

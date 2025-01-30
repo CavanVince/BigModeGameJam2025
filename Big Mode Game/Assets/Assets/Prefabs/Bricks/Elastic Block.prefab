@@ -128,6 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 100
+  particles: {fileID: 0}
+  particleMat: {fileID: 0}
+  brickAudio: {fileID: 8300000, guid: d1d510e7338ab1545ba6e57c1d5ec656, type: 3}
   speedMult: 1.5
 --- !u!95 &1192669558579718486
 Animator:

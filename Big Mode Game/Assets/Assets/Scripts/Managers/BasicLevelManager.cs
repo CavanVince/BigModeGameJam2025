@@ -36,6 +36,11 @@ public class BasicLevelManager : MonoBehaviour
     /// The minimum multilpier to apply to the score multiplier
     /// </summary>
     public int MinScoreMult { get; set; } = 1;
+
+    /// <summary>
+    /// A combo counter
+    /// </summary>
+    public int ComboCounter { get; set; } = 0;
     #endregion
 
     #region Paddle Ball
@@ -169,6 +174,7 @@ public class BasicLevelManager : MonoBehaviour
     {
         if (SpawnedBallCount > 1) return;
         ScoreMult = MinScoreMult;
+        ComboCounter = 0;
         UiManager.Instance.UpdateMultUI();
     }
 }
