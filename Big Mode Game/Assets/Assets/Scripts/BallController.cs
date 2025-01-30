@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -122,7 +123,7 @@ public class BallController : MonoBehaviour
         }
 
         // Jank to prevent directional velocity from being 0 on an axis
-        if (Mathf.Abs(rb.velocity.x) <= 0.1f)
+        if (Mathf.Abs(rb.velocity.x) <= 0.3f)
         {
             // Determine if velocity is positive or negative
             if (prevVelocity.x > 0)
@@ -135,7 +136,7 @@ public class BallController : MonoBehaviour
             }
         }
 
-        if (Mathf.Abs(rb.velocity.y) <= 0.1f)
+        if (Mathf.Abs(rb.velocity.y) <= 0.3f)
         {
             // Determine if velocity is positive or negative
             if (prevVelocity.y > 0)
@@ -179,6 +180,7 @@ public class BallController : MonoBehaviour
         AudioSource audioSource = audioGameObject.AddComponent<AudioSource>();
         audioSource.loop = false;
         audioSource.pitch = pitch;
+        audioSource.volume = 0.5f;
         audioSource.clip = clip;
         audioSource.Play();
         Destroy(audioGameObject, 10);

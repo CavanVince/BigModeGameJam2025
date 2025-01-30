@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class BasicLevelManager : MonoBehaviour
 {
@@ -54,6 +55,13 @@ public class BasicLevelManager : MonoBehaviour
 
     #endregion
 
+    #region Audio
+    [Header("Audio")]
+    [SerializeField]
+    private AudioClip lifeLost;
+    private AudioSource audioSource;
+    #endregion
+
     private void Awake()
     {
         // Singleton pattern
@@ -65,6 +73,8 @@ public class BasicLevelManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        audioSource = GetComponent<AudioSource>();
 
         // Player score
         PlayerScore = 0;
@@ -133,6 +143,7 @@ public class BasicLevelManager : MonoBehaviour
         if (brickParent.childCount - 1 == 0)
         {
             Debug.Log("You Win!");
+            DOTween.Kill("Camera Shake");
             UiManager.Instance.ActivatePostLevelScreen(true);
             levelComplete = true;
         }
@@ -145,10 +156,17 @@ public class BasicLevelManager : MonoBehaviour
     {
         if (SpawnedBallCount == 0 && PlayerBallCount > 0)
         {
+            Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
+            audioSource.clip = lifeLost;
+            audioSource.Play();
+
             SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
         }
         else if (PlayerBallCount <= 0)
         {
+            audioSource.clip = lifeLost;
+            audioSource.Play();
+
             Debug.Log("Game Over!");
             UiManager.Instance.ActivatePostLevelScreen(false);
             levelComplete = true;
