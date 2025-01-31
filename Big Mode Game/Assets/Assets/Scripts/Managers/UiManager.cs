@@ -130,8 +130,10 @@ public class UiManager : MonoBehaviour
         levelReportBackdrop.DOColor(oriBackdropColor, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             // Drop down the brick overlay
-            brickBackdrop.DOMoveY(anchoredPos, 1.5f).SetEase(Ease.OutBounce).OnComplete(() =>
+            brickBackdrop.DOMoveY(anchoredPos, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
             {
+                BasicLevelManager.Instance.ScreenShake();
+
                 // Scale up wizard box
                 wizardBox.DOScale(wizardScale, 0.25f).SetDelay(0.5f).OnComplete(() =>
                 {

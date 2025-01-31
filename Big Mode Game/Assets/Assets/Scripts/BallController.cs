@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BallController : MonoBehaviour
 {
@@ -118,7 +119,7 @@ public class BallController : MonoBehaviour
         else if (collision.transform.CompareTag("Paddle") == true)
         {
             rb.velocity += PaddleMovement.Instance.InputDirection * 2 + Vector2.one * 0.25f;
-            PlaySoundEffect(paddleAudio);
+            PlaySoundEffect(paddleAudio, 1, 0.25f);
             return;
         }
 
@@ -174,13 +175,13 @@ public class BallController : MonoBehaviour
     /// Plays a sound effect
     /// </summary>
     /// <param name="clip">Audio clip to play</param>
-    private void PlaySoundEffect(AudioClip clip, float pitch = 1) 
+    private void PlaySoundEffect(AudioClip clip, float pitch = 1, float volume = 0.5f) 
     {
         GameObject audioGameObject = new GameObject();
         AudioSource audioSource = audioGameObject.AddComponent<AudioSource>();
         audioSource.loop = false;
         audioSource.pitch = pitch;
-        audioSource.volume = 0.5f;
+        audioSource.volume = volume;
         audioSource.clip = clip;
         audioSource.Play();
         Destroy(audioGameObject, 10);

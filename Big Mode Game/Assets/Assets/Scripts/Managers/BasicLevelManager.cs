@@ -156,17 +156,12 @@ public class BasicLevelManager : MonoBehaviour
     {
         if (SpawnedBallCount == 0 && PlayerBallCount > 0)
         {
-            Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
-            audioSource.clip = lifeLost;
-            audioSource.Play();
+            ScreenShake();
 
             SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
         }
         else if (PlayerBallCount <= 0)
         {
-            audioSource.clip = lifeLost;
-            audioSource.Play();
-
             Debug.Log("Game Over!");
             UiManager.Instance.ActivatePostLevelScreen(false);
             levelComplete = true;
@@ -194,5 +189,15 @@ public class BasicLevelManager : MonoBehaviour
         ScoreMult = MinScoreMult;
         ComboCounter = 0;
         UiManager.Instance.UpdateMultUI();
+    }
+
+    /// <summary>
+    /// Helper function to screen shake
+    /// </summary>
+    public void ScreenShake()
+    {
+        Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
+        audioSource.clip = lifeLost;
+        audioSource.Play();
     }
 }
