@@ -9,8 +9,18 @@ public class BasicLevelManager : MonoBehaviour
 {
     public static BasicLevelManager Instance;
 
+    #region Level Info
+    [Header("Act Levels")]
+    // List of levels for the current act
+    [SerializeField]
+    private List<GameObject> levels;
+
+    [SerializeField]
+    Transform tilemapParent;
+
     // The container for the level's brick prefabs
-    public Transform brickParent;
+    public Transform BrickParent { get; set; }
+    #endregion
 
     // The number of balls currently in the world
     public int SpawnedBallCount { get; set; } = 0;
@@ -88,7 +98,7 @@ public class BasicLevelManager : MonoBehaviour
 
 
         // Spawn the starting ball
-        SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
+        //SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
     }
 
     private void Update()
@@ -134,7 +144,7 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void CheckPlayerWon()
     {
-        if (brickParent.childCount - 1 == 0)
+        if (BrickParent.childCount - 1 == 0)
         {
             Debug.Log("You Win!");
             DOTween.Kill("Camera Shake");
@@ -200,7 +210,11 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void LoadEnemyLevel() 
     {
-        
+        GameObject nextLevel = levels[UnityEngine.Random.Range(0, levels.Count - 1)];
+        levels.Remove(nextLevel);
+        GameObject levelInstance = Instantiate(nextLevel);
+        levelInstance.transform.SetParent(tilemapParent, true);
+        UiManager.Instance.ActivateLevelScreen(levelInstance.transform);
     }
     public void LoadShop() { }
     public void LoadEvent() { }

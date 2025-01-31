@@ -59,6 +59,8 @@ public class UiManager : MonoBehaviour
             Destroy(this);
         }
 
+        currentActiveGrid = mapBackdrop;
+
         scoreBox = scoreText.transform.parent;
         scoreBoxInitScale = scoreBox.localScale;
         UpdateScoreUI();
@@ -111,7 +113,6 @@ public class UiManager : MonoBehaviour
         multText.text = "Mult: x" + BasicLevelManager.Instance.ScoreMult.ToString();
     }
 
-
     /// <summary>
     /// Activate the post level scene
     /// </summary>
@@ -125,12 +126,11 @@ public class UiManager : MonoBehaviour
         // Enable the backdrop element
         scoreBackdrop.gameObject.SetActive(true);
 
-        // Drop down the brick overlay
+        // Drop down the brick overlay & current active grid
+        AnimateCurrentGridDown(scoreBackdrop);
         scoreBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
-            if (currentActiveGrid != null) currentActiveGrid.gameObject.SetActive(false);
-            currentActiveGrid = scoreBackdrop;
         });
     }
 
@@ -147,12 +147,51 @@ public class UiManager : MonoBehaviour
         // Enable the backdrop element
         mapBackdrop.gameObject.SetActive(true);
 
-        // Drop down the brick overlay
+        // Drop down the brick overlay & current active grid
+        AnimateCurrentGridDown(mapBackdrop);
         mapBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
-            if (currentActiveGrid != null) currentActiveGrid.gameObject.SetActive(false);
-            currentActiveGrid = mapBackdrop;
+        });
+    }
+
+    /// <summary>
+    /// Helper function to load the next level
+    /// </summary>
+    public void ActivateLevelScreen(Transform level) 
+    {
+        // Move the brick overlay to the top of the screen
+        Vector3 oriPos = level.position;
+        level.position = new Vector3(oriPos.x, 30, oriPos.z);
+
+        // Enable the backdrop element
+        level.gameObject.SetActive(true);
+
+        // Drop down the brick overlay & current active grid
+        AnimateCurrentGridDown(level);
+        level.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            BasicLevelManager.Instance.ScreenShake();
+            BasicLevelManager.Instance.BrickParent = level.Find("Bricks");
+            BasicLevelManager.Instance.SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
+        });
+    }
+
+    /// <summary>
+    /// Helper function to move down the current active grid
+    /// </summary>
+    /// <param name="newActiveGrid"></param>
+    private void AnimateCurrentGridDown(Transform newActiveGrid) 
+    {
+        // Move the brick overlay to the top of the screen
+        Vector3 oriPos = currentActiveGrid.position;
+
+        // Drop down the brick overlay
+        currentActiveGrid.DOMoveY(oriPos.y - 30, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            currentActiveGrid.gameObject.SetActive(false);
+            currentActiveGrid.position = oriPos;
+            currentActiveGrid = newActiveGrid;
         });
     }
 }

@@ -1122,7 +1122,7 @@ Transform:
   m_GameObject: {fileID: 707363309}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.66, y: 2.3199, z: 0}
+  m_LocalPosition: {x: -7.66, y: 2.3199, z: -0.1}
   m_LocalScale: {x: 6.1848183, y: 4.678995, z: 3.5191}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1168,7 +1168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 357279309c19fa94abbaff443d05f323, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6550,7 +6550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1339513218
 Transform:
   m_ObjectHideFlags: 0
@@ -8869,7 +8869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5992b0847a7344fb945776b3d301b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickParent: {fileID: 0}
+  levels:
+  - {fileID: 6555337164736089166, guid: 81d264daa137deb4c89cfb691540a5b9, type: 3}
+  tilemapParent: {fileID: 1830016639}
   ballPrefab: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
     type: 3}
   lifeLost: {fileID: 8300000, guid: 651dd2b55a8faf842b6785f7011529d6, type: 3}

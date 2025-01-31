@@ -28,6 +28,7 @@ public class NodeHandler : MonoBehaviour
         if (node.nodeType == NodeTypes.ENEMY)
         {
             //SceneManager.LoadScene(sceneName: "Act 1 Template");
+            BasicLevelManager.Instance.LoadEnemyLevel();
         }
         else if (node.nodeType == NodeTypes.SHOP)
         {
