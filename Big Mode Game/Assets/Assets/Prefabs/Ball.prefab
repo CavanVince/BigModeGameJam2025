@@ -164,6 +164,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpeed: 15
+  particles: {fileID: 8502583489414702222, guid: 14eacf51b4783ad4c98ef1da642ca691,
+    type: 3}
+  particleMat: {fileID: 2100000, guid: 3b72fbbc21f012046a42dde87c561654, type: 2}
   brickBreakAudio: {fileID: 8300000, guid: d1d510e7338ab1545ba6e57c1d5ec656, type: 3}
   wallAudio: {fileID: 8300000, guid: 8ba793170866521489a298be117366ef, type: 3}
   paddleAudio: {fileID: 8300000, guid: 3b18a79a516cb694db5614e2831a4669, type: 3}

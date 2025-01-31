@@ -21,6 +21,18 @@ public class BallController : MonoBehaviour
     // Event for ball bouncing
     public static Action<Transform> ballBounced;
 
+    /// <summary>
+    /// The destruction particles
+    /// </summary>
+    [SerializeField]
+    GameObject particles;
+
+    /// <summary>
+    /// The material to render on the destruction particles
+    /// </summary>
+    [SerializeField]
+    Material particleMat;
+
     #region Audio
     private AudioSource audioSource;
 
@@ -167,6 +179,13 @@ public class BallController : MonoBehaviour
 
         // Notify the level manager that the ball was destroyed
         BasicLevelManager.Instance.CheckGameOver();
+
+        if (particles != null)
+        {
+            GameObject spawnedParticle = Instantiate(particles, transform.position, Quaternion.identity);
+            spawnedParticle.GetComponent<ParticleSystemRenderer>().material = particleMat;
+        }
+
 
         Destroy(gameObject);
     }
