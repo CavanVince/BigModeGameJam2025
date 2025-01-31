@@ -210,7 +210,7 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void LoadEnemyLevel() 
     {
-        GameObject nextLevel = levels[UnityEngine.Random.Range(0, levels.Count - 1)];
+        GameObject nextLevel = levels[UnityEngine.Random.Range(0, levels.Count)];
         levels.Remove(nextLevel);
         GameObject levelInstance = Instantiate(nextLevel);
         levelInstance.transform.SetParent(tilemapParent, true);
