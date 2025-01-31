@@ -14,7 +14,6 @@ public class NodeHandler : MonoBehaviour
         if (node.row <= 0)
         {
             this.GetComponent<BoxCollider2D>().enabled = true;
-
         }
     }
 
@@ -33,6 +32,7 @@ public class NodeHandler : MonoBehaviour
         else if (node.nodeType == NodeTypes.SHOP)
         {
             //SceneManager.LoadScene(sceneName: "Shop Scene");
+            BasicLevelManager.Instance.LoadEnemyLevel();
         }
     }
 }

@@ -20,6 +20,9 @@ public class BasicLevelManager : MonoBehaviour
 
     // The container for the level's brick prefabs
     public Transform BrickParent { get; set; }
+
+    // Boolean for completed level status
+    private bool beatLevel = false;
     #endregion
 
     // The number of balls currently in the world
@@ -89,12 +92,12 @@ public class BasicLevelManager : MonoBehaviour
         ScoreMult = MinScoreMult;
 
         // Initialize trinkets
-        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();
         SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
-        BoosterRocket boosterRocket = new BoosterRocket();*/
+        BoosterRocket boosterRocket = new BoosterRocket();
 
 
         // Spawn the starting ball
@@ -109,6 +112,11 @@ public class BasicLevelManager : MonoBehaviour
             LaunchedBallFromPaddle?.Invoke(paddleBall.transform);
             paddleBall.GetComponent<BallController>().LaunchBall(Vector2.up * paddleBall.gameObject.GetComponent<BallController>().ballSpeed);
             paddleBall = null;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && beatLevel) 
+        {
+            UiManager.Instance.ActivateMapScreen();
+            beatLevel = false;
         }
     }
 
@@ -149,6 +157,7 @@ public class BasicLevelManager : MonoBehaviour
             Debug.Log("You Win!");
             DOTween.Kill("Camera Shake");
             UiManager.Instance.ActivatePostLevelScreen(true);
+            beatLevel = true;
         }
     }
 

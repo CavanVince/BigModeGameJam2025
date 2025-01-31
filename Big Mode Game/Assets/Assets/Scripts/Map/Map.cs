@@ -68,8 +68,8 @@ public class Map : MonoBehaviour
                 lr.sortingOrder = 4;
                 lr.textureMode = LineTextureMode.Tile;
                 lr.textureScale = new Vector2(0.25f, 1);
-                //lr.useWorldSpace = false;
-                lr.SetPositions(new Vector3[] { currentNodeTransform.position + new Vector3(0, 0.6f, 0), nodePrefabs[childNode.row, childNode.column].transform.position - new Vector3(0, 0.6f, 0) });
+                lr.useWorldSpace = false;
+                lr.SetPositions(new Vector3[] { Vector3.up * 0.4f, nestedLineRenderer.transform.InverseTransformPoint(nodePrefabs[childNode.row, childNode.column].transform.position) - Vector3.up * 0.4f });
                 lr.material = lineMaterial;
                 if (seenNodes.Contains(childNode))
                 {

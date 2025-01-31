@@ -110,7 +110,7 @@ public class UiManager : MonoBehaviour
     /// </summary>
     public void UpdateMultUI()
     {
-        multText.text = "Mult: x" + BasicLevelManager.Instance.ScoreMult.ToString();
+        multText.text = "Mult: " + BasicLevelManager.Instance.ScoreMult.ToString();
     }
 
     /// <summary>
