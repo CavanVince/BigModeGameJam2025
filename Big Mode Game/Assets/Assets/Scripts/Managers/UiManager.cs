@@ -26,13 +26,7 @@ public class UiManager : MonoBehaviour
     #region Post Game Analysis
     [Header("Post Game Screen")]
     [SerializeField]
-    Image levelReportBackdrop;
-
-    [SerializeField]
-    RectTransform brickBackdrop;
-
-    [SerializeField]
-    Transform wizardBox;
+    Transform scoreBackdrop;
 
     [SerializeField]
     GameObject wizardText;
@@ -85,7 +79,7 @@ public class UiManager : MonoBehaviour
             scaleMult = 1.75f;
             wizardAnim.Play($"Base Layer.Wizard Shocked", 0, 0.25f);
         }
-        
+
 
         DOTween.Kill("Score");
         scoreBox.DOScale(scoreBoxInitScale * scaleMult, 0.15f).SetId("Score").OnComplete(() =>
@@ -109,37 +103,23 @@ public class UiManager : MonoBehaviour
     /// <param name="playerWon">Did the player win?</param>
     public void ActivatePostLevelScreen(bool playerWon)
     {
-        // Turn down the alpha of the backdrop
-        Color oriBackdropColor = levelReportBackdrop.color;
-        Color backdropColor = oriBackdropColor;
-        backdropColor.a = 0;
-        levelReportBackdrop.color = backdropColor;
-
         // Move the brick overlay to the top of the screen
-        float anchoredPos = brickBackdrop.anchoredPosition.y;
-        brickBackdrop.anchoredPosition = new Vector3(0, -brickBackdrop.rect.y * 2, 0);
+        Vector3 oriPos = scoreBackdrop.transform.position;
+        scoreBackdrop.transform.position = new Vector3(oriPos.x, 30, oriPos.z);
 
-        // Squash the wizard box
-        Vector3 wizardScale = wizardBox.localScale;
-        wizardBox.localScale = Vector3.zero;
+        // Enable the backdrop element
+        scoreBackdrop.gameObject.SetActive(true);
 
-        // Enable the UI element
-        levelReportBackdrop.gameObject.SetActive(true);
-
-        // Slowly increase the alpha of the backdrop
-        levelReportBackdrop.DOColor(oriBackdropColor, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        // Drop down the brick overlay
+        scoreBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            // Drop down the brick overlay
-            brickBackdrop.DOMoveY(anchoredPos, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
-            {
-                BasicLevelManager.Instance.ScreenShake();
-
-                // Scale up wizard box
-                wizardBox.DOScale(wizardScale, 0.25f).SetDelay(0.5f).OnComplete(() =>
-                {
-                    wizardBox.GetComponent<FloatTween>().enabled = true;
-                });
-            });
+            BasicLevelManager.Instance.ScreenShake();
         });
+    }
+
+
+    public void ActivateMapScreen() 
+    {
+            
     }
 }

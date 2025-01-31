@@ -1,3 +1,4 @@
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -17,22 +18,25 @@ public class Map : MonoBehaviour
     Node previousNode;
     public Material lineMaterial;
 
+    private Transform mapBackground;
+    private Vector3 mapOffset = new Vector3(4, 3);
+
 
     void Start()
     {
+        mapBackground = transform.Find("Map Background");
 
         generatePath(0, 1);
         generatePath(0, 2);
         generatePath(0, 3);
 
-        
 
         drawMap();
     }
 
 
 
-    void drawMap() 
+    void drawMap()
     {
         Stack<Node> nodeStack = new Stack<Node>();
 
@@ -52,13 +56,14 @@ public class Map : MonoBehaviour
 
             foreach (Node childNode in currentNode.childNodes)
             {
-                GameObject nestedLineRenderer = new GameObject();
-                LineRenderer lr = nestedLineRenderer.AddComponent<LineRenderer>();
                 Transform currentNodeTransform = nodePrefabs[currentNode.row, currentNode.column].transform;
-
-                Instantiate(nestedLineRenderer, currentNodeTransform.position, Quaternion.identity, currentNodeTransform);
-
-                lr.SetPositions(new Vector3[] { new Vector3(currentNode.column * 15, currentNode.row * 15, 0), nodePrefabs[childNode.row, childNode.column].transform.position });
+                GameObject nestedLineRenderer = new GameObject();
+                nestedLineRenderer.transform.position = currentNodeTransform.position;
+                nestedLineRenderer.transform.SetParent(currentNodeTransform);
+                LineRenderer lr = nestedLineRenderer.AddComponent<LineRenderer>();
+                lr.sortingOrder = 4;
+                lr.textureMode = LineTextureMode.Tile;
+                lr.SetPositions(new Vector3[] { currentNodeTransform.position, nodePrefabs[childNode.row, childNode.column].transform.position });
                 lr.material = lineMaterial;
                 if (seenNodes.Contains(childNode))
                 {
@@ -84,8 +89,8 @@ public class Map : MonoBehaviour
             if (emptyMap[row, column] == null)
             {
                 emptyMap[row, column] = new Node(getRandomNode(), row, column);
-                newNode = Instantiate(NodePrefab, new Vector3(column * 15, row * 15, 0), Quaternion.identity);
-                
+                newNode = Instantiate(NodePrefab, new Vector3(column * 3, row * 3, 0) + mapBackground.position - mapBackground.GetComponent<SpriteRenderer>().bounds.size / 2 + mapOffset, Quaternion.identity);
+                newNode.transform.SetParent(mapBackground, true);
                 nodePrefabs[row, column] = newNode;
                 emptyMap[row, column].row = row;
                 emptyMap[row, column].column = column;
@@ -133,36 +138,37 @@ public class Map : MonoBehaviour
             emptyMap[row, column] = new Node(NodeTypes.BOSS, row, column);
             emptyMap[row, column].row = row;
             emptyMap[row, column].column = column;
-            nodePrefabs[row, column] = Instantiate(NodePrefab, new Vector3((column + .5f) * 15, row * 15, 0), Quaternion.identity);
+            nodePrefabs[row, column] = Instantiate(NodePrefab, new Vector3((column * 3 + .5f), row * 3, 0) + mapBackground.position - mapBackground.GetComponent<SpriteRenderer>().bounds.size / 2 + mapOffset, Quaternion.identity);
+            nodePrefabs[row, column].transform.SetParent(mapBackground, true);
             nodePrefabs[row, column].GetComponent<SpriteRenderer>().sprite = boss;
             NodeHandler nodeHandler = nodePrefabs[row, column].GetComponent<NodeHandler>();
             nodeHandler.node = emptyMap[row, column];
             nodeHandler.map = this;
         }
-        if (!previousNode.childNodes.Contains(emptyMap[row, column])) 
+        if (!previousNode.childNodes.Contains(emptyMap[row, column]))
         {
             previousNode.childNodes.Add(emptyMap[row, column]);
         }
-        
+
     }
 
     NodeTypes getRandomNode()
     {
         int randomNodeGen = Random.Range(0, 101);
-        NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.MYSTERY, NodeTypes.SHOP};
+        NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.MYSTERY, NodeTypes.SHOP };
 
-        if (randomNodeGen <= 35) 
+        if (randomNodeGen <= 35)
         {
             return possibleNodes[2];
         }
-        else if(randomNodeGen >= 45)
+        else if (randomNodeGen >= 45)
         {
             return possibleNodes[0];
         }
-        else 
+        else
         {
             return possibleNodes[1];
-        } 
+        }
     }
 }
 

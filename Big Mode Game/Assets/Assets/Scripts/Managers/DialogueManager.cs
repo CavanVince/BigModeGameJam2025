@@ -7,23 +7,29 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField]
+    private TextMeshProUGUI scoreText;
+
+    [SerializeField]
+    private TextMeshProUGUI multText;
+
+    [SerializeField]
     private TextMeshProUGUI wizardText;
+
+    #region Animate Text
+    [SerializeField]
+    private float textSpeed;
 
     [SerializeField]
     private string[] lines;
 
-    [SerializeField]
-    private float textSpeed;
-
     private int index;
-    private Mesh textMesh;
-    private Vector3[] vertices;
+    #endregion
 
     private void Start()
     {
         index = 0;
         wizardText.text = "";
-        StartDialogue();
+        //StartDialogue();
     }
 
     private void StartDialogue(bool shouldRandom = true)
@@ -32,30 +38,39 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeLine());
     }
 
-    private void Update() 
+    private void Update()
     {
-        wizardText.ForceMeshUpdate();
-        textMesh = wizardText.mesh;
-        vertices = textMesh.vertices;
-
-        for(int i = 0; i < vertices.Length; i++) 
-        {
-            Vector3 offset = WobbleText(Time.time + i);
-            vertices[i] += offset;
-        }
-        textMesh.vertices = vertices;
-        wizardText.canvasRenderer.SetMesh(textMesh);
+        if (scoreText.gameObject.activeInHierarchy) AnimateText(scoreText);
+        if (multText.gameObject.activeInHierarchy) AnimateText(multText);
+        if (wizardText.gameObject.activeInHierarchy) AnimateText(wizardText);
     }
 
-    IEnumerator TypeLine() {
-        foreach (char c in lines[index].ToCharArray()) 
+    IEnumerator TypeLine()
+    {
+        foreach (char c in lines[index].ToCharArray())
         {
             wizardText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
     }
 
-    private Vector2 WobbleText(float time) 
+
+    private void AnimateText(TextMeshProUGUI textToAnim)
+    {
+        textToAnim.ForceMeshUpdate();
+        Mesh textMesh = textToAnim.mesh;
+        Vector3[] vertices = textMesh.vertices;
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            Vector3 offset = WobbleText(Time.time + i);
+            vertices[i] += offset;
+        }
+        textMesh.vertices = vertices;
+        textToAnim.canvasRenderer.SetMesh(textMesh);
+    }
+
+    private Vector2 WobbleText(float time)
     {
         return new Vector2(Mathf.Sin(time * 4f), Mathf.Cos(time * 3f));
     }
