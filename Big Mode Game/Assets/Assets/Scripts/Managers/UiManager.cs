@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class UiManager : MonoBehaviour
 {
@@ -31,6 +32,20 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     GameObject wizardText;
     #endregion
+
+    #region Other Screens
+    [Header("Alternate Grids")]
+    [SerializeField]
+    private Transform mapBackdrop;
+
+    [SerializeField]
+    private Transform eventBackdrop;
+
+    [SerializeField]
+    private Transform shopBackdrop;
+    #endregion
+
+    private Transform currentActiveGrid;
 
     void Start()
     {
@@ -114,12 +129,30 @@ public class UiManager : MonoBehaviour
         scoreBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
+            if (currentActiveGrid != null) currentActiveGrid.gameObject.SetActive(false);
+            currentActiveGrid = scoreBackdrop;
         });
     }
 
 
+    /// <summary>
+    /// Helper function to load the map
+    /// </summary>
     public void ActivateMapScreen() 
     {
-            
+        // Move the brick overlay to the top of the screen
+        Vector3 oriPos = mapBackdrop.transform.position;
+        mapBackdrop.transform.position = new Vector3(oriPos.x, 30, oriPos.z);
+
+        // Enable the backdrop element
+        mapBackdrop.gameObject.SetActive(true);
+
+        // Drop down the brick overlay
+        mapBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            BasicLevelManager.Instance.ScreenShake();
+            if (currentActiveGrid != null) currentActiveGrid.gameObject.SetActive(false);
+            currentActiveGrid = mapBackdrop;
+        });
     }
 }

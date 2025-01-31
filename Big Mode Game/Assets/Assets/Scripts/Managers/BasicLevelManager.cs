@@ -20,8 +20,6 @@ public class BasicLevelManager : MonoBehaviour
 
     public static Action<Transform> SpawnedBall;
 
-    bool levelComplete = false;
-
     #region Player Score
     /// <summary>
     /// The player's score
@@ -102,10 +100,6 @@ public class BasicLevelManager : MonoBehaviour
             paddleBall.GetComponent<BallController>().LaunchBall(Vector2.up * paddleBall.gameObject.GetComponent<BallController>().ballSpeed);
             paddleBall = null;
         }
-        else if (levelComplete && Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(sceneName: "Map");
-        }
     }
 
     /// <summary>
@@ -145,7 +139,6 @@ public class BasicLevelManager : MonoBehaviour
             Debug.Log("You Win!");
             DOTween.Kill("Camera Shake");
             UiManager.Instance.ActivatePostLevelScreen(true);
-            levelComplete = true;
         }
     }
 
@@ -163,8 +156,8 @@ public class BasicLevelManager : MonoBehaviour
         else if (PlayerBallCount <= 0)
         {
             Debug.Log("Game Over!");
+            ScreenShake();
             UiManager.Instance.ActivatePostLevelScreen(false);
-            levelComplete = true;
         }
     }
 
@@ -196,8 +189,19 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void ScreenShake()
     {
+        DOTween.Kill("Camera Shake");
         Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
         audioSource.clip = lifeLost;
         audioSource.Play();
     }
+
+    /// <summary>
+    /// Helper function to load a new level
+    /// </summary>
+    public void LoadEnemyLevel() 
+    {
+        
+    }
+    public void LoadShop() { }
+    public void LoadEvent() { }
 }

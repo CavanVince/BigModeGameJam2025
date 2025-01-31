@@ -20,10 +20,13 @@ public class Map : MonoBehaviour
 
     private Transform mapBackground;
     private Vector3 mapOffset = new Vector3(4, 3);
+    private bool madeMap = false;
 
 
     void Start()
     {
+        if (madeMap) return;
+
         mapBackground = transform.Find("Map Background");
 
         generatePath(0, 1);
@@ -32,6 +35,7 @@ public class Map : MonoBehaviour
 
 
         drawMap();
+        madeMap = true;
     }
 
 
@@ -63,7 +67,8 @@ public class Map : MonoBehaviour
                 LineRenderer lr = nestedLineRenderer.AddComponent<LineRenderer>();
                 lr.sortingOrder = 4;
                 lr.textureMode = LineTextureMode.Tile;
-                lr.SetPositions(new Vector3[] { currentNodeTransform.position, nodePrefabs[childNode.row, childNode.column].transform.position });
+                lr.textureScale = new Vector2(0.25f, 1);
+                lr.SetPositions(new Vector3[] { currentNodeTransform.position + new Vector3(0, 0.6f, 0), nodePrefabs[childNode.row, childNode.column].transform.position - new Vector3(0, 0.6f, 0) });
                 lr.material = lineMaterial;
                 if (seenNodes.Contains(childNode))
                 {
