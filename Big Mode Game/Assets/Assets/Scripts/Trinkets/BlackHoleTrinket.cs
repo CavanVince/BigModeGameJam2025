@@ -13,6 +13,7 @@ public class BlackHoleTrinket : TrinketParent
     public BlackHoleTrinket(Sprite sprite) 
     {
             BallController.ballBounced += TriggerPassive;
+        blackHoleSprite = sprite;
     }
 
     public override void TriggerPassive(Transform ballTransform)
