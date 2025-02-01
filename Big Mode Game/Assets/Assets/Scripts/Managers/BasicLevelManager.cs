@@ -22,7 +22,7 @@ public class BasicLevelManager : MonoBehaviour
     public Transform BrickParent { get; set; }
 
     // Boolean for completed level status
-    private bool beatLevel = false;
+    public bool CanGoToNextScreen { get; set; } = false;
     #endregion
 
     #region Ball Count
@@ -58,11 +58,6 @@ public class BasicLevelManager : MonoBehaviour
     /// A combo counter
     /// </summary>
     public int ComboCounter { get; set; } = 0;
-
-    /// <summary>
-    /// The player's money
-    /// </summary>
-    public int PlayerMoney { get; set; } = 0;
     #endregion
 
     #region Paddle Ball
@@ -110,10 +105,11 @@ public class BasicLevelManager : MonoBehaviour
         Greaseball greaseBall = new Greaseball();
         BoosterRocket boosterRocket = new BoosterRocket();
 
-        */
+        
         GreenBrickBuff greenBrickBuff = new GreenBrickBuff();
         BlueBrickBuff blueBrickBuff = new BlueBrickBuff();
-        RedBrickBuff redBrickBuff = new RedBrickBuff();
+        RedBrickBuff redBrickBuff = new RedBrickBuff();*/
+
         // Spawn the starting ball
         //SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
     }
@@ -127,7 +123,7 @@ public class BasicLevelManager : MonoBehaviour
             paddleBall.GetComponent<BallController>().LaunchBall(Vector2.up * paddleBall.gameObject.GetComponent<BallController>().ballSpeed);
             paddleBall = null;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && beatLevel)
+        else if (Input.GetKeyDown(KeyCode.Space) && CanGoToNextScreen)
         {
             PlayerScore = 0;
             ScoreMult = MinScoreMult;
@@ -136,7 +132,7 @@ public class BasicLevelManager : MonoBehaviour
             UiManager.Instance.UpdateBallText();
             UiManager.Instance.UpdateMoneyText();
             UiManager.Instance.ActivateMapScreen();
-            beatLevel = false;
+            CanGoToNextScreen = false;
         }
     }
 
@@ -178,9 +174,9 @@ public class BasicLevelManager : MonoBehaviour
             Debug.Log("You Win!");
             DOTween.Kill("Camera Shake");
             DestroyBallsGlobal();
-            PlayerMoney += PlayerScore / 2000; // Calculate player money (2000 points = $1)
+            PlayerInfo.Instance.PlayerMoney += PlayerScore / 2000; // Calculate player money (2000 points = $1)
             UiManager.Instance.ActivatePostLevelScreen(true);
-            beatLevel = true;
+            CanGoToNextScreen = true;
         }
     }
 
@@ -232,7 +228,7 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void ScreenShake()
     {
-        
+
         DOTween.Kill("Camera Shake");
         Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
         audioSource.clip = lifeLost;
@@ -248,10 +244,10 @@ public class BasicLevelManager : MonoBehaviour
         levels.Remove(nextLevel);
         GameObject levelInstance = Instantiate(nextLevel);
         levelInstance.transform.SetParent(tilemapParent, true);
-        beatLevel = false;
+        CanGoToNextScreen = false;
         UiManager.Instance.ActivateLevelScreen(levelInstance.transform);
     }
-    public void LoadShop() 
+    public void LoadShop()
     {
         UiManager.Instance.ActivateShopScreen();
     }

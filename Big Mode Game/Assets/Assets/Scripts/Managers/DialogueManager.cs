@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,11 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance;
+
+    [SerializeField]
+    private Transform wizardBox;
+
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
@@ -21,29 +27,122 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     private string[] lines;
-
-    private int index;
     #endregion
+
+    private Vector3 oriPos;
+    private Vector3 oriScale;
+    private bool isTyping = false;
+
+    public bool InTopRight { get; private set; }
 
     private void Start()
     {
-        index = 0;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        oriPos = wizardBox.position;
+        oriScale = wizardBox.localScale;
+    }
+
+    /// <summary>
+    /// Dialogue with a random selection from the internal array
+    /// </summary>
+    public void StartDialogue()
+    {
         wizardText.text = "";
-        //StartDialogue();
+        int index = Random.Range(0, lines.Length);
+        if (!isTyping) StartCoroutine(TypeLine(lines[index]));
     }
 
-    private void StartDialogue(bool shouldRandom = true)
+    /// <summary>
+    /// Dialogue a random option from the given array
+    /// </summary>
+    /// <param name="randomLines">Array to pick random dialogue option from</param>
+    public void StartDialogue(string[] randomLines)
     {
-        if (shouldRandom) index = Random.Range(0, lines.Length);
-        StartCoroutine(TypeLine());
+        wizardText.text = "";
+        int index = Random.Range(0, lines.Length);
+        if (!isTyping) StartCoroutine(TypeLine(randomLines[index]));
     }
 
-    IEnumerator TypeLine()
+    /// <summary>
+    /// Helper function to display the specified dialogue string
+    /// </summary>
+    /// <param name="dialogue">The dialogue to display</param>
+    public void StartDialogue(string dialogue)
     {
-        foreach (char c in lines[index].ToCharArray())
+        wizardText.text = "";
+        if (!isTyping) StartCoroutine(TypeLine(dialogue));
+    }
+
+    /// <summary>
+    /// Helper function to enable wizard speaking
+    /// </summary>
+    public void EnableWizardSpeak()
+    {
+        wizardText.text = "";
+        wizardText.gameObject.SetActive(true);
+        scoreText.gameObject.SetActive(false);
+        multText.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Helper function to disable wizard speaking
+    /// </summary>
+    public void DisableWizardSpeak()
+    {
+        wizardText.gameObject.SetActive(false);
+        scoreText.gameObject.SetActive(true);
+        multText.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Helper function to move wizard to top right of screen
+    /// </summary>
+    public void MoveToTopRight()
+    {
+        wizardBox.DOScale(new Vector3(oriScale.x, 0, oriScale.z), 0.2f).SetDelay(0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            DisableWizardSpeak();
+            wizardBox.position = oriPos;
+            wizardBox.DOScale(oriScale, 0.5f).SetEase(Ease.Linear);
+            InTopRight = true;
+        });
+    }
+
+    /// <summary>
+    /// Helper function to move wizard to bottom center of screen
+    /// </summary>
+    /// <param name="dialogue">Optional dialogue to display after the wizard has moved down</param>
+    public void MoveToBottomCenter(string dialogue = "")
+    {
+        wizardBox.DOScale(new Vector3(oriScale.x, 0, oriScale.z), 0.2f).SetDelay(0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            EnableWizardSpeak();
+            wizardBox.localPosition = new Vector3(-461, -327, 0);
+            wizardBox.DOScale(oriScale, 0.5f).SetEase(Ease.Linear);
+            InTopRight = false;
+            if (dialogue != "")
+            {
+                StartDialogue(dialogue);
+            }
+        });
+    }
+
+    IEnumerator TypeLine(string dialogue)
+    {
+        isTyping = true;
+        foreach (char c in dialogue.ToCharArray())
         {
             wizardText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+        isTyping = false;
     }
 }

@@ -18,6 +18,9 @@ public class ShopManager : MonoBehaviour
 
     public static ShopManager Instance;
 
+    public List<ShopTrinketScriptableObject> trinketScriptableObjects;
+
+    public bool InShop { get; private set; }
 
     private void Start()
     {
@@ -30,11 +33,38 @@ public class ShopManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        InShop = true;
         origTrinketScale = trinketOne.localScale;
 
         trinketOne.localScale = new Vector3(trinketOne.localScale.x, 0, trinketOne.localScale.z);
         trinketTwo.localScale = new Vector3(trinketTwo.localScale.x, 0, trinketTwo.localScale.z);
         trinketThree.localScale = new Vector3(trinketThree.localScale.x, 0, trinketThree.localScale.z);
+
+        GenerateShopTrinkets();
+    }
+
+    /// <summary>
+    /// Helper function to generate trinkets for the shop
+    /// </summary>
+    private void GenerateShopTrinkets()
+    {
+        // Get three unique trinkets from the list
+        ShopTrinketScriptableObject soTrinketOne = trinketScriptableObjects[Random.Range(0, trinketScriptableObjects.Count)];
+        trinketScriptableObjects.Remove(soTrinketOne);
+        ShopTrinketScriptableObject soTrinketTwo = trinketScriptableObjects[Random.Range(0, trinketScriptableObjects.Count)];
+        trinketScriptableObjects.Remove(soTrinketTwo);
+        ShopTrinketScriptableObject soTrinketThree = trinketScriptableObjects[Random.Range(0, trinketScriptableObjects.Count)];
+        trinketScriptableObjects.Remove(soTrinketThree);
+
+        // Setup the shop item UI
+        trinketOne.GetComponent<ShopItem>().SetItem(soTrinketOne);
+        trinketTwo.GetComponent<ShopItem>().SetItem(soTrinketTwo);
+        trinketThree.GetComponent<ShopItem>().SetItem(soTrinketThree);
+
+        // Add the trinkets back to the list
+        trinketScriptableObjects.Add(soTrinketOne);
+        trinketScriptableObjects.Add(soTrinketTwo);
+        trinketScriptableObjects.Add(soTrinketThree);
     }
 
     /// <summary>
@@ -47,4 +77,8 @@ public class ShopManager : MonoBehaviour
         trinketThree.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
     }
 
+    private void OnDisable()
+    {
+        InShop = false;
+    }
 }

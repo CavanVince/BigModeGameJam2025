@@ -18,7 +18,7 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI multText;
 
-    [SerializeField] 
+    [SerializeField]
     private Animator wizardAnim;
 
     [SerializeField]
@@ -127,17 +127,17 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// Update the ball counter text
     /// </summary>
-    public void UpdateBallText() 
+    public void UpdateBallText()
     {
-        ballCounterText.text = BasicLevelManager.Instance.PlayerBallCount.ToString(); 
+        ballCounterText.text = BasicLevelManager.Instance.PlayerBallCount.ToString();
     }
 
     /// <summary>
     /// Update the money text
     /// </summary>
-    public void UpdateMoneyText() 
+    public void UpdateMoneyText()
     {
-        moneyText.text = "$" + BasicLevelManager.Instance.PlayerMoney.ToString();
+        moneyText.text = "$" + PlayerInfo.Instance.PlayerMoney.ToString();
     }
 
     /// <summary>
@@ -165,8 +165,10 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// Helper function to load the map
     /// </summary>
-    public void ActivateMapScreen() 
+    public void ActivateMapScreen()
     {
+        if (!DialogueManager.Instance.InTopRight) DialogueManager.Instance.MoveToTopRight();
+
         // Move the brick overlay to the top of the screen
         Vector3 oriPos = mapBackdrop.transform.position;
         mapBackdrop.transform.position = new Vector3(oriPos.x, 30, oriPos.z);
@@ -185,8 +187,10 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// Helper function to load the next level
     /// </summary>
-    public void ActivateLevelScreen(Transform level) 
+    public void ActivateLevelScreen(Transform level)
     {
+        BasicLevelManager.Instance.CanGoToNextScreen = false;
+
         // Move the brick overlay to the top of the screen
         Vector3 oriPos = level.position;
         level.position = new Vector3(oriPos.x, 30, oriPos.z);
@@ -208,7 +212,7 @@ public class UiManager : MonoBehaviour
     /// <summary>
     /// Helper function to load the shop screen
     /// </summary>
-    public void ActivateShopScreen() 
+    public void ActivateShopScreen()
     {
         // Move the brick overlay to the top of the screen
         Vector3 oriPos = shopBackdrop.position;
@@ -223,6 +227,10 @@ public class UiManager : MonoBehaviour
         {
             BasicLevelManager.Instance.ScreenShake();
             ShopManager.Instance.AnimateTrinkets();
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+
+            // Wizard dialogue
+            DialogueManager.Instance.MoveToBottomCenter("Don't tell my wife I'm selling these...");
         });
     }
 
@@ -230,7 +238,7 @@ public class UiManager : MonoBehaviour
     /// Helper function to move down the current active grid
     /// </summary>
     /// <param name="newActiveGrid"></param>
-    private void AnimateCurrentGridDown(Transform newActiveGrid, float delay = 0) 
+    private void AnimateCurrentGridDown(Transform newActiveGrid, float delay = 0)
     {
         // Move the brick overlay to the top of the screen
         Vector3 oriPos = currentActiveGrid.position;

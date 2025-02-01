@@ -23,6 +23,7 @@ public class AnimateFloatText : MonoBehaviour
     /// </summary>
     private void AnimateText()
     {
+        if (textToAnim.text == "") return;
         textToAnim.ForceMeshUpdate();
         Mesh textMesh = textToAnim.mesh;
         Vector3[] vertices = textMesh.vertices;

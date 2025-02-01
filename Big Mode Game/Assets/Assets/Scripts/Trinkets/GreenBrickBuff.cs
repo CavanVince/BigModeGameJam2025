@@ -17,7 +17,7 @@ public class GreenBrickBuff : TrinketParent
             greenBrickHitCounter += 1;
             if (greenBrickHitCounter >= 3) 
             {
-                BasicLevelManager.Instance.PlayerMoney += 1;
+                PlayerInfo.Instance.PlayerMoney += 1;
                 greenBrickHitCounter = 0;
                 UiManager.Instance.UpdateMoneyText();
 
