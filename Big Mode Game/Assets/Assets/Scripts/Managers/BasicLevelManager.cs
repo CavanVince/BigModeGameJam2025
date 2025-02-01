@@ -116,9 +116,6 @@ public class BasicLevelManager : MonoBehaviour
         MistaMoneybags greenBrickBuff = new MistaMoneybags();
         GhostBall blueBrickBuff = new GhostBall();
         Jester redBrickBuff = new Jester();*/
-
-        // Spawn the starting ball
-        //SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
     }
 
     private void Update()
