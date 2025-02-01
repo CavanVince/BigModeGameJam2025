@@ -235,6 +235,31 @@ public class UiManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Helper function to load the shop screen
+    /// </summary>
+    public void ActivateEvent()
+    {
+        // Move the brick overlay to the top of the screen
+        Vector3 oriPos = eventBackdrop.position;
+        eventBackdrop.position = new Vector3(oriPos.x, 30, oriPos.z);
+
+        // Enable the backdrop element
+        eventBackdrop.gameObject.SetActive(true);
+
+        // Drop down the brick overlay & current active grid
+        AnimateCurrentGridDown(eventBackdrop);
+        eventBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            BasicLevelManager.Instance.ScreenShake();
+            //ShopManager.Instance.AnimateTrinkets();
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+
+            // Wizard dialogue
+            DialogueManager.Instance.MoveToBottomCenter("Decisions Decisions...");
+        });
+    }
+
+    /// <summary>
     /// Helper function to move down the current active grid
     /// </summary>
     /// <param name="newActiveGrid"></param>

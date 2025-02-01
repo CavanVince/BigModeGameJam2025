@@ -63,5 +63,9 @@ public class NodeHandler : MonoBehaviour
         {
             BasicLevelManager.Instance.LoadBoss();
         }
+        else if (node.nodeType == NodeTypes.MYSTERY)
+        {
+            BasicLevelManager.Instance.LoadEvent();
+        }
     }
 }

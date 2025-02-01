@@ -262,7 +262,14 @@ public class BasicLevelManager : MonoBehaviour
         UiManager.Instance.ActivateShopScreen();
         EnteredShop?.Invoke();
     }
-    public void LoadEvent() { }
+
+    /// <summary>
+    /// Helper function to load an event
+    /// </summary>
+    public void LoadEvent()
+    {
+        UiManager.Instance.ActivateEvent();
+    }
 
     /// <summary>
     /// Helper function to load the boss level
