@@ -103,14 +103,17 @@ public class BasicLevelManager : MonoBehaviour
         PlayerBallCount = StartingBallCount;
 
         // Initialize trinkets
-        SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();
         SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
         BoosterRocket boosterRocket = new BoosterRocket();
 
-
+        */
+        GreenBrickBuff greenBrickBuff = new GreenBrickBuff();
+        BlueBrickBuff blueBrickBuff = new BlueBrickBuff();
+        RedBrickBuff redBrickBuff = new RedBrickBuff();
         // Spawn the starting ball
         //SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
     }
@@ -219,6 +222,7 @@ public class BasicLevelManager : MonoBehaviour
     {
         if (SpawnedBallCount > 1) return;
         ScoreMult = MinScoreMult;
+
         ComboCounter = 0;
         UiManager.Instance.UpdateMultUI();
     }
@@ -228,6 +232,7 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void ScreenShake()
     {
+        
         DOTween.Kill("Camera Shake");
         Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
         audioSource.clip = lifeLost;

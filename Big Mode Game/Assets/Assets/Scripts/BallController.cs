@@ -33,6 +33,8 @@ public class BallController : MonoBehaviour
     [SerializeField]
     Material particleMat;
 
+    public int ballHealth = -1;
+
     #region Audio
     private AudioSource audioSource;
 
@@ -124,6 +126,16 @@ public class BallController : MonoBehaviour
             // Play audio
             float newPitch = 1 + Mathf.Clamp(BasicLevelManager.Instance.ComboCounter / 16f, 0, 2);
             PlaySoundEffect(brickBreakAudio, newPitch);
+            
+            if (ballHealth != -1)
+            {
+                ballHealth--;
+                if(ballHealth <= 0)
+                {
+                    DestroyBall();
+                }
+            }
+            
             return;
         }
 
@@ -132,6 +144,16 @@ public class BallController : MonoBehaviour
         {
             rb.velocity += PaddleMovement.Instance.InputDirection * 2 + Vector2.one * 0.25f;
             PlaySoundEffect(paddleAudio, 1, 0.25f);
+            
+            if (ballHealth != -1)
+            {
+                ballHealth--;
+                if (ballHealth <= 0)
+                {
+                    DestroyBall();
+                }
+            }
+            
             return;
         }
 
@@ -164,6 +186,16 @@ public class BallController : MonoBehaviour
 
         // Hit something else, play audio
         PlaySoundEffect(wallAudio);
+        
+        if (ballHealth != -1)
+        {
+            ballHealth--;
+            if (ballHealth <= 0)
+            {
+                DestroyBall();
+            } 
+        }
+        
     }
 
     /// <summary>
@@ -171,6 +203,7 @@ public class BallController : MonoBehaviour
     /// </summary>
     public void DestroyBall()
     {
+
         // Reset the player's mult
         BasicLevelManager.Instance.ResetScoreMult();
 
