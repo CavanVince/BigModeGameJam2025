@@ -154,8 +154,8 @@ public class UiManager : MonoBehaviour
         scoreBackdrop.gameObject.SetActive(true);
 
         // Drop down the brick overlay & current active grid
-        AnimateCurrentGridDown(scoreBackdrop);
-        scoreBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        AnimateCurrentGridDown(scoreBackdrop, 0.25f);
+        scoreBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).SetDelay(0.25f).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
         });
@@ -176,7 +176,7 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(mapBackdrop);
-        mapBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        mapBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
         });
@@ -196,7 +196,7 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(level);
-        level.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        level.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
             UpdateScoreUI();
@@ -219,9 +219,10 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(shopBackdrop);
-        shopBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        shopBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
+            ShopManager.Instance.AnimateTrinkets();
         });
     }
 
@@ -229,13 +230,13 @@ public class UiManager : MonoBehaviour
     /// Helper function to move down the current active grid
     /// </summary>
     /// <param name="newActiveGrid"></param>
-    private void AnimateCurrentGridDown(Transform newActiveGrid) 
+    private void AnimateCurrentGridDown(Transform newActiveGrid, float delay = 0) 
     {
         // Move the brick overlay to the top of the screen
         Vector3 oriPos = currentActiveGrid.position;
 
         // Drop down the brick overlay
-        currentActiveGrid.DOMoveY(oriPos.y - 30, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        currentActiveGrid.DOMoveY(oriPos.y - 30, 0.75f).SetEase(Ease.Linear).SetDelay(delay).OnComplete(() =>
         {
             currentActiveGrid.gameObject.SetActive(false);
             currentActiveGrid.position = oriPos;
