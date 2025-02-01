@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,6 +10,20 @@ public class LevelLoader : MonoBehaviour
     public float WaitTime = 1;
 
     [SerializeField] Canvas Animation;
+
+    public static LevelLoader Instance;
+
+    private void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else 
+        {
+            Destroy(Instance);
+        }
+    }
 
     public void LoadNextLevel()
     {

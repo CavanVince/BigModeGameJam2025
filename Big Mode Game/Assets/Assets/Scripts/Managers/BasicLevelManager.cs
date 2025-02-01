@@ -18,6 +18,7 @@ public class BasicLevelManager : MonoBehaviour
     // The boss level of the act
     [SerializeField]
     private GameObject bossLevel;
+    public BossManagerParent BossManager { get; set; } = null;
 
     [SerializeField]
     Transform tilemapParent;
@@ -107,21 +108,15 @@ public class BasicLevelManager : MonoBehaviour
         // Initialize trinkets
         /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
-        HealthPotion healthPotion = new HealthPotion();
-        SpellOfGigantification spell = new SpellOfGigantification();
+        HealthPotion healthPotion = new HealthPotion();*/
+        /*SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
-        BoosterRocket boosterRocket = new BoosterRocket();
+        BoosterRocket boosterRocket = new BoosterRocket();*/
 
 
-        MistaMoneybags greenBrickBuff = new MistaMoneybags();
+        /*MistaMoneybags greenBrickBuff = new MistaMoneybags();
         GhostBall blueBrickBuff = new GhostBall();
-        Jester redBrickBuff = new Jester();
-
-        BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket();
-        LifeTree lifeTree = new LifeTree();
-        GamblersCoin gamblersCoin = new GamblersCoin();
-        LightningStrike lightningStrike = new LightningStrike();    
-        */
+        Jester redBrickBuff = new Jester();*/
     }
 
     private void Update()
@@ -179,7 +174,12 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void CheckPlayerWon()
     {
-        if (BrickParent.childCount - 1 == 0)
+        if (BossManager != null && BrickParent.childCount - 1 == 0)
+        {
+            PlayerInfo.Instance.PlayerMoney += 50;
+            BossManager.EndLevel();
+        }
+        else if (BrickParent.childCount - 1 == 0)
         {
             Debug.Log("You Win!");
             DOTween.Kill("Camera Shake");
@@ -278,7 +278,7 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// Helper function to destroy all balls, globally :D
     /// </summary>
-    private void DestroyBallsGlobal()
+    public void DestroyBallsGlobal()
     {
         GameObject[] balls = GameObject.FindGameObjectsWithTag("Ball");
         foreach (GameObject ball in balls)

@@ -251,4 +251,9 @@ public class UiManager : MonoBehaviour
             currentActiveGrid = newActiveGrid;
         });
     }
+
+    public void WizardExit() 
+    {
+        wizardAnim.Play($"Base Layer.Wizard Run", 0, 0f);
+    }
 }

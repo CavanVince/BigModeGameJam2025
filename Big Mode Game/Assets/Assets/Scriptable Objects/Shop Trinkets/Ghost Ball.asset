@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ghost Ball
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: -113970535, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
-  trinketPrice: 25
+  trinketPrice: 5
   trinketType: 1
   trinketDescription: Ghost ball

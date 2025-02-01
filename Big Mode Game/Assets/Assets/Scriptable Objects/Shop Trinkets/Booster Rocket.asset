@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Booster Rocket
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: 42c203f3947925f4d91f7ed2907c3a2e, type: 3}
-  trinketPrice: 25
+  trinketPrice: 5
   trinketType: 0
   trinketDescription: Makes paddle faster

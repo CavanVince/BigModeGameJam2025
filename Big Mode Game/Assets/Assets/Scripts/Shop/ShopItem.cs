@@ -56,6 +56,7 @@ public class ShopItem : MonoBehaviour
                 transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.Linear);
                 audioSource.clip = buyItem;
                 audioSource.Play();
+                UiManager.Instance.UpdateMoneyText();
             }
             else 
             {
