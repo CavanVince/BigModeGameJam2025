@@ -20,7 +20,7 @@ public class PlayerInfo : MonoBehaviour
     /// <summary>
     /// The player's money
     /// </summary>
-    public int PlayerMoney { get; set; }
+    public int PlayerMoney { get; set; } = 0;
 
     // The number of balls the player has left
     public int PlayerBallCount { get; set; } = 0;
@@ -29,7 +29,8 @@ public class PlayerInfo : MonoBehaviour
     public int StartingBallCount { get; set; } = 5;
 
 
-    void Start()
+    void Awake()
+
     {
         if (Instance == null)
         {

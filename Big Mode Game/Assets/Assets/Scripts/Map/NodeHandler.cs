@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
-using Unity.VisualScripting;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -60,6 +58,10 @@ public class NodeHandler : MonoBehaviour
         {
             //SceneManager.LoadScene(sceneName: "Shop Scene");
             BasicLevelManager.Instance.LoadShop();
+        }
+        else if (node.nodeType == NodeTypes.BOSS) 
+        {
+            BasicLevelManager.Instance.LoadBoss();
         }
     }
 }

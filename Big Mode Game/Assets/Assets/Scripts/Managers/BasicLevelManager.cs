@@ -15,6 +15,10 @@ public class BasicLevelManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> levels;
 
+    // The boss level of the act
+    [SerializeField]
+    private GameObject bossLevel;
+
     [SerializeField]
     Transform tilemapParent;
 
@@ -91,6 +95,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             Destroy(this);
         }
+        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
 
         audioSource = GetComponent<AudioSource>();
 
@@ -100,17 +105,17 @@ public class BasicLevelManager : MonoBehaviour
         PlayerBallCount = StartingBallCount;
 
         // Initialize trinkets
-        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();
-        SpellOfGigantification spell = new SpellOfGigantification();
+        /*SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
-        BoosterRocket boosterRocket = new BoosterRocket();
+        BoosterRocket boosterRocket = new BoosterRocket();*/
 
-        
+
         GreenBrickBuff greenBrickBuff = new GreenBrickBuff();
         BlueBrickBuff blueBrickBuff = new BlueBrickBuff();
-        RedBrickBuff redBrickBuff = new RedBrickBuff();*/
+        RedBrickBuff redBrickBuff = new RedBrickBuff();
 
         // Spawn the starting ball
         //SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
@@ -255,6 +260,17 @@ public class BasicLevelManager : MonoBehaviour
         EnteredShop?.Invoke();
     }
     public void LoadEvent() { }
+
+    /// <summary>
+    /// Helper function to load the boss level
+    /// </summary>
+    public void LoadBoss()
+    {
+        GameObject levelInstance = Instantiate(bossLevel);
+        levelInstance.transform.SetParent(tilemapParent, true);
+        CanGoToNextScreen = false;
+        UiManager.Instance.ActivateLevelScreen(levelInstance.transform);
+    }
 
     /// <summary>
     /// Helper function to destroy all balls, globally :D
