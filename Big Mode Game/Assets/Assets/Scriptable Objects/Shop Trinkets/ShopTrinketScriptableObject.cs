@@ -7,17 +7,21 @@ using UnityEngine;
 /// </summary>
 public enum TrinketType {
     BIGMODE,
-    BLUEBRICKBUFF,
+    GHOSTBALL,
     DAGGER,
     GREASEBALL,
-    GREENBRICKBUFF,
+    MISTAMONEYBAGS,
     HEALTHPOTION,
-    REDBRICKBUFF,
+    JESTER,
     SHOTGUN,
     SIRBOUNCEALOT,
     SMALLMODE,
     BOOSTERROCKET,
-    SPELLOFGIGANTIFICATION
+    SPELLOFGIGANTIFICATION,
+    LIGHTNING,
+    BLACKHOLE,
+    GAMBLERSCOIN,
+    LIFETREE,
 }
 
 [CreateAssetMenu(fileName ="New Shop Trinket", menuName ="Trinkets")]

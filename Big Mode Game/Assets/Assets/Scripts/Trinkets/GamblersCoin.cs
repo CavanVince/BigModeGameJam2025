@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GamblersCoin : TrinketParent
 {
-
-    //when you enter a shop you have a chance to lose 5 gold or gain 10 gold.
+ 
+    ///<summary>
+    /// when you enter a shop you have a chance to lose 5 gold or gain 10 gold.
+    /// </summary>
     public GamblersCoin() 
     {
         BasicLevelManager.EnteredShop += TriggerPassive;
@@ -15,6 +17,7 @@ public class GamblersCoin : TrinketParent
     public override void TriggerPassive()
     {
         PlayerInfo.Instance.PlayerMoney += Random.Range(-6, 11);
+        UiManager.Instance.UpdateMoneyText();
     }
     public override void RemoveTrinket()
     {

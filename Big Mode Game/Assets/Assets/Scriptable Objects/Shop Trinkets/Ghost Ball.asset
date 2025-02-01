@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
-  m_Name: Blue Brick Buff
+  m_Name: Ghost Ball
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: -113970535, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
   trinketPrice: 25

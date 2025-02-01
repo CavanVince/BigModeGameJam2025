@@ -36,10 +36,11 @@ public class ElasticBrick : BrickParent
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
+       
         base.OnCollisionEnter2D(collision);
 
-        collision.gameObject.GetComponent<BallController>().SpeedUp(speedMult);
-
+            collision.gameObject.GetComponent<BallController>()?.SpeedUp(speedMult);
+        
         GetComponent<BoxCollider2D>().enabled = false;
 
         Vector3 startScale = transform.localScale;

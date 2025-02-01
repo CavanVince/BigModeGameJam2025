@@ -115,7 +115,13 @@ public class BasicLevelManager : MonoBehaviour
 
         MistaMoneybags greenBrickBuff = new MistaMoneybags();
         GhostBall blueBrickBuff = new GhostBall();
-        Jester redBrickBuff = new Jester();*/
+        Jester redBrickBuff = new Jester();
+
+        BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket();
+        LifeTree lifeTree = new LifeTree();
+        GamblersCoin gamblersCoin = new GamblersCoin();
+        LightningStrike lightningStrike = new LightningStrike();    
+        */
     }
 
     private void Update()

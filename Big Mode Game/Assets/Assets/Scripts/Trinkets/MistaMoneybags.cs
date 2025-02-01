@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class MistaMoneybags : TrinketParent
 {
+    /// <summary>
+    /// every three bounces gain 1 money
+    /// </summary>
     int greenBrickHitCounter = 0;
     public MistaMoneybags()
     {

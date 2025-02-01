@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class LifeTree : TrinketParent
 {
+    /// <summary>
+    ///  every 200 brick kills get a perma ball
+    /// </summary>
     private int bounceCounter = 0;
 
     public LifeTree() 
@@ -13,10 +16,12 @@ public class LifeTree : TrinketParent
     public override void TriggerPassive(Transform ballTransform)
     {
         bounceCounter++;
-        if (bounceCounter >= 100)
+        if (bounceCounter >= 200)
         {
             BasicLevelManager.Instance.StartingBallCount += 1;
-            bounceCounter = 0;
+            bounceCounter = 0;  
+            //ask cav
+            UiManager.Instance.UpdateBallText();
         }
     }
     public override void RemoveTrinket()

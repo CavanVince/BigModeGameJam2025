@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
-  m_Name: Red Brick Buff
+  m_Name: Mista Money Bags
   m_EditorClassIdentifier: 
-  trinketSprite: {fileID: 1881305696, guid: 585330f829859ca4fbedc702428d3963, type: 3}
+  trinketSprite: {fileID: -316883646, guid: 7371e2da9d4098a4cb186ed927125969, type: 3}
   trinketPrice: 25
-  trinketType: 6
-  trinketDescription: Gimme the mult
+  trinketType: 4
+  trinketDescription: Money, Money, Money

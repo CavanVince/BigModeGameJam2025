@@ -62,7 +62,7 @@ public class PlayerInfo : MonoBehaviour
                     case TrinketType.BIGMODE:
                         PlayerTrinkets[i] = new BigMode();
                         break;
-                    case TrinketType.BLUEBRICKBUFF:
+                    case TrinketType.GHOSTBALL:
                         PlayerTrinkets[i] = new GhostBall();
                         break;
                     case TrinketType.DAGGER:
@@ -74,7 +74,7 @@ public class PlayerInfo : MonoBehaviour
                     case TrinketType.HEALTHPOTION:
                         PlayerTrinkets[i] = new HealthPotion();
                         break;
-                    case TrinketType.REDBRICKBUFF:
+                    case TrinketType.JESTER:
                         PlayerTrinkets[i] = new Jester();
                         break;
                     case TrinketType.SHOTGUN:
@@ -90,6 +90,18 @@ public class PlayerInfo : MonoBehaviour
                         PlayerTrinkets[i] = new BoosterRocket();
                         break;
                     case TrinketType.SPELLOFGIGANTIFICATION:
+                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        break;
+                    case TrinketType.BLACKHOLE:
+                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        break;
+                    case TrinketType.LIGHTNING:
+                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        break;
+                    case TrinketType.MISTAMONEYBAGS:
+                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        break;
+                    case TrinketType.LIFETREE:
                         PlayerTrinkets[i] = new SpellOfGigantification();
                         break;
                     default:

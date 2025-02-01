@@ -44,7 +44,7 @@ public class BrickParent : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Ball") != true) return;
+        //if (collision.transform.CompareTag("Ball") != true) return;
         BrickHit?.Invoke(transform);
         // Notify score manager manager that brick was hit
         BasicLevelManager.Instance.AddScore(score);
@@ -54,7 +54,7 @@ public class BrickParent : MonoBehaviour
     /// <summary>
     /// Code to call when brick is destroyed
     /// </summary>
-    protected virtual void DestroyBrick()
+    public virtual void DestroyBrick()
     {
         BasicLevelManager.Instance.CheckPlayerWon();
 
