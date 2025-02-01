@@ -105,17 +105,17 @@ public class BasicLevelManager : MonoBehaviour
         PlayerBallCount = StartingBallCount;
 
         // Initialize trinkets
-        SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();
-        /*SpellOfGigantification spell = new SpellOfGigantification();
+        SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
-        BoosterRocket boosterRocket = new BoosterRocket();*/
+        BoosterRocket boosterRocket = new BoosterRocket();
 
 
-        GreenBrickBuff greenBrickBuff = new GreenBrickBuff();
-        BlueBrickBuff blueBrickBuff = new BlueBrickBuff();
-        RedBrickBuff redBrickBuff = new RedBrickBuff();
+        MistaMoneybags greenBrickBuff = new MistaMoneybags();
+        GhostBall blueBrickBuff = new GhostBall();
+        Jester redBrickBuff = new Jester();*/
 
         // Spawn the starting ball
         //SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
