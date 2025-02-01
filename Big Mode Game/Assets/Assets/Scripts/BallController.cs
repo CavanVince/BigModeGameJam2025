@@ -130,7 +130,7 @@ public class BallController : MonoBehaviour
             if (ballHealth != -1)
             {
                 ballHealth--;
-                if(ballHealth <= 0)
+                if(ballHealth == 0)
                 {
                     DestroyBall();
                 }
@@ -148,7 +148,7 @@ public class BallController : MonoBehaviour
             if (ballHealth != -1)
             {
                 ballHealth--;
-                if (ballHealth <= 0)
+                if (ballHealth == 0)
                 {
                     DestroyBall();
                 }
@@ -187,10 +187,10 @@ public class BallController : MonoBehaviour
         // Hit something else, play audio
         PlaySoundEffect(wallAudio);
         
-        if (ballHealth != -1)
+        if (collision.transform.GetComponent<KillBox>() == null && ballHealth != -1)
         {
             ballHealth--;
-            if (ballHealth <= 0)
+            if (ballHealth == 0)
             {
                 DestroyBall();
             } 
