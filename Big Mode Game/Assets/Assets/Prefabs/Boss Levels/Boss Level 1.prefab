@@ -1104,8 +1104,9 @@ GameObject:
   m_Component:
   - component: {fileID: 336046150715273124}
   - component: {fileID: 147496854116228904}
+  - component: {fileID: 387448041032323071}
   m_Layer: 0
-  m_Name: Level Grid 98
+  m_Name: Boss Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1167,6 +1168,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &387448041032323071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555337164736089166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b7d106acfe91c4d87d5c7fd7d143e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bricks: {fileID: 1715217401450064772}
 --- !u!1 &9103991161747110244
 GameObject:
   m_ObjectHideFlags: 0

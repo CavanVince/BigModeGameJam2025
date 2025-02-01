@@ -20,9 +20,9 @@ public class PlayerInfo : MonoBehaviour
     /// <summary>
     /// The player's money
     /// </summary>
-    public int PlayerMoney { get; set; }
+    public int PlayerMoney { get; set; } = 0;
 
-    void Start()
+    void Awake()
     {
         if (Instance == null)
         {
