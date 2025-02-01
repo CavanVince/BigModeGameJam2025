@@ -9109,9 +9109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - {fileID: 6555337164736089166, guid: 81d264daa137deb4c89cfb691540a5b9, type: 3}
-  - {fileID: 6555337164736089166, guid: e0e33f23ba362b544b52efbdb148c923, type: 3}
-  - {fileID: 6555337164736089166, guid: 1e09bf563ff6a774b9751deaeca3922d, type: 3}
-  - {fileID: 6555337164736089166, guid: 64f14609b93980b4ebbe6984a072c193, type: 3}
   tilemapParent: {fileID: 1830016639}
   ballPrefab: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
     type: 3}
