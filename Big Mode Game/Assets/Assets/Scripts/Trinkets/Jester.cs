@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedBrickBuff : TrinketParent
+public class Jester : TrinketParent
 {
     
-    public RedBrickBuff() 
+    public Jester() 
     {
         BrickParent.BrickHit += TriggerPassive;
     }
@@ -14,7 +14,7 @@ public class RedBrickBuff : TrinketParent
     {
         if (brickTransform.GetComponent<BrickParent>().brickColor == BrickColor.RED)
         {
-            BasicLevelManager.Instance.ScoreMult += 3;
+            BasicLevelManager.Instance.ScoreMult += 4;
         }
     }
 

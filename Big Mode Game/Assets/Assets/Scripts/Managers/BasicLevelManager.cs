@@ -38,6 +38,8 @@ public class BasicLevelManager : MonoBehaviour
 
     public static Action<Transform> SpawnedBall;
 
+    public static Action EnteredShop;
+
     #region Player Score
     /// <summary>
     /// The player's score
@@ -250,6 +252,7 @@ public class BasicLevelManager : MonoBehaviour
     public void LoadShop()
     {
         UiManager.Instance.ActivateShopScreen();
+        EnteredShop?.Invoke();
     }
     public void LoadEvent() { }
 

@@ -22,6 +22,13 @@ public class PlayerInfo : MonoBehaviour
     /// </summary>
     public int PlayerMoney { get; set; }
 
+    // The number of balls the player has left
+    public int PlayerBallCount { get; set; } = 0;
+
+    // The baseline number of balls the player starts with
+    public int StartingBallCount { get; set; } = 5;
+
+
     void Start()
     {
         if (Instance == null)
@@ -55,7 +62,7 @@ public class PlayerInfo : MonoBehaviour
                         PlayerTrinkets[i] = new BigMode();
                         break;
                     case TrinketType.BLUEBRICKBUFF:
-                        PlayerTrinkets[i] = new BlueBrickBuff();
+                        PlayerTrinkets[i] = new GhostBall();
                         break;
                     case TrinketType.DAGGER:
                         PlayerTrinkets[i] = new Dagger();
@@ -63,14 +70,11 @@ public class PlayerInfo : MonoBehaviour
                     case TrinketType.GREASEBALL:
                         PlayerTrinkets[i] = new Greaseball();
                         break;
-                    case TrinketType.GREENBRICKBUFF:
-                        PlayerTrinkets[i] = new GreenBrickBuff();
-                        break;
                     case TrinketType.HEALTHPOTION:
                         PlayerTrinkets[i] = new HealthPotion();
                         break;
                     case TrinketType.REDBRICKBUFF:
-                        PlayerTrinkets[i] = new RedBrickBuff();
+                        PlayerTrinkets[i] = new Jester();
                         break;
                     case TrinketType.SHOTGUN:
                         PlayerTrinkets[i] = new Shotgun();

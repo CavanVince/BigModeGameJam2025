@@ -2,23 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// When the player presses the space bar, detonate a bomb at all of the ball locations
-/// </summary>
-public class Bomb : TrinketParent
+public class LifeTree : TrinketParent
 {
     private int bounceCounter = 0;
-    public Bomb() 
-    {
-            BallController.ballBounced += TriggerPassive;
-    }
 
+    public LifeTree() 
+    {
+        BallController.ballBounced += TriggerPassive;
+    }
     public override void TriggerPassive(Transform ballTransform)
     {
         bounceCounter++;
-        if (bounceCounter >= 10)
+        if (bounceCounter >= 100)
         {
-            
+            BasicLevelManager.Instance.StartingBallCount += 1;
+            bounceCounter = 0;
         }
     }
     public override void RemoveTrinket()

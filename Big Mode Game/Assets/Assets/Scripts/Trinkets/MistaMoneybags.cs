@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenBrickBuff : TrinketParent
+public class MistaMoneybags : TrinketParent
 {
     int greenBrickHitCounter = 0;
-    public GreenBrickBuff()
+    public MistaMoneybags()
     {
                 BrickParent.BrickHit += TriggerPassive;
     }
@@ -25,7 +25,6 @@ public class GreenBrickBuff : TrinketParent
             
         }
     }
-
     public override void RemoveTrinket()
     {
         BrickParent.BrickHit -= TriggerPassive;

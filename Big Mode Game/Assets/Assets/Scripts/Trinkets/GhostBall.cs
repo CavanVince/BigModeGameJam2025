@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class BlueBrickBuff : TrinketParent
+public class GhostBall : TrinketParent
 {
     
 
-    public BlueBrickBuff() 
+    public GhostBall() 
     {
         BrickParent.BrickHit += TriggerPassive;
     }
@@ -22,10 +22,10 @@ public class BlueBrickBuff : TrinketParent
         }
 
     }
-
     public override void RemoveTrinket()
     {
         BrickParent.BrickHit -= TriggerPassive;
     }
+
 
 }
