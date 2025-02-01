@@ -9,7 +9,7 @@ public class BlackHole : MonoBehaviour
 
     private void Start()
     {
-        transform.DOScale(transform.localScale * 2, 2.5f).SetEase(Ease.Linear).OnComplete(() =>
+        transform.DOScale(transform.localScale * 4, 2.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             Destroy(gameObject);
 

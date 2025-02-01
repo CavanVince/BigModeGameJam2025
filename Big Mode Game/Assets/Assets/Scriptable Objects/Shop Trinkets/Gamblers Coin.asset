@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 0}
   trinketPrice: 0
-  trinketType: 0
-  trinketDescription: 
+  trinketType: 14
+  trinketDescription: when you enter a shop, lose up to 5 coins or gain up to 10
+    coins

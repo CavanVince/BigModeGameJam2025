@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,8 @@ using UnityEngine;
 public class BlackHoleTrinket : TrinketParent
 {
     private int bounceCounter = 0;
-    public BlackHoleTrinket() 
+    private Sprite blackHoleSprite;
+    public BlackHoleTrinket(Sprite sprite) 
     {
             BallController.ballBounced += TriggerPassive;
     }
@@ -22,8 +24,11 @@ public class BlackHoleTrinket : TrinketParent
             explosion.layer = 6;
             explosion.AddComponent<CircleCollider2D>();
             explosion.AddComponent<Rigidbody2D>().gravityScale = 0;
+            explosion.AddComponent<SpriteRenderer>().sprite = blackHoleSprite;
+            explosion.GetComponent<SpriteRenderer>().sortingOrder = 5;
             explosion.transform.position = ballTransform.position;
             explosion.AddComponent<BlackHole>();
+            bounceCounter = 0;
         }
     }
     

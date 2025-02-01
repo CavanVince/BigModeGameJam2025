@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
   m_Name: Life Tree
   m_EditorClassIdentifier: 
-  trinketSprite: {fileID: 0}
+  trinketSprite: {fileID: 21300000, guid: 9d12fdc0aa56b77498cb62203aa558be, type: 3}
   trinketPrice: 0
-  trinketType: 0
-  trinketDescription: 
+  trinketType: 15
+  trinketDescription: Gives a perma ball every 200 gems broken
