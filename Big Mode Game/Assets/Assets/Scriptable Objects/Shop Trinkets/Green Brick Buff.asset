@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Green Brick Buff
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: -316883646, guid: 7371e2da9d4098a4cb186ed927125969, type: 3}
-  trinketPrice: 0
+  trinketPrice: 25
   trinketType: 4
   trinketDescription: Money, Money, Money

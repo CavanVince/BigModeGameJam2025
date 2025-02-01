@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class Dagger : TrinketParent
 {
-    //- 1 life 2x mult
+    //- 1 life +2 mult
     public Dagger()
     {
         BasicLevelManager.Instance.StartingBallCount--;
         BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
-        BasicLevelManager.Instance.MinScoreMult *= 2;
+        BasicLevelManager.Instance.MinScoreMult += 2;
+        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+    }
+
+    public override void RemoveTrinket()
+    {
+        BasicLevelManager.Instance.StartingBallCount++;
+        BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
+        BasicLevelManager.Instance.MinScoreMult -= 2;
         BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
     }
 }

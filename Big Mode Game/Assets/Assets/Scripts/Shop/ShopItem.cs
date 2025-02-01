@@ -64,6 +64,7 @@ public class ShopItem : MonoBehaviour
                 transform.DOShakePosition(0.5f).SetId("Shake Item");
                 audioSource.clip = cantBuyItem;
                 audioSource.Play();
+                DialogueManager.Instance.StartDialogue("You have too many trinkets, left click on one to remove it");
             }
         }
         else
@@ -73,6 +74,7 @@ public class ShopItem : MonoBehaviour
             transform.DOShakePosition(0.5f).SetId("Shake Item");
             audioSource.clip = cantBuyItem;
             audioSource.Play();
+            DialogueManager.Instance.StartDialogue(new string[]{"Get your bread up", "Sorry bud, that's for Mr. Moneybags", "I knew a homeless guy with more money than you", "That's too expensive"});
         }
 
     }

@@ -16,4 +16,11 @@ public class SmallMode : TrinketParent
         trans.GetComponent<TrailRenderer>().startWidth *= 0.5f;
     }
 
+    public override void RemoveTrinket()
+    {
+        BasicLevelManager.SpawnedBall -= TriggerPassive;
+        BasicLevelManager.Instance.MinScoreMult -= 2;
+        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+    }
+
 }

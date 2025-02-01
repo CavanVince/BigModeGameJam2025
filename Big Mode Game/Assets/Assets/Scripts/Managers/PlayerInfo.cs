@@ -15,7 +15,7 @@ public class PlayerInfo : MonoBehaviour
     /// <summary>
     /// The player's trinkets
     /// </summary>
-    public List<TrinketParent> PlayerTrinkets { get; private set; } = new List<TrinketParent>{null, null, null, null, null};
+    public List<TrinketParent> PlayerTrinkets { get; private set; } = new List<TrinketParent> { null, null, null, null, null };
 
     /// <summary>
     /// The player's money
@@ -81,7 +81,12 @@ public class PlayerInfo : MonoBehaviour
                     case TrinketType.SMALLMODE:
                         PlayerTrinkets[i] = new SmallMode();
                         break;
-
+                    case TrinketType.BOOSTERROCKET:
+                        PlayerTrinkets[i] = new BoosterRocket();
+                        break;
+                    case TrinketType.SPELLOFGIGANTIFICATION:
+                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        break;
                     default:
                         Debug.Log("ERROR: TRINKET TYPE NOT IN PLAYER INFO!");
                         break;
@@ -99,16 +104,16 @@ public class PlayerInfo : MonoBehaviour
     /// <summary>
     /// Helper function to zoom in the trinket
     /// </summary>
-    private void ZoomInTrinket(Transform trinketTransform) 
+    private void ZoomInTrinket(Transform trinketTransform)
     {
         trinketTransform.localScale = Vector3.zero;
         trinketTransform.gameObject.SetActive(true);
         trinketTransform.DOScale(origTrinketImageScale, 0.5f).SetEase(Ease.Linear);
     }
 
-    public void ZoomOutTrinket(Transform trinketTransform) 
+    public void ZoomOutTrinket(Transform trinketTransform)
     {
-        trinketTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.Linear).OnComplete(() => 
+        trinketTransform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             trinketTransform.gameObject.SetActive(false);
             trinketTransform.localScale = origTrinketImageScale;

@@ -2,7 +2,6 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
@@ -31,7 +30,7 @@ public class DialogueManager : MonoBehaviour
 
     private Vector3 oriPos;
     private Vector3 oriScale;
-    private bool isTyping = false;
+    private IEnumerator dialogueCoroutine;
 
     public bool InTopRight { get; private set; }
 
@@ -55,9 +54,11 @@ public class DialogueManager : MonoBehaviour
     /// </summary>
     public void StartDialogue()
     {
-        wizardText.text = "";
         int index = Random.Range(0, lines.Length);
-        if (!isTyping) StartCoroutine(TypeLine(lines[index]));
+
+        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        dialogueCoroutine = TypeLine(lines[index]);
+        StartCoroutine(dialogueCoroutine);
     }
 
     /// <summary>
@@ -66,9 +67,11 @@ public class DialogueManager : MonoBehaviour
     /// <param name="randomLines">Array to pick random dialogue option from</param>
     public void StartDialogue(string[] randomLines)
     {
-        wizardText.text = "";
-        int index = Random.Range(0, lines.Length);
-        if (!isTyping) StartCoroutine(TypeLine(randomLines[index]));
+        int index = Random.Range(0, randomLines.Length);
+
+        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        dialogueCoroutine = TypeLine(randomLines[index]);
+        StartCoroutine(dialogueCoroutine);
     }
 
     /// <summary>
@@ -77,8 +80,9 @@ public class DialogueManager : MonoBehaviour
     /// <param name="dialogue">The dialogue to display</param>
     public void StartDialogue(string dialogue)
     {
-        wizardText.text = "";
-        if (!isTyping) StartCoroutine(TypeLine(dialogue));
+        if (dialogueCoroutine != null) StopCoroutine(dialogueCoroutine);
+        dialogueCoroutine = TypeLine(dialogue);
+        StartCoroutine(dialogueCoroutine);
     }
 
     /// <summary>
@@ -137,12 +141,11 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator TypeLine(string dialogue)
     {
-        isTyping = true;
+        wizardText.text = "";
         foreach (char c in dialogue.ToCharArray())
         {
             wizardText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
-        isTyping = false;
     }
 }

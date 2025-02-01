@@ -16,6 +16,8 @@ public enum TrinketType {
     SHOTGUN,
     SIRBOUNCEALOT,
     SMALLMODE,
+    BOOSTERROCKET,
+    SPELLOFGIGANTIFICATION
 }
 
 [CreateAssetMenu(fileName ="New Shop Trinket", menuName ="Trinkets")]

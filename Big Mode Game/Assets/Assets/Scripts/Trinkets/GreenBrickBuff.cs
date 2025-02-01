@@ -26,5 +26,10 @@ public class GreenBrickBuff : TrinketParent
         }
     }
 
+    public override void RemoveTrinket()
+    {
+        BrickParent.BrickHit -= TriggerPassive;
+    }
+
 
 }

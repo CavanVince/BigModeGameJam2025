@@ -13,4 +13,9 @@ public class BigMode : TrinketParent
         trans.localScale *= 2f;
         trans.GetComponent<TrailRenderer>().startWidth *= 2f;
     }
+
+    public override void RemoveTrinket()
+    {
+           BasicLevelManager.SpawnedBall -= TriggerPassive;
+    }
 }

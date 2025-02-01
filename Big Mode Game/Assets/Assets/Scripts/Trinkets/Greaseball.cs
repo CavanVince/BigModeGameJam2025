@@ -20,4 +20,11 @@ public class Greaseball : TrinketParent
         trans.GetComponent<BallController>().ballSpeed += 15;
     }
 
+    public override void RemoveTrinket()
+    {
+        BasicLevelManager.SpawnedBall -= TriggerPassive;
+        BasicLevelManager.Instance.MinScoreMult -= 1;
+        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+    }
+
 }

@@ -11,4 +11,9 @@ public class SpellOfGigantification : TrinketParent
     {
         PaddleMovement.Instance.transform.localScale += new Vector3(10,0,0);
     }
+
+    public override void RemoveTrinket()
+    {
+        PaddleMovement.Instance.transform.localScale -= new Vector3(10,0,0);
+    }
 }

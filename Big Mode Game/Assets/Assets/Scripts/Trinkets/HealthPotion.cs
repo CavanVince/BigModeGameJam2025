@@ -12,4 +12,10 @@ public class HealthPotion : TrinketParent
         BasicLevelManager.Instance.StartingBallCount++;
         BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
     }
+
+    public override void RemoveTrinket()
+    {
+        BasicLevelManager.Instance.StartingBallCount--;
+        BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
+    }
 }

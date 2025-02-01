@@ -18,4 +18,8 @@ public class RedBrickBuff : TrinketParent
         }
     }
 
+    public override void RemoveTrinket()
+    {
+        BrickParent.BrickHit -= TriggerPassive;
+    }
 }

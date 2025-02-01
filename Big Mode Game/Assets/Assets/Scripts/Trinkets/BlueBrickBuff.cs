@@ -22,6 +22,10 @@ public class BlueBrickBuff : TrinketParent
         }
 
     }
-    // Start is called before the first frame update
+
+    public override void RemoveTrinket()
+    {
+        BrickParent.BrickHit -= TriggerPassive;
+    }
 
 }

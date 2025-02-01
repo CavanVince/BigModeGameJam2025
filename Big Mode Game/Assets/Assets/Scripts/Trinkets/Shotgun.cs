@@ -19,4 +19,9 @@ public class Shotgun : TrinketParent
         BasicLevelManager.Instance.SpawnBall(trans.position).LaunchBall(new Vector2(-1, 0.75f));
         BasicLevelManager.Instance.SpawnBall(trans.position).LaunchBall(new Vector2(-1, 0.25f));
     }
+
+    public override void RemoveTrinket()
+    {
+        BasicLevelManager.LaunchedBallFromPaddle -= TriggerPassive;
+    }
 }

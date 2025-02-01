@@ -25,4 +25,9 @@ public class SirBounceAlot : TrinketParent
             bounceCounter = 0;
         }
     }
+
+    public override void RemoveTrinket()
+    {
+        BallController.ballBounced -= TriggerPassive;
+    }
 }

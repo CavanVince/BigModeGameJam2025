@@ -8,4 +8,9 @@ public class BoosterRocket : TrinketParent
     {
         PaddleMovement.Instance.paddleSpeed += 200;
     }
+
+    public override void RemoveTrinket()
+    {
+        PaddleMovement.Instance.paddleSpeed -= 200;
+    }
 }
