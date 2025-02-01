@@ -10,7 +10,7 @@ public class FloatTween : MonoBehaviour
 
     void Start()
     {
-        if (randomDelay) StartCoroutine(Delay(Random.Range(0, 2f)));
+        if (randomDelay) StartCoroutine(Delay(Random.Range(0, 5f)));
         else StartCoroutine(Delay(0));
 
     }

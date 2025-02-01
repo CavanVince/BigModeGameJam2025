@@ -94,6 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  check: {fileID: 814432987, guid: 99725195683c7b44caabffe7155dd015, type: 3}
+  cross: {fileID: -107853101, guid: 99725195683c7b44caabffe7155dd015, type: 3}
 --- !u!212 &1649726427194683432
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -20,6 +20,8 @@ public class Map : MonoBehaviour
 
     private Transform mapBackground;
     private Vector3 mapOffset = new Vector3(4, 3);
+
+    // Has a map been generated?
     private bool madeMap = false;
 
 
@@ -94,7 +96,7 @@ public class Map : MonoBehaviour
             GameObject newNode;
             if (emptyMap[row, column] == null)
             {
-                emptyMap[row, column] = new Node(getRandomNode(), row, column);
+                emptyMap[row, column] = row == 0 ? new Node(NodeTypes.ENEMY, row, column) : new Node(getRandomNode(), row, column);
                 newNode = Instantiate(NodePrefab, new Vector3(column * 3, row * 3, 0) + mapBackground.position - mapBackground.GetComponent<SpriteRenderer>().bounds.size / 2 + mapOffset, Quaternion.identity);
                 newNode.transform.SetParent(mapBackground, true);
                 nodePrefabs[row, column] = newNode;
@@ -163,11 +165,11 @@ public class Map : MonoBehaviour
         int randomNodeGen = Random.Range(0, 101);
         NodeTypes[] possibleNodes = { NodeTypes.ENEMY, NodeTypes.MYSTERY, NodeTypes.SHOP };
 
-        if (randomNodeGen <= 35)
+        if (randomNodeGen <= 20)
         {
             return possibleNodes[2];
         }
-        else if (randomNodeGen >= 45)
+        else if (randomNodeGen <= 75)
         {
             return possibleNodes[0];
         }

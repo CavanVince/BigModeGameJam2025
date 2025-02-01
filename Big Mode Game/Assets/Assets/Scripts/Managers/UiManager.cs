@@ -18,7 +18,14 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI multText;
 
-    [SerializeField] Animator wizardAnim;
+    [SerializeField] 
+    private Animator wizardAnim;
+
+    [SerializeField]
+    private TextMeshProUGUI ballCounterText;
+
+    [SerializeField]
+    private TextMeshProUGUI moneyText;
 
     private Transform scoreBox;
     private Vector3 scoreBoxInitScale;
@@ -63,16 +70,20 @@ public class UiManager : MonoBehaviour
 
         scoreBox = scoreText.transform.parent;
         scoreBoxInitScale = scoreBox.localScale;
-        UpdateScoreUI();
+        UpdateScoreUI(false);
+        UpdateBallText();
+        UpdateMoneyText();
     }
 
     /// <summary>
     /// Update the score UI
     /// </summary>
-    public void UpdateScoreUI()
+    public void UpdateScoreUI(bool shouldTween = true)
     {
         scoreText.text = "Score: " + BasicLevelManager.Instance.PlayerScore.ToString();
         UpdateMultUI();
+
+        if (!shouldTween) return;
 
         // Tween the score container
         float scaleMult = BasicLevelManager.Instance.ScoreMult;
@@ -111,6 +122,22 @@ public class UiManager : MonoBehaviour
     public void UpdateMultUI()
     {
         multText.text = "Mult: " + BasicLevelManager.Instance.ScoreMult.ToString();
+    }
+
+    /// <summary>
+    /// Update the ball counter text
+    /// </summary>
+    public void UpdateBallText() 
+    {
+        ballCounterText.text = BasicLevelManager.Instance.PlayerBallCount.ToString(); 
+    }
+
+    /// <summary>
+    /// Update the money text
+    /// </summary>
+    public void UpdateMoneyText() 
+    {
+        moneyText.text = "$" + BasicLevelManager.Instance.PlayerMoney.ToString();
     }
 
     /// <summary>
@@ -172,8 +199,29 @@ public class UiManager : MonoBehaviour
         level.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
+            UpdateScoreUI();
             BasicLevelManager.Instance.BrickParent = level.Find("Bricks");
             BasicLevelManager.Instance.SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
+        });
+    }
+
+    /// <summary>
+    /// Helper function to load the shop screen
+    /// </summary>
+    public void ActivateShopScreen() 
+    {
+        // Move the brick overlay to the top of the screen
+        Vector3 oriPos = shopBackdrop.position;
+        shopBackdrop.position = new Vector3(oriPos.x, 30, oriPos.z);
+
+        // Enable the backdrop element
+        shopBackdrop.gameObject.SetActive(true);
+
+        // Drop down the brick overlay & current active grid
+        AnimateCurrentGridDown(shopBackdrop);
+        shopBackdrop.DOMoveY(oriPos.y, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            BasicLevelManager.Instance.ScreenShake();
         });
     }
 

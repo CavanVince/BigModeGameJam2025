@@ -7,8 +7,9 @@ using UnityEngine;
 /// </summary>
 public class HealthPotion : TrinketParent
 {
-    public HealthPotion() 
+    public HealthPotion()
     {
-        BasicLevelManager.Instance.PlayerBallCount++;
+        BasicLevelManager.Instance.StartingBallCount++;
+        BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
     }
 }

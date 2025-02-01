@@ -25,11 +25,16 @@ public class BasicLevelManager : MonoBehaviour
     private bool beatLevel = false;
     #endregion
 
+    #region Ball Count
     // The number of balls currently in the world
     public int SpawnedBallCount { get; set; } = 0;
 
     // The number of balls the player has left
-    public int PlayerBallCount { get; set; } = 5;
+    public int PlayerBallCount { get; set; } = 0;
+
+    // The baseline number of balls the player starts with
+    public int StartingBallCount { get; set; } = 5;
+    #endregion
 
     public static Action<Transform> SpawnedBall;
 
@@ -53,6 +58,11 @@ public class BasicLevelManager : MonoBehaviour
     /// A combo counter
     /// </summary>
     public int ComboCounter { get; set; } = 0;
+
+    /// <summary>
+    /// The player's money
+    /// </summary>
+    public int PlayerMoney { get; set; } = 0;
     #endregion
 
     #region Paddle Ball
@@ -90,6 +100,7 @@ public class BasicLevelManager : MonoBehaviour
         // Player score
         PlayerScore = 0;
         ScoreMult = MinScoreMult;
+        PlayerBallCount = StartingBallCount;
 
         // Initialize trinkets
         SirBounceAlot sirBounceAlot = new SirBounceAlot();
@@ -113,8 +124,14 @@ public class BasicLevelManager : MonoBehaviour
             paddleBall.GetComponent<BallController>().LaunchBall(Vector2.up * paddleBall.gameObject.GetComponent<BallController>().ballSpeed);
             paddleBall = null;
         }
-        else if (Input.GetKeyDown(KeyCode.Space) && beatLevel) 
+        else if (Input.GetKeyDown(KeyCode.Space) && beatLevel)
         {
+            PlayerScore = 0;
+            ScoreMult = MinScoreMult;
+            ComboCounter = 0;
+            PlayerBallCount = StartingBallCount;
+            UiManager.Instance.UpdateBallText();
+            UiManager.Instance.UpdateMoneyText();
             UiManager.Instance.ActivateMapScreen();
             beatLevel = false;
         }
@@ -134,6 +151,7 @@ public class BasicLevelManager : MonoBehaviour
         if (spawnOnPaddle)
         {
             PlayerBallCount--;
+            UiManager.Instance.UpdateBallText();
             paddleBall = Instantiate(ballPrefab, spawnLocation, Quaternion.identity);
             SpawnedBall?.Invoke(paddleBall);
             paddleBall.SetParent(PaddleMovement.Instance.transform, true);
@@ -156,6 +174,8 @@ public class BasicLevelManager : MonoBehaviour
         {
             Debug.Log("You Win!");
             DOTween.Kill("Camera Shake");
+            DestroyBallsGlobal();
+            PlayerMoney += PlayerScore / 2000; // Calculate player money (2000 points = $1)
             UiManager.Instance.ActivatePostLevelScreen(true);
             beatLevel = true;
         }
@@ -217,14 +237,31 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// Helper function to load a new level
     /// </summary>
-    public void LoadEnemyLevel() 
+    public void LoadEnemyLevel()
     {
         GameObject nextLevel = levels[UnityEngine.Random.Range(0, levels.Count)];
         levels.Remove(nextLevel);
         GameObject levelInstance = Instantiate(nextLevel);
         levelInstance.transform.SetParent(tilemapParent, true);
+        beatLevel = false;
         UiManager.Instance.ActivateLevelScreen(levelInstance.transform);
     }
-    public void LoadShop() { }
+    public void LoadShop() 
+    {
+        UiManager.Instance.ActivateShopScreen();
+    }
     public void LoadEvent() { }
+
+    /// <summary>
+    /// Helper function to destroy all balls, globally :D
+    /// </summary>
+    private void DestroyBallsGlobal()
+    {
+        GameObject[] balls = GameObject.FindGameObjectsWithTag("Ball");
+        foreach (GameObject ball in balls)
+        {
+            Destroy(ball);
+        }
+        SpawnedBallCount = 0;
+    }
 }
