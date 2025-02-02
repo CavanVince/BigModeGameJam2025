@@ -13,6 +13,8 @@ public class PaddleMovement : MonoBehaviour
 
     public float paddleSpeed;
 
+    private bool invincible = false;
+    private const float invTimer = 1f;
 
     void Awake()
     {
@@ -55,10 +57,33 @@ public class PaddleMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Ball") == true) 
+        if (collision.transform.CompareTag("Ball") == true)
         {
             // Reset the player's score multiplier when the ball hits the paddle
             BasicLevelManager.Instance.ResetScoreMult();
         }
+        else if (!invincible && collision.transform.CompareTag("Brick") == true) // Check for brick (used for 3rd boss)
+        {
+            PlayerInfo.Instance.PlayerBallCount = Mathf.Clamp(PlayerInfo.Instance.PlayerBallCount - 1, 0, int.MaxValue);
+            UiManager.Instance.UpdateBallText();
+
+            if (PlayerInfo.Instance.PlayerBallCount <= 0)
+            {
+                BasicLevelManager.Instance.DestroyBallsGlobal();
+                BasicLevelManager.Instance.CheckGameOver();
+            }
+            else
+            {
+                BasicLevelManager.Instance.ScreenShake();
+            }
+            StartCoroutine(IFrameTimer());
+        }
+    }
+
+    IEnumerator IFrameTimer() 
+    {
+        invincible = true;
+        yield return new WaitForSeconds(invTimer);
+        invincible = false;
     }
 }

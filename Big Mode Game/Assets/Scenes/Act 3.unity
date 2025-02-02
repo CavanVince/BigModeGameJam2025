@@ -10714,7 +10714,7 @@ MonoBehaviour:
   - {fileID: 6555337164736089166, guid: fcc41030dbe276b4f9963a9c85459e92, type: 3}
   - {fileID: 6555337164736089166, guid: 63fbf137903c57143b0e7bfc92b75c8a, type: 3}
   - {fileID: 6555337164736089166, guid: 68b217a175de9b247907ab5863adf64f, type: 3}
-  bossLevel: {fileID: 6555337164736089166, guid: 70af8bec3fcc1e244a57fccbfe024dab,
+  bossLevel: {fileID: 6555337164736089166, guid: e06e56d3aedc0df42a8d882c906988ad,
     type: 3}
   tilemapParent: {fileID: 1830016639}
   ballPrefab: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,

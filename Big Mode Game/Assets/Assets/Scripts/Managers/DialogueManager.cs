@@ -148,4 +148,13 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
     }
+
+    /// <summary>
+    /// Helper function to display text without typing
+    /// </summary>
+    /// <param name="textToDisplay">The text to display</param>
+    public void DisplayPlainText(string textToDisplay) 
+    {
+        wizardText.text = textToDisplay;
+    }
 }

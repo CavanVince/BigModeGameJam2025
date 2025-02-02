@@ -200,6 +200,9 @@ public class BasicLevelManager : MonoBehaviour
             Debug.Log("Game Over!");
             ScreenShake();
             UiManager.Instance.ActivatePostLevelScreen(false);
+
+            DOTween.Kill("Boss 3"); // Kills tweening on boss 3
+            DestroyBallsGlobal(); // More boss 3 cleanup
         }
     }
 
