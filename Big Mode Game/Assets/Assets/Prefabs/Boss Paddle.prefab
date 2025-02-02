@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 123356349202972853}
   - component: {fileID: 2378418842050740611}
   - component: {fileID: 8033924953577280668}
+  - component: {fileID: -8124145948416135899}
   m_Layer: 0
   m_Name: Boss Paddle
   m_TagString: Paddle
@@ -158,3 +159,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!114 &-8124145948416135899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978180653118660510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbdda545c573244384e67c87a41875d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 370
