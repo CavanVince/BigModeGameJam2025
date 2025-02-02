@@ -16,12 +16,12 @@ public class LifeTree : TrinketParent
     public override void TriggerPassive(Transform ballTransform)
     {
         bounceCounter++;
-        if (bounceCounter >= 200)
+        if (bounceCounter >= 100)
         {
             PlayerInfo.Instance.StartingBallCount += 1;
-            bounceCounter = 0;  
-            //ask cav
+            PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
             UiManager.Instance.UpdateBallText();
+            bounceCounter = 0;
         }
     }
     public override void RemoveTrinket()

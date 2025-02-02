@@ -24,9 +24,4 @@ public class Mirror : TrinketParent
     {
         
     }
-    private void playerLaunchedBall() 
-    {
-        
-    }
-
 }

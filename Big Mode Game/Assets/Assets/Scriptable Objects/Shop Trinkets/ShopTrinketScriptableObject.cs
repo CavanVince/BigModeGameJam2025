@@ -26,6 +26,8 @@ public enum TrinketType {
     POGO,
     CHAOS,
     ARROW,
+    SPLITSHOT,
+    ELASTICSHOT
 }
 
 [CreateAssetMenu(fileName ="New Shop Trinket", menuName ="Trinkets")]
@@ -35,4 +37,5 @@ public class ShopTrinketScriptableObject : ScriptableObject
     public int trinketPrice;
     public TrinketType trinketType;
     public string trinketDescription;
+    public string trinketName;
 }

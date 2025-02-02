@@ -9,7 +9,7 @@ public class Dagger : TrinketParent
     {
         PlayerInfo.Instance.StartingBallCount--;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-        PlayerInfo.Instance.MinScoreMult += 2;
+        PlayerInfo.Instance.MinScoreMult *= 2;
         BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 

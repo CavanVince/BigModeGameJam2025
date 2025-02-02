@@ -31,7 +31,8 @@ public class ShopItem : MonoBehaviour
     {
         if (!shouldHover) return;
         transform.DOScale(origScale * 1.25f, 0.25f).SetEase(Ease.Linear).SetId("Hover");
-        DialogueManager.Instance.StartDialogue(currentTrinketSo.trinketDescription);
+        
+        DialogueManager.Instance.StartDialogue(currentTrinketSo.trinketName + ": " + currentTrinketSo.trinketDescription);
     }
 
     private void OnMouseExit()
