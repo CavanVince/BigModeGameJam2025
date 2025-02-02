@@ -12,7 +12,9 @@ public class BallController : MonoBehaviour
 
     // Ball correction vals
     public float ballSpeed;
-    private Vector2 prevVelocity;
+    public Vector2 prevVelocity;
+
+    public int pierceAmount = 3;
 
     // Speed up vals
     private float speedUpTimer;
@@ -117,6 +119,7 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(pierceAmount < 0) pierceAmount = 3;
         // If the ball collided with a brick, exit early
         if (collision.transform.CompareTag("Brick") == true)
         {
@@ -135,7 +138,7 @@ public class BallController : MonoBehaviour
                     DestroyBall();
                 }
             }
-            
+            pierceAmount--;
             return;
         }
 
@@ -153,7 +156,7 @@ public class BallController : MonoBehaviour
                     DestroyBall();
                 }
             }
-            
+            pierceAmount = 3;
             return;
         }
 
@@ -195,6 +198,7 @@ public class BallController : MonoBehaviour
                 DestroyBall();
             } 
         }
+        pierceAmount = 3;
         
     }
 

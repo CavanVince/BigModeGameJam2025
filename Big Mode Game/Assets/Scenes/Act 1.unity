@@ -2189,6 +2189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1d5008c9f0e8e44afc283d91969cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  willKillBall: 1
 --- !u!1 &707363309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4191,6 +4192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1d5008c9f0e8e44afc283d91969cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  willKillBall: 0
 --- !u!50 &873462858
 Rigidbody2D:
   serializedVersion: 4
@@ -9755,6 +9757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1d5008c9f0e8e44afc283d91969cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  willKillBall: 0
 --- !u!50 &1452015831
 Rigidbody2D:
   serializedVersion: 4
@@ -10578,6 +10581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1d5008c9f0e8e44afc283d91969cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  willKillBall: 0
 --- !u!50 &1671334848
 Rigidbody2D:
   serializedVersion: 4
@@ -11710,6 +11714,7 @@ MonoBehaviour:
   tilemapParent: {fileID: 1830016639}
   ballPrefab: {fileID: 6617170106743564294, guid: 1231e61fadc755b49896e5d6d82ba978,
     type: 3}
+  paddleBall: {fileID: 0}
   lifeLost: {fileID: 8300000, guid: 651dd2b55a8faf842b6785f7011529d6, type: 3}
 --- !u!4 &1890342279
 Transform:

@@ -16,6 +16,7 @@ public abstract class TrinketParent
     /// <param name="trans">Transform parameter for more information</param>
     public virtual void TriggerPassive(Transform trans) { }
 
+    public virtual void TriggerPassive(Transform trans, Transform transTwo) { }
     /// <summary>
     /// Function to unsubscribe/revert logic when trinket is removed
     /// </summary>

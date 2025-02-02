@@ -44,7 +44,7 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// The player's score
     /// </summary>
-    public int PlayerScore { get; private set; }
+    public int PlayerScore { get; set; }
 
     /// <summary>
     /// The score multiplier
@@ -62,7 +62,7 @@ public class BasicLevelManager : MonoBehaviour
     public Transform ballPrefab;
 
     // Reference to the ball on attached to the paddle
-    private Transform paddleBall = null;
+    public Transform paddleBall = null;
 
     public static Action<Transform> LaunchedBallFromPaddle;
 
@@ -111,11 +111,17 @@ public class BasicLevelManager : MonoBehaviour
 
         //LightningStrikeTrinket lightningStrikeTrinket = new LightningStrikeTrinket(lightningStrikeSprite);
         //BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket(blackHoleSprite);
+
+        //WizardCap wizardCap = new WizardCap();
+        //Chaos chaos = new Chaos();
+        //Pogo pogo = new Pogo();
+        //Arrow arrow = new Arrow();
+        //Mirror mirror = new Mirror();
     }
+
 
     private void Update()
     {
-        // Launch the ball if it's attached to the paddle
         if (Input.GetKeyDown(KeyCode.Space) && paddleBall != null)
         {
             LaunchedBallFromPaddle?.Invoke(paddleBall.transform);

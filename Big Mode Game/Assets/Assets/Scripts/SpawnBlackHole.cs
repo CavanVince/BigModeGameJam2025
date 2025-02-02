@@ -6,7 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class BlackHole : MonoBehaviour
 {
-
+    private float pullForce;
     private void Start()
     {
         transform.DOScale(transform.localScale * 3.5f, 1.5f).SetEase(Ease.Linear).OnComplete(() =>
