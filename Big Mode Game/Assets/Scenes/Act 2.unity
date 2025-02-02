@@ -824,6 +824,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180800683}
   m_CullTransparentMesh: 1
+--- !u!1 &291072992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 291072994}
+  - component: {fileID: 291072993}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &291072993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291072992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f502163c327434ab4bd7e80e6046db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trinketOne: {fileID: 306473816}
+  trinketTwo: {fileID: 2044741915}
+  trinketThree: {fileID: 2143717558}
+  origTrinketScale: {x: 0, y: 0, z: 0}
+  trinketScriptableObjects:
+  - {fileID: 11400000, guid: 65094dfaa03c2054c98c78c87a420273, type: 2}
+  - {fileID: 11400000, guid: 017afc3f6fabd7d4d9c1343a98bdab4e, type: 2}
+  - {fileID: 11400000, guid: 6e6b71b3a14eb654fb821adad1c1e414, type: 2}
+  - {fileID: 11400000, guid: 8a59edaff83282849886cddbac426737, type: 2}
+  - {fileID: 11400000, guid: dd9e0f3621706d143aa241e5654f8fde, type: 2}
+  - {fileID: 11400000, guid: c7586eb3cddc25d40b0f3087a8a2558f, type: 2}
+  - {fileID: 11400000, guid: f097bd0d84eb9764bbf744f56e48cfb9, type: 2}
+  - {fileID: 11400000, guid: 1ac671d2923844849bcfc66433473a5f, type: 2}
+  - {fileID: 11400000, guid: 831976850dd931844ab99c7652770845, type: 2}
+  - {fileID: 11400000, guid: 445a49c3b08e04044a1ce0c3649d74df, type: 2}
+--- !u!4 &291072994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291072992}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306473815
 GameObject:
   m_ObjectHideFlags: 0
@@ -10495,7 +10554,6 @@ GameObject:
   - component: {fileID: 1858963258}
   - component: {fileID: 1858963257}
   - component: {fileID: 1858963256}
-  - component: {fileID: 1858963259}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -10589,32 +10647,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 4
   m_TargetDisplay: 0
---- !u!114 &1858963259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858963254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7f502163c327434ab4bd7e80e6046db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trinketOne: {fileID: 306473816}
-  trinketTwo: {fileID: 2044741915}
-  trinketThree: {fileID: 2143717558}
-  trinketScriptableObjects:
-  - {fileID: 11400000, guid: 65094dfaa03c2054c98c78c87a420273, type: 2}
-  - {fileID: 11400000, guid: 017afc3f6fabd7d4d9c1343a98bdab4e, type: 2}
-  - {fileID: 11400000, guid: 6e6b71b3a14eb654fb821adad1c1e414, type: 2}
-  - {fileID: 11400000, guid: 8a59edaff83282849886cddbac426737, type: 2}
-  - {fileID: 11400000, guid: dd9e0f3621706d143aa241e5654f8fde, type: 2}
-  - {fileID: 11400000, guid: c7586eb3cddc25d40b0f3087a8a2558f, type: 2}
-  - {fileID: 11400000, guid: f097bd0d84eb9764bbf744f56e48cfb9, type: 2}
-  - {fileID: 11400000, guid: 1ac671d2923844849bcfc66433473a5f, type: 2}
-  - {fileID: 11400000, guid: 831976850dd931844ab99c7652770845, type: 2}
-  - {fileID: 11400000, guid: 445a49c3b08e04044a1ce0c3649d74df, type: 2}
 --- !u!1 &1890342277
 GameObject:
   m_ObjectHideFlags: 0
@@ -13152,3 +13184,4 @@ SceneRoots:
   - {fileID: 744666773}
   - {fileID: 814180728}
   - {fileID: 131005429}
+  - {fileID: 291072994}
