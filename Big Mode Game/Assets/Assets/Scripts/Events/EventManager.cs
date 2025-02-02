@@ -44,9 +44,10 @@ public class EventManager : MonoBehaviour
         {
             CanSelect = true;
             SelectedEvent = PotentialEvents[Random.Range(0, PotentialEvents.Count)];
-            Debug.Log(SelectedEvent);
             Text.text = SelectedEvent.DisplayedText;
+            PotentialEvents.Remove(SelectedEvent);
         }
+        //Set case to have only combat encounters if youre out of events somehow
 
         if (SelectedEvent is CombatEncounter)
         {

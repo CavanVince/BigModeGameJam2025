@@ -96,7 +96,7 @@ public class Map : MonoBehaviour
             GameObject newNode;
             if (emptyMap[row, column] == null)
             {
-                emptyMap[row, column] = row == 0 ? new Node(NodeTypes.ENEMY, row, column) : new Node(getRandomNode(), row, column);
+                emptyMap[row, column] = row == 0 ? new Node(NodeTypes.MYSTERY, row, column) : new Node(getRandomNode(), row, column);
                 newNode = Instantiate(NodePrefab, new Vector3(column * 3, row * 3, 0) + mapBackground.position - mapBackground.GetComponent<SpriteRenderer>().bounds.size / 2 + mapOffset, Quaternion.identity);
                 newNode.transform.SetParent(mapBackground, true);
                 nodePrefabs[row, column] = newNode;

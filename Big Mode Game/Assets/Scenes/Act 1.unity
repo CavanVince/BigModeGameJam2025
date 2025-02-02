@@ -9947,7 +9947,7 @@ MonoBehaviour:
   YesOption: {fileID: 1820815970}
   NoOption: {fileID: 1620800745}
   PotentialEvents:
-  - {fileID: 8732196253446487318, guid: ce03f86adf018c7418c5948cc95acbbe, type: 3}
+  - {fileID: -6105373535062731821, guid: d75a580118e2a0a44ab4126818a115f0, type: 3}
   Text: {fileID: 1343989067}
   CanSelect: 1
 --- !u!1 &1514873748
