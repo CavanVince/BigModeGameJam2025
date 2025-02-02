@@ -14,7 +14,7 @@ public class PaddleMovement : MonoBehaviour
     public float paddleSpeed;
 
     private bool invincible = false;
-    private const float invTimer = 1f;
+    private const float invTimer = 3f;
 
     void Awake()
     {

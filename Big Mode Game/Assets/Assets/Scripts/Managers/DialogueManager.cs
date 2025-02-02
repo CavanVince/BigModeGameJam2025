@@ -20,6 +20,12 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI wizardText;
 
+    [SerializeField]
+    private List<AudioSource> wizardAudioSources;
+
+    [SerializeField]
+    private List<AudioClip> wizardVoice;
+
     #region Animate Text
     [SerializeField]
     private float textSpeed;
@@ -145,6 +151,15 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in dialogue.ToCharArray())
         {
             wizardText.text += c;
+
+            foreach (AudioSource source in wizardAudioSources)
+            {
+                if (!source.isPlaying) 
+                {
+                    source.PlayOneShot(wizardVoice[Random.Range(0, wizardVoice.Count)], 0.5f);
+                    break;
+                }
+            }
             yield return new WaitForSeconds(textSpeed);
         }
     }
@@ -153,7 +168,7 @@ public class DialogueManager : MonoBehaviour
     /// Helper function to display text without typing
     /// </summary>
     /// <param name="textToDisplay">The text to display</param>
-    public void DisplayPlainText(string textToDisplay) 
+    public void DisplayPlainText(string textToDisplay)
     {
         wizardText.text = textToDisplay;
     }

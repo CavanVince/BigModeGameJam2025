@@ -37,7 +37,11 @@ public class EventManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+    }
+    private void OnEnable()
+    {
+        YesOption.gameObject.SetActive(true);
+        NoOption.gameObject.SetActive(true);
         GenerateEvent();
     }
 

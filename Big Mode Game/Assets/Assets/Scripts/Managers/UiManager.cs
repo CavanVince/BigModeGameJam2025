@@ -222,6 +222,7 @@ public class UiManager : MonoBehaviour
         shopBackdrop.gameObject.SetActive(true);
 
         // Drop down the brick overlay & current active grid
+        ShopManager.Instance.ZeroTrinkets();
         AnimateCurrentGridDown(shopBackdrop);
         shopBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
