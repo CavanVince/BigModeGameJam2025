@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef645e4b1cf15d44b9adb6ff238c8133
+guid: 89d513a9c015fe04dbf04316ba9d838e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_0
+      name: WizasterTitleScreenBallAnimation_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,14 +111,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee27f2eb5cde6594dacfef5293a40cca
-      internalID: 1624455659
+      spriteID: cd5dff802dba9e14f83126153f1d167a
+      internalID: -896164314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_1
+      name: WizasterTitleScreenBallAnimation_1
       rect:
         serializedVersion: 2
         x: 400
@@ -132,14 +132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1380c4f4f4cfdd646bb2fb942734e78e
-      internalID: 1944448254
+      spriteID: d0993a0d0e74a244897d7d31b1090921
+      internalID: 1452160978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_2
+      name: WizasterTitleScreenBallAnimation_2
       rect:
         serializedVersion: 2
         x: 800
@@ -153,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e361ec472d55b61428408110133e9f6e
-      internalID: 672648863
+      spriteID: 6da2c93aecfd9f7418a74103a6b609f4
+      internalID: -1779982601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_3
+      name: WizasterTitleScreenBallAnimation_3
       rect:
         serializedVersion: 2
         x: 1200
@@ -174,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf43baad8762c5547b6e772a10cfb2a7
-      internalID: -743896643
+      spriteID: 4861c668f8223f0489dbe46184bc2ac8
+      internalID: 339494771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_4
+      name: WizasterTitleScreenBallAnimation_4
       rect:
         serializedVersion: 2
         x: 1600
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c91f9405f8057d24e9f6a572fcfd9ef0
-      internalID: 1222453514
+      spriteID: 82c72573666154541b6c5f5c40cbfd61
+      internalID: 4452479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_5
+      name: WizasterTitleScreenBallAnimation_5
       rect:
         serializedVersion: 2
         x: 2000
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8394ac9e1f7047d4dad0d3b712f6ffdb
-      internalID: 289790969
+      spriteID: 5aefabbdec2bcc24fbae6a35e7f8c3dc
+      internalID: -2066572078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_6
+      name: WizasterTitleScreenBallAnimation_6
       rect:
         serializedVersion: 2
         x: 2400
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e299a444826eea42bed59f3c6613c17
-      internalID: -1103791978
+      spriteID: 7abae86575ed6254ca0a3ebc13fd662a
+      internalID: 2114494177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_7
+      name: WizasterTitleScreenBallAnimation_7
       rect:
         serializedVersion: 2
         x: 2800
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8044b7e9574d179418fbd666b4921dca
-      internalID: -2131585965
+      spriteID: cb555bd1bf1d47c41b30494199497287
+      internalID: -281526421
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_8
+      name: WizasterTitleScreenBallAnimation_8
       rect:
         serializedVersion: 2
         x: 3200
@@ -279,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73752c926c5002741acdc184778839f6
-      internalID: 575500063
+      spriteID: 985bfa5a8dd8f4846aff5a659550e796
+      internalID: -1416100614
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_9
+      name: WizasterTitleScreenBallAnimation_9
       rect:
         serializedVersion: 2
         x: 3600
@@ -300,14 +300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b141ae1eb27c8154ea3497165621eefe
-      internalID: 1077370407
+      spriteID: 1b913b6e83c75b546914338d0af47e1d
+      internalID: -840644981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizasterTitleScreen 1_10
+      name: WizasterTitleScreenBallAnimation_10
       rect:
         serializedVersion: 2
         x: 4000
@@ -321,8 +321,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f1344c7ca5da7346adb8166e03f1f43
-      internalID: 1088354764
+      spriteID: 45ea57a8c7d9c31498e6bce1fd2d725d
+      internalID: 1299296322
       vertices: []
       indices: 
       edges: []
@@ -330,7 +330,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3eacf0c414059ed42a9c9470e22ef38a
+    spriteID: 3a9475f3c46f68f4fbfd041db62da54f
     internalID: 0
     vertices: []
     indices: 
@@ -338,17 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WizasterTitleScreen 1_0: 1624455659
-      WizasterTitleScreen 1_1: 1944448254
-      WizasterTitleScreen 1_10: 1088354764
-      WizasterTitleScreen 1_2: 672648863
-      WizasterTitleScreen 1_3: -743896643
-      WizasterTitleScreen 1_4: 1222453514
-      WizasterTitleScreen 1_5: 289790969
-      WizasterTitleScreen 1_6: -1103791978
-      WizasterTitleScreen 1_7: -2131585965
-      WizasterTitleScreen 1_8: 575500063
-      WizasterTitleScreen 1_9: 1077370407
+      WizasterTitleScreenBallAnimation_0: -896164314
+      WizasterTitleScreenBallAnimation_1: 1452160978
+      WizasterTitleScreenBallAnimation_10: 1299296322
+      WizasterTitleScreenBallAnimation_2: -1779982601
+      WizasterTitleScreenBallAnimation_3: 339494771
+      WizasterTitleScreenBallAnimation_4: 4452479
+      WizasterTitleScreenBallAnimation_5: -2066572078
+      WizasterTitleScreenBallAnimation_6: 2114494177
+      WizasterTitleScreenBallAnimation_7: -281526421
+      WizasterTitleScreenBallAnimation_8: -1416100614
+      WizasterTitleScreenBallAnimation_9: -840644981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
