@@ -52,11 +52,6 @@ public class BasicLevelManager : MonoBehaviour
     public int ScoreMult { get; set; }
 
     /// <summary>
-    /// The minimum multilpier to apply to the score multiplier
-    /// </summary>
-    public int MinScoreMult { get; set; } = 1;
-
-    /// <summary>
     /// A combo counter
     /// </summary>
     public int ComboCounter { get; set; } = 0;
@@ -97,7 +92,7 @@ public class BasicLevelManager : MonoBehaviour
 
         // Player score
         PlayerScore = 0;
-        ScoreMult = MinScoreMult;
+        ScoreMult = PlayerInfo.Instance.MinScoreMult;
 
         // Initialize trinkets
         /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
@@ -131,7 +126,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
             PlayerScore = 0;
-            ScoreMult = MinScoreMult;
+            ScoreMult = PlayerInfo.Instance.MinScoreMult;
             ComboCounter = 0;
             UiManager.Instance.UpdateBallText();
             UiManager.Instance.UpdateMoneyText();
@@ -215,7 +210,7 @@ public class BasicLevelManager : MonoBehaviour
     public void AddScore(int score)
     {
         PlayerScore += score * ScoreMult;
-        ScoreMult += MinScoreMult;
+        ScoreMult += PlayerInfo.Instance.MinScoreMult;
 
         UiManager.Instance.UpdateScoreUI();
     }
@@ -226,7 +221,7 @@ public class BasicLevelManager : MonoBehaviour
     public void ResetScoreMult()
     {
         if (SpawnedBallCount > 1) return;
-        ScoreMult = MinScoreMult;
+        ScoreMult = PlayerInfo.Instance.MinScoreMult;
 
         ComboCounter = 0;
         UiManager.Instance.UpdateMultUI();

@@ -84,9 +84,7 @@ public class EventManager : MonoBehaviour
             if(SelectedEvent != null && CanSelect)
             {
                 Text.text = SelectedEvent.ReturnConfirmedResult();
-                CanSelect = false;
-                YesOption.gameObject.SetActive(false);
-                NoOption.gameObject.SetActive(false);
+                //CanSelect = false;
                 BasicLevelManager.Instance.CanGoToNextScreen = true;
             }
         }

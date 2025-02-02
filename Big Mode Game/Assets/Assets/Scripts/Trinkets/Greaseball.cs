@@ -10,8 +10,8 @@ public class Greaseball : TrinketParent
     public Greaseball() 
     {
         BasicLevelManager.SpawnedBall += TriggerPassive;
-        BasicLevelManager.Instance.MinScoreMult += 1;
-        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+        PlayerInfo.Instance.MinScoreMult += 1;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
     public override void TriggerPassive(Transform trans) 
     {
@@ -23,8 +23,8 @@ public class Greaseball : TrinketParent
     public override void RemoveTrinket()
     {
         BasicLevelManager.SpawnedBall -= TriggerPassive;
-        BasicLevelManager.Instance.MinScoreMult -= 1;
-        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+        PlayerInfo.Instance.MinScoreMult -= 1;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 
 }

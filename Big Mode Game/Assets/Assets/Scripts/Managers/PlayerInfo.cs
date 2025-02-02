@@ -34,6 +34,10 @@ public class PlayerInfo : MonoBehaviour
     // The baseline number of balls the player starts with
     public int StartingBallCount { get; set; } = 5;
 
+    /// <summary>
+    /// The minimum multilpier to apply to the score multiplier
+    /// </summary>
+    public int MinScoreMult { get; set; } = 1;
 
     void Awake()
 

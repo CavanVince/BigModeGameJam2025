@@ -22,7 +22,7 @@ public class ShopItem : MonoBehaviour
 
     private void Awake()
     {
-        origScale = transform.localScale;
+        origScale = ShopManager.Instance.origTrinketScale;
         shouldHover = true;
         audioSource = GetComponent<AudioSource>();
     }
@@ -89,5 +89,10 @@ public class ShopItem : MonoBehaviour
         transform.Find("Trinket Sprite").GetComponent<Image>().sprite = trinketSo.trinketSprite;
         transform.Find("Item Cost Text").GetComponent<TextMeshProUGUI>().text = "$" + trinketSo.trinketPrice.ToString();
         currentTrinketSo = trinketSo;
+    }
+
+    private void OnDisable()
+    {
+        ShopManager.Instance.InShop = false;
     }
 }

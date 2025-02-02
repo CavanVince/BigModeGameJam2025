@@ -226,7 +226,9 @@ public class UiManager : MonoBehaviour
         shopBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
+            ShopManager.Instance.GenerateShopTrinkets();
             ShopManager.Instance.AnimateTrinkets();
+            ShopManager.Instance.InShop = true;
             BasicLevelManager.Instance.CanGoToNextScreen = true;
 
             // Wizard dialogue

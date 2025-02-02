@@ -14,13 +14,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private Transform trinketThree;
 
-    private Vector3 origTrinketScale;
+    public Vector3 origTrinketScale;
 
     public static ShopManager Instance;
 
     public List<ShopTrinketScriptableObject> trinketScriptableObjects;
 
-    public bool InShop { get; private set; }
+    public bool InShop { get; set; } = false;
 
     private void Start()
     {
@@ -33,20 +33,19 @@ public class ShopManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        InShop = true;
         origTrinketScale = trinketOne.localScale;
 
         trinketOne.localScale = new Vector3(trinketOne.localScale.x, 0, trinketOne.localScale.z);
         trinketTwo.localScale = new Vector3(trinketTwo.localScale.x, 0, trinketTwo.localScale.z);
         trinketThree.localScale = new Vector3(trinketThree.localScale.x, 0, trinketThree.localScale.z);
 
-        GenerateShopTrinkets();
+        
     }
 
     /// <summary>
     /// Helper function to generate trinkets for the shop
     /// </summary>
-    private void GenerateShopTrinkets()
+    public void GenerateShopTrinkets()
     {
         // Get three unique trinkets from the list
         ShopTrinketScriptableObject soTrinketOne = trinketScriptableObjects[Random.Range(0, trinketScriptableObjects.Count)];
@@ -75,10 +74,5 @@ public class ShopManager : MonoBehaviour
         trinketOne.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
         trinketTwo.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
         trinketThree.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
-    }
-
-    private void OnDisable()
-    {
-        InShop = false;
     }
 }

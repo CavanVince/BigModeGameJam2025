@@ -37,12 +37,10 @@ public class OptionSelect : MonoBehaviour
         switch (Reference)
         {
             case OptionButton.Confirm:
-                shouldHover = false;
                 EventManager.Instance.SelectResult(true);
                 
                 break;
             case OptionButton.Deny:
-                shouldHover = false;
                 EventManager.Instance.SelectResult(false);
                 break;
         }

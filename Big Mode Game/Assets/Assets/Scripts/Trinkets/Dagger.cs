@@ -9,15 +9,15 @@ public class Dagger : TrinketParent
     {
         PlayerInfo.Instance.StartingBallCount--;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-        BasicLevelManager.Instance.MinScoreMult += 2;
-        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+        PlayerInfo.Instance.MinScoreMult += 2;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 
     public override void RemoveTrinket()
     {
         PlayerInfo.Instance.StartingBallCount++;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-        BasicLevelManager.Instance.MinScoreMult -= 2;
-        BasicLevelManager.Instance.ScoreMult = BasicLevelManager.Instance.MinScoreMult;
+        PlayerInfo.Instance.MinScoreMult -= 2;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 }
