@@ -20,6 +20,7 @@ public class Boss1Manager : BossManagerParent
         BasicLevelManager.Instance.BossManager = this;
         bricks.SetActive(false);
         display = Screen.mainWindowDisplayInfo;
+        Camera.main.GetComponent<AudioSource>().Stop();
         StartCoroutine(FightOpening());
     }
 

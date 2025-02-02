@@ -23,12 +23,6 @@ public class BasicLevelManager : MonoBehaviour
     [SerializeField]
     Transform tilemapParent;
 
-    [SerializeField]
-    private Sprite blackHoleSprite;
-
-    [SerializeField]
-    private Sprite lightningStrikeSprite;
-
     // The container for the level's brick prefabs
     public Transform BrickParent { get; set; }
 
@@ -109,6 +103,8 @@ public class BasicLevelManager : MonoBehaviour
         /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
         HealthPotion healthPotion = new HealthPotion();*/
+
+
         /*SpellOfGigantification spell = new SpellOfGigantification();
         Greaseball greaseBall = new Greaseball();
         BoosterRocket boosterRocket = new BoosterRocket();*/
@@ -120,7 +116,6 @@ public class BasicLevelManager : MonoBehaviour
 
         //LightningStrikeTrinket lightningStrikeTrinket = new LightningStrikeTrinket(lightningStrikeSprite);
         //BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket(blackHoleSprite);
-
     }
 
     private void Update()
