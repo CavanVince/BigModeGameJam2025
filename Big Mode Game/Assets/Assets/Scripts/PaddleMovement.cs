@@ -64,10 +64,10 @@ public class PaddleMovement : MonoBehaviour
         }
         else if (!invincible && collision.transform.CompareTag("Brick") == true) // Check for brick (used for 3rd boss)
         {
-            PlayerInfo.Instance.PlayerBallCount = Mathf.Clamp(PlayerInfo.Instance.PlayerBallCount - 1, 0, int.MaxValue);
-            UiManager.Instance.UpdateBallText();
+            PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.PlayerBallCount - 1; 
+            
 
-            if (PlayerInfo.Instance.PlayerBallCount <= 0)
+            if (PlayerInfo.Instance.PlayerBallCount < 0)
             {
                 BasicLevelManager.Instance.DestroyBallsGlobal();
                 BasicLevelManager.Instance.CheckGameOver();
@@ -76,11 +76,14 @@ public class PaddleMovement : MonoBehaviour
             {
                 BasicLevelManager.Instance.ScreenShake();
             }
+            PlayerInfo.Instance.PlayerBallCount = Mathf.Clamp(PlayerInfo.Instance.PlayerBallCount, 0, int.MaxValue);
+            UiManager.Instance.UpdateBallText();
+            invincible = true;
             StartCoroutine(IFrameTimer());
         }
     }
 
-    IEnumerator IFrameTimer() 
+    public IEnumerator IFrameTimer() 
     {
         invincible = true;
         yield return new WaitForSeconds(invTimer);

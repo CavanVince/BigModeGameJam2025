@@ -95,9 +95,9 @@ public class BasicLevelManager : MonoBehaviour
         ScoreMult = PlayerInfo.Instance.MinScoreMult;
 
         // Initialize trinkets
-        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        //SirBounceAlot sirBounceAlot = new SirBounceAlot();
         Shotgun shotgun = new Shotgun();
-        HealthPotion healthPotion = new HealthPotion();*/
+        //HealthPotion healthPotion = new HealthPotion();
 
 
         /*SpellOfGigantification spell = new SpellOfGigantification();
@@ -200,8 +200,11 @@ public class BasicLevelManager : MonoBehaviour
             ScreenShake();
 
             SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
+
+            // Iframe stuff for boss 3
+            StartCoroutine(PaddleMovement.Instance.IFrameTimer());
         }
-        else if (PlayerInfo.Instance.PlayerBallCount <= 0)
+        else if (SpawnedBallCount == 0 && PlayerInfo.Instance.PlayerBallCount <= 0)
         {
             Debug.Log("Game Over!");
             ScreenShake();

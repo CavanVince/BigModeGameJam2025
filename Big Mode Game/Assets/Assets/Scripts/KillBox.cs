@@ -12,7 +12,6 @@ public class KillBox : MonoBehaviour
         // Destroy the ball
         if (collision.transform.CompareTag("Ball") == true)
         {
-            Debug.Log(willKillBall);
             HitKillBox?.Invoke(transform, collision.transform);
             if (willKillBall == true)
             {
