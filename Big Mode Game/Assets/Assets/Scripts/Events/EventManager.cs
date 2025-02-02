@@ -8,13 +8,13 @@ public class EventManager : MonoBehaviour
     public static EventManager Instance;
 
     [SerializeField]
-    private OptionSelect YesOption;
+    public OptionSelect YesOption;
 
     [SerializeField]
-    private OptionSelect NoOption;
+    public OptionSelect NoOption;
 
     [SerializeField]
-    List<MapEvent> PotentialEvents;
+    List<EventObjectParent> PotentialEvents;
 
     [SerializeField]
     TextMeshProUGUI Text;
@@ -44,7 +44,35 @@ public class EventManager : MonoBehaviour
         {
             CanSelect = true;
             SelectedEvent = PotentialEvents[Random.Range(0, PotentialEvents.Count)];
+            Debug.Log(SelectedEvent);
             Text.text = SelectedEvent.DisplayedText;
+        }
+
+        if (SelectedEvent is CombatEncounter)
+        {
+            YesOption.gameObject.SetActive(false);
+            NoOption.gameObject.SetActive(false);
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+        }
+
+        if (SelectedEvent is ShopEncounter)
+        {
+            YesOption.gameObject.SetActive(false);
+            NoOption.gameObject.SetActive(false);
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (SelectedEvent is CombatEncounter && Input.GetKeyDown(KeyCode.Space))
+        {
+            BasicLevelManager.Instance.LoadEnemyLevel();
+        }
+
+        if (SelectedEvent is ShopEncounter && Input.GetKeyDown(KeyCode.Space))
+        {
+            BasicLevelManager.Instance.LoadShop();
         }
     }
 
@@ -56,6 +84,9 @@ public class EventManager : MonoBehaviour
             {
                 Text.text = SelectedEvent.ReturnConfirmedResult();
                 CanSelect = false;
+                YesOption.gameObject.SetActive(false);
+                NoOption.gameObject.SetActive(false);
+                BasicLevelManager.Instance.CanGoToNextScreen = true;
             }
         }
         else if(!isConfirm)
@@ -64,6 +95,9 @@ public class EventManager : MonoBehaviour
             {
                 Text.text = SelectedEvent.ReturnRejectedResult();
                 CanSelect= false;
+                YesOption.gameObject.SetActive(false);
+                NoOption.gameObject.SetActive(false);
+                BasicLevelManager.Instance.CanGoToNextScreen = true;
             }
         }
     }

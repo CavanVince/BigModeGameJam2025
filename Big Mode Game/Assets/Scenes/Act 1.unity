@@ -5815,7 +5815,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1094195398
 Transform:
   m_ObjectHideFlags: 0
@@ -7792,7 +7792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1339513218
 Transform:
   m_ObjectHideFlags: 0
@@ -9947,8 +9947,9 @@ MonoBehaviour:
   YesOption: {fileID: 1820815970}
   NoOption: {fileID: 1620800745}
   PotentialEvents:
-  - {fileID: 2977962641544388610, guid: a9bcddd3000a0144d8bf93b64c1ae9db, type: 3}
+  - {fileID: 8732196253446487318, guid: ce03f86adf018c7418c5948cc95acbbe, type: 3}
   Text: {fileID: 1343989067}
+  CanSelect: 1
 --- !u!1 &1514873748
 GameObject:
   m_ObjectHideFlags: 0

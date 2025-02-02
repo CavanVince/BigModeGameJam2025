@@ -44,7 +44,6 @@ public class OptionSelect : MonoBehaviour
             case OptionButton.Deny:
                 shouldHover = false;
                 EventManager.Instance.SelectResult(false);
-                Debug.Log("Deny");
                 break;
         }
     }
