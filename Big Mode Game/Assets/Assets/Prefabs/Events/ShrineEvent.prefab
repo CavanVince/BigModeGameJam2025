@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2908588423572951266}
-  - component: {fileID: 6383083537938689812}
+  - component: {fileID: -7483591880222585670}
   m_Layer: 0
-  m_Name: WishingWell
+  m_Name: ShrineEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6383083537938689812
+--- !u!114 &-7483591880222585670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,8 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6266513664009303097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b63820bd73a3fa44db5efbdf2d5bd5ae, type: 3}
+  m_Script: {fileID: 11500000, guid: b55110b38eff7ba40964d6bbe112b475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayedText: You come across an old wishing well. Would you like to make a wish.
-    -1 coin per wish
+  DisplayedText: You come across a mystical shrine. Would you like to offer a small
+    donation? -1 Coin

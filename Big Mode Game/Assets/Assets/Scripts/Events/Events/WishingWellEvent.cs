@@ -7,16 +7,18 @@ public class WishingWellEvent : EventObjectParent
 {
     public override string ReturnConfirmedResult()
     {
-        if (PlayerInfo.Instance.PlayerMoney > 0)
+        if (PlayerInfo.Instance.PlayerMoney < 1 )
         {
-            return "You don't have any money to toss away";
+            EventManager.Instance.YesOption.gameObject.SetActive(false);
+            EventManager.Instance.NoOption.gameObject.SetActive(false);
+            return "You don't have any money to wish away right now";
         }
-        else if (Random.Range(1, 26) < 24)
+        else if (Random.Range(1, 26) < 24 && PlayerInfo.Instance.PlayerMoney > 0)
         {
             PlayerInfo.Instance.PlayerMoney--;
             UiManager.Instance.UpdateMoneyText();
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "Better luck next time";
+            return "Your wishes go unanswered for now";
         }
         else if (PlayerInfo.Instance.AddTrinket(ShopManager.Instance.trinketScriptableObjects[Random.Range(0, ShopManager.Instance.trinketScriptableObjects.Count)]))
         {

@@ -2,48 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LotteryEvent : EventObjectParent
+public class ShrineEvent : EventObjectParent
 {
     public override string ReturnConfirmedResult()
     {
-        if (PlayerInfo.Instance.PlayerMoney < 5)
+        if (PlayerInfo.Instance.PlayerMoney < 1)
         {
-            EventManager.Instance.YesOption.gameObject.SetActive(false);
-            EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You don't have enough money to enter now";
-        }
-        else if(Random.Range(0, 11) < 10)
-        {
-            PlayerInfo.Instance.PlayerMoney -= 5;
-            UiManager.Instance.UpdateMoneyText();
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You win nothing. Better luck next time";
+            return "You have no money to donate right now";
+        }
+        else if(Random.Range(1,6) > 4)
+        {
+            EventManager.Instance.YesOption.gameObject.SetActive(false);
+            EventManager.Instance.NoOption.gameObject.SetActive(false);
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+            PlayerInfo.Instance.PlayerMoney--;
+            UiManager.Instance.UpdateMoneyText();
+            PlayerInfo.Instance.StartingBallCount++;
+            PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
+            return "A white glow descends towards you. You gain another ball!";
         }
         else
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            PlayerInfo.Instance.PlayerMoney += 50;
-            UiManager.Instance.UpdateMoneyText();
-            return "Congratulations, you've won our grand prize of 50 dollars!";
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+            return "You feel mystical!";
         }
     }
 
     public override string ReturnRejectedResult()
     {
-        if(PlayerInfo.Instance.PlayerMoney > 4)
+        if (PlayerInfo.Instance.PlayerMoney < 1)
         {
+            //Add a money trinket
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You walk away money in hand wondering, what if...?";
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+            return "You had no money to waste anyway";
         }
         else
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You walk away knowing you couldn't afford it";
+            BasicLevelManager.Instance.CanGoToNextScreen = true;
+            return "You walk away";
         }
     }
 }

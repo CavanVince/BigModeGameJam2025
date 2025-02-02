@@ -17,6 +17,9 @@ public class EventManager : MonoBehaviour
     List<EventObjectParent> PotentialEvents;
 
     [SerializeField]
+    List<EventObjectParent> BackupEvents;
+
+    [SerializeField]
     TextMeshProUGUI Text;
 
     public bool CanSelect = true;
@@ -47,8 +50,14 @@ public class EventManager : MonoBehaviour
             Text.text = SelectedEvent.DisplayedText;
             PotentialEvents.Remove(SelectedEvent);
         }
-        //Set case to have only combat encounters if youre out of events somehow
+        else
+        {
+            CanSelect = true;
+            SelectedEvent = BackupEvents[Random.Range(0, PotentialEvents.Count)];
+            Text.text = SelectedEvent.DisplayedText;
+        }
 
+        //Special cases
         if (SelectedEvent is CombatEncounter)
         {
             YesOption.gameObject.SetActive(false);

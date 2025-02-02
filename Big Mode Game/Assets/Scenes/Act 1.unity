@@ -9947,7 +9947,10 @@ MonoBehaviour:
   YesOption: {fileID: 1820815970}
   NoOption: {fileID: 1620800745}
   PotentialEvents:
-  - {fileID: 6383083537938689812, guid: 9a2f782a931b4884888cbd22efe7b2d4, type: 3}
+  - {fileID: -6105373535062731821, guid: d75a580118e2a0a44ab4126818a115f0, type: 3}
+  BackupEvents:
+  - {fileID: 8007150355844273482, guid: 230d1d3aeea0c8d438217bd33b8c39b3, type: 3}
+  - {fileID: 8732196253446487318, guid: ce03f86adf018c7418c5948cc95acbbe, type: 3}
   Text: {fileID: 1343989067}
   CanSelect: 1
 --- !u!1 &1514873748
@@ -10679,6 +10682,7 @@ MonoBehaviour:
   trinketOne: {fileID: 306473816}
   trinketTwo: {fileID: 2044741915}
   trinketThree: {fileID: 2143717558}
+  origTrinketScale: {x: 0, y: 0, z: 0}
   trinketScriptableObjects:
   - {fileID: 11400000, guid: 65094dfaa03c2054c98c78c87a420273, type: 2}
   - {fileID: 11400000, guid: 017afc3f6fabd7d4d9c1343a98bdab4e, type: 2}

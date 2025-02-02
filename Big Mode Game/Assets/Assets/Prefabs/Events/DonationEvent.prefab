@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef983ee575868f34a8378a7c4e9d592f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayedText: You come across a young wizard. He asks if you are willing to part
-    with just a single coin. Will you help him?
+  DisplayedText: You come across a young wizard seeking funds. Any amount could help.
+    Will you donate? -1 Dollar
