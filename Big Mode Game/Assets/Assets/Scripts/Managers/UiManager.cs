@@ -277,8 +277,23 @@ public class UiManager : MonoBehaviour
         });
     }
 
-    public void WizardExit() 
+    /// <summary>
+    /// Helper function to animate the wizard exiting
+    /// </summary>
+    public void WizardExit()
     {
         wizardAnim.Play($"Base Layer.Wizard Run", 0, 0f);
+    }
+
+
+    /// <summary>
+    /// Helper function to emulate the wizard taking damage
+    /// </summary>
+    public void TakeDamage()
+    {
+        wizardAnim.transform.DORotate(new Vector3(0, 360, 0), 0.35f, RotateMode.WorldAxisAdd).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            wizardAnim.Play($"Base Layer.Wizard Dizzy", 0, 0f);
+        });
     }
 }

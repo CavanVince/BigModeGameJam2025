@@ -76,7 +76,7 @@ public class Boss1Manager : BossManagerParent
         yield return new WaitForSeconds(5);
 
         Screen.SetResolution(960, 540, FullScreenMode.Windowed);
-        DialogueManager.Instance.StartDialogue("Now, let the fun begin!");
+        DialogueManager.Instance.StartDialogue("Good luck!");
         yield return new WaitForSeconds(5);
 
         DialogueManager.Instance.MoveToTopRight();

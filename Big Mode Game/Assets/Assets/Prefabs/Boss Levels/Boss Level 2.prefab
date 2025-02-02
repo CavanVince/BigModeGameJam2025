@@ -1132,6 +1132,10 @@ MonoBehaviour:
   wizardRunClip: {fileID: 8300000, guid: 0f5484bfb5606f64884196b25db12459, type: 3}
   bricks: {fileID: 1715217401450064772}
   bossMusic: {fileID: 8300000, guid: eb8785051fd71774587a86d896d5981a, type: 3}
+  gemPatterns:
+  - {fileID: 6555337164736089166, guid: 3a2ac978f63e26b42aa135b137e3ecc5, type: 3}
+  - {fileID: 6555337164736089166, guid: 30fc8334e5baa6d47a988990193e885f, type: 3}
+  - {fileID: 6555337164736089166, guid: 5d58ad48930a2794d837dc39adf64a8d, type: 3}
 --- !u!1 &8462864082487191922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6148977862086598800}
   - component: {fileID: 5441792292269958093}
+  - component: {fileID: 972517567173185248}
   m_Layer: 0
   m_Name: Boss Top Wall
   m_TagString: Untagged
@@ -1209,6 +1214,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20, y: 3}
   m_EdgeRadius: 0
+--- !u!114 &972517567173185248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8462864082487191922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 402a01ed19bae9f4db71d9feed61b5c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9103991161747110244
 GameObject:
   m_ObjectHideFlags: 0
