@@ -118,8 +118,8 @@ public class BasicLevelManager : MonoBehaviour
         GhostBall blueBrickBuff = new GhostBall();
         Jester redBrickBuff = new Jester();*/
 
-        LightningStrikeTrinket lightningStrikeTrinket = new LightningStrikeTrinket(lightningStrikeSprite);
-        BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket(blackHoleSprite);
+        //LightningStrikeTrinket lightningStrikeTrinket = new LightningStrikeTrinket(lightningStrikeSprite);
+        //BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket(blackHoleSprite);
 
     }
 
