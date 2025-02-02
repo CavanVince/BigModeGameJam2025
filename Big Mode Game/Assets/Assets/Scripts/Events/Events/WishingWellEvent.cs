@@ -18,7 +18,7 @@ public class WishingWellEvent : EventObjectParent
             PlayerInfo.Instance.PlayerMoney--;
             UiManager.Instance.UpdateMoneyText();
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "Your wishes go unanswered for now";
+            return "Your wishes go unanswered for now. Wish again? -1 Coin";
         }
         else if (PlayerInfo.Instance.AddTrinket(ShopManager.Instance.trinketScriptableObjects[Random.Range(0, ShopManager.Instance.trinketScriptableObjects.Count)]))
         {
@@ -32,7 +32,7 @@ public class WishingWellEvent : EventObjectParent
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             PlayerInfo.Instance.MinScoreMult += 3;
             UiManager.Instance.UpdateMultUI();
-            return "You're feeling very lucky!";
+            return "You're feeling very lucky! +3 Mult";
         }
     }
 

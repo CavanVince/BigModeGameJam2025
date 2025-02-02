@@ -29,7 +29,7 @@ public class ShrineEvent : EventObjectParent
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You feel mystical!";
+            return "You feel mystical!?";
         }
     }
 
@@ -41,7 +41,7 @@ public class ShrineEvent : EventObjectParent
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You had no money to waste anyway";
+            return "You had no money to give anyway";
         }
         else
         {
