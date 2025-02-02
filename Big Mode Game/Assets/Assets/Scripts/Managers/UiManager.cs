@@ -54,6 +54,8 @@ public class UiManager : MonoBehaviour
 
     private Transform currentActiveGrid;
 
+    private AudioSource transitionSource;
+
     void Start()
     {
         // Singleton pattern
@@ -70,6 +72,7 @@ public class UiManager : MonoBehaviour
 
         scoreBox = scoreText.transform.parent;
         scoreBoxInitScale = scoreBox.localScale;
+        transitionSource = GetComponent<AudioSource>();
         UpdateScoreUI(false);
         UpdateBallText();
         UpdateMoneyText();
@@ -155,9 +158,10 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(scoreBackdrop, 0.25f);
+        transitionSource.Play();
         scoreBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).SetDelay(0.25f).OnComplete(() =>
         {
-            BasicLevelManager.Instance.ScreenShake();
+            //BasicLevelManager.Instance.ScreenShake();
         });
     }
 
@@ -178,9 +182,10 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(mapBackdrop);
+        transitionSource.Play();
         mapBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            BasicLevelManager.Instance.ScreenShake();
+            //BasicLevelManager.Instance.ScreenShake();
         });
     }
 
@@ -200,9 +205,10 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(level);
+        transitionSource.Play();
         level.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            BasicLevelManager.Instance.ScreenShake();
+            //BasicLevelManager.Instance.ScreenShake();
             UpdateScoreUI();
             BasicLevelManager.Instance.BrickParent = level.Find("Bricks");
             BasicLevelManager.Instance.SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
@@ -224,9 +230,10 @@ public class UiManager : MonoBehaviour
         // Drop down the brick overlay & current active grid
         ShopManager.Instance.ZeroTrinkets();
         AnimateCurrentGridDown(shopBackdrop);
+        transitionSource.Play();
         shopBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            BasicLevelManager.Instance.ScreenShake();
+            //BasicLevelManager.Instance.ScreenShake();
             ShopManager.Instance.GenerateShopTrinkets();
             ShopManager.Instance.AnimateTrinkets();
             ShopManager.Instance.InShop = true;
@@ -251,9 +258,10 @@ public class UiManager : MonoBehaviour
 
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(eventBackdrop);
+        transitionSource.Play();
         eventBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            BasicLevelManager.Instance.ScreenShake();
+            //BasicLevelManager.Instance.ScreenShake();
             BasicLevelManager.Instance.CanGoToNextScreen = false;
 
             // Wizard dialogue

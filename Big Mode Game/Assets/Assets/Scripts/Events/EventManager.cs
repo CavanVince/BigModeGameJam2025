@@ -45,6 +45,11 @@ public class EventManager : MonoBehaviour
         GenerateEvent();
     }
 
+    private void OnDisable()
+    {
+        DialogueManager.Instance.DisableWizardSpeak();
+    }
+
     private void GenerateEvent()
     {
         if(PotentialEvents.Count != 0)
