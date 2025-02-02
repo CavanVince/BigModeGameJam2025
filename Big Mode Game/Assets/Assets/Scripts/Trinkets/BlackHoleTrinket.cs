@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 /// <summary>
@@ -9,11 +10,11 @@ using UnityEngine;
 public class BlackHoleTrinket : TrinketParent
 {
     private int bounceCounter = 0;
-    private Sprite blackHoleSprite;
-    public BlackHoleTrinket(Sprite sprite) 
+    private AnimatorController blackHoleAnim;
+    public BlackHoleTrinket(AnimatorController anim) 
     {
             BallController.ballBounced += TriggerPassive;
-        blackHoleSprite = sprite;
+        blackHoleAnim = anim;
     }
 
     public override void TriggerPassive(Transform ballTransform)
@@ -25,7 +26,7 @@ public class BlackHoleTrinket : TrinketParent
             explosion.layer = 6;
             explosion.AddComponent<CircleCollider2D>();
             explosion.AddComponent<Rigidbody2D>().gravityScale = 0;
-            explosion.AddComponent<SpriteRenderer>().sprite = blackHoleSprite;
+            explosion.AddComponent<Animator>().runtimeAnimatorController = blackHoleAnim;
             explosion.GetComponent<SpriteRenderer>().sortingOrder = 5;
             explosion.transform.position = ballTransform.position;
             explosion.AddComponent<BlackHole>();

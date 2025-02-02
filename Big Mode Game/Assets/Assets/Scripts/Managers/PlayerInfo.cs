@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,10 +19,10 @@ public class PlayerInfo : MonoBehaviour
     public List<TrinketParent> PlayerTrinkets { get; private set; } = new List<TrinketParent> { null, null, null, null, null };
 
     [SerializeField]
-    private Sprite blackHoleSprite;
+    private AnimatorController blackHoleAnim;
 
     [SerializeField]
-    private Sprite lightningStrikeSprite;
+    private AnimatorController lightningStrikeAnim;
 
     /// <summary>
     /// The player's money
@@ -105,16 +106,28 @@ public class PlayerInfo : MonoBehaviour
                         PlayerTrinkets[i] = new SpellOfGigantification();
                         break;
                     case TrinketType.BLACKHOLE:
-                        PlayerTrinkets[i] = new BlackHoleTrinket(blackHoleSprite);
+                        PlayerTrinkets[i] = new BlackHoleTrinket(blackHoleAnim);
                         break;
                     case TrinketType.LIGHTNING:
-                        PlayerTrinkets[i] = new LightningStrikeTrinket(lightningStrikeSprite);
+                        PlayerTrinkets[i] = new LightningStrikeTrinket(lightningStrikeAnim);
                         break;
                     case TrinketType.MISTAMONEYBAGS:
                         PlayerTrinkets[i] = new MistaMoneybags();
                         break;
                     case TrinketType.LIFETREE:
                         PlayerTrinkets[i] = new LifeTree();
+                        break;
+                    case TrinketType.WIZARDCAP:
+                        PlayerTrinkets[i] = new WizardCap();
+                        break;
+                    case TrinketType.POGO:
+                        PlayerTrinkets[i] = new Pogo();
+                        break;
+                    case TrinketType.CHAOS:
+                        PlayerTrinkets[i] = new Chaos();
+                        break;
+                    case TrinketType.ARROW:
+                        PlayerTrinkets[i] = new Arrow();
                         break;
                     default:
                         Debug.Log("ERROR: TRINKET TYPE NOT IN PLAYER INFO!");

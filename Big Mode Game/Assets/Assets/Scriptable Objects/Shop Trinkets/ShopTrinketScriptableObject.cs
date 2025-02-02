@@ -22,6 +22,10 @@ public enum TrinketType {
     BLACKHOLE,
     GAMBLERSCOIN,
     LIFETREE,
+    WIZARDCAP,
+    POGO,
+    CHAOS,
+    ARROW,
 }
 
 [CreateAssetMenu(fileName ="New Shop Trinket", menuName ="Trinkets")]

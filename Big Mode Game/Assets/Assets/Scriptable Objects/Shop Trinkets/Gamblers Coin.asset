@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
   m_Name: Gamblers Coin
   m_EditorClassIdentifier: 
-  trinketSprite: {fileID: 0}
-  trinketPrice: 0
+  trinketSprite: {fileID: 21300000, guid: 88add1c180f9d0d45a38ef0f15ed0003, type: 3}
+  trinketPrice: 5
   trinketType: 14
   trinketDescription: when you enter a shop, lose up to 5 coins or gain up to 10
     coins

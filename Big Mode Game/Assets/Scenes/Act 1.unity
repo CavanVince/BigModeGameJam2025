@@ -354,6 +354,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -131027686780877771, guid: 9855e5b179d509c41a91eadad3e0ecb5,
+        type: 3}
+      propertyPath: blackHoleAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 10995590f735f004db802eed862f913a, type: 2}
+    - target: {fileID: -131027686780877771, guid: 9855e5b179d509c41a91eadad3e0ecb5,
+        type: 3}
+      propertyPath: blackHoleSprite
+      value: 
+      objectReference: {fileID: -112258725, guid: d721a8de68acec846af2f4cc4f90e1b3,
+        type: 3}
+    - target: {fileID: -131027686780877771, guid: 9855e5b179d509c41a91eadad3e0ecb5,
+        type: 3}
+      propertyPath: lightningStrikeAnim
+      value: 
+      objectReference: {fileID: 9100000, guid: 9efc19b21c495b149b049fab24aae34d, type: 2}
     - target: {fileID: 2520469405888267055, guid: 9855e5b179d509c41a91eadad3e0ecb5,
         type: 3}
       propertyPath: m_Name

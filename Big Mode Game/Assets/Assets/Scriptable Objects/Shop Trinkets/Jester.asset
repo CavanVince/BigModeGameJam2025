@@ -15,4 +15,4 @@ MonoBehaviour:
   trinketSprite: {fileID: 1881305696, guid: 585330f829859ca4fbedc702428d3963, type: 3}
   trinketPrice: 5
   trinketType: 6
-  trinketDescription: Gimme the mult
+  trinketDescription: Adds +4 mult when you hit a red brick

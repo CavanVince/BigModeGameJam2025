@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Lightning
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: 445168e5928c26f42a9e383996df0837, type: 3}
-  trinketPrice: 0
+  trinketPrice: 5
   trinketType: 12
   trinketDescription: Spawns lightning bolts to destroy gems

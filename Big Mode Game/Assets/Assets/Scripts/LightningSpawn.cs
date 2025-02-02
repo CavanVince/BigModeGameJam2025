@@ -7,7 +7,7 @@ public class LightningSpawn: MonoBehaviour
 {
     private void Start()
     {
-        transform.DOScale(transform.localScale, .5f).SetEase(Ease.Linear).OnComplete(() =>
+        transform.DOScale(transform.localScale, .667f).SetEase(Ease.Linear).OnComplete(() =>
         {
             Destroy(gameObject);
 

@@ -15,4 +15,4 @@ MonoBehaviour:
   trinketSprite: {fileID: 21300000, guid: e554343e41a8ff64cab9c01bb62a9481, type: 3}
   trinketPrice: 5
   trinketType: 7
-  trinketDescription: Get off my lawn
+  trinketDescription: Shoots five balls from the paddle

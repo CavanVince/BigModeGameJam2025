@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
   m_Name: Black Hole
   m_EditorClassIdentifier: 
-  trinketSprite: {fileID: 21300000, guid: f8d4d32eb68de2a488ca24e106e666d2, type: 3}
-  trinketPrice: 0
+  trinketSprite: {fileID: 21300000, guid: f16958bc4756c58469a78d2f8c64fee1, type: 3}
+  trinketPrice: 5
   trinketType: 13
   trinketDescription: Spawns a black hole that grows in size to break bricks over
     2.5 seconds
