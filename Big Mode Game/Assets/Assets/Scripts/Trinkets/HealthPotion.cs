@@ -9,13 +9,13 @@ public class HealthPotion : TrinketParent
 {
     public HealthPotion()
     {
-        BasicLevelManager.Instance.StartingBallCount++;
-        BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
+        PlayerInfo.Instance.StartingBallCount++;
+        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
     }
 
     public override void RemoveTrinket()
     {
-        BasicLevelManager.Instance.StartingBallCount--;
-        BasicLevelManager.Instance.PlayerBallCount = BasicLevelManager.Instance.StartingBallCount;
+        PlayerInfo.Instance.StartingBallCount--;
+        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
     }
 }

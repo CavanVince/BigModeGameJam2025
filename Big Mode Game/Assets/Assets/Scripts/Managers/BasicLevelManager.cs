@@ -40,11 +40,6 @@ public class BasicLevelManager : MonoBehaviour
     // The number of balls currently in the world
     public int SpawnedBallCount { get; set; } = 0;
 
-    // The number of balls the player has left
-    public int PlayerBallCount { get; set; } = 0;
-
-    // The baseline number of balls the player starts with
-    public int StartingBallCount { get; set; } = 5;
     #endregion
 
     public static Action<Transform> SpawnedBall;
@@ -109,7 +104,6 @@ public class BasicLevelManager : MonoBehaviour
         // Player score
         PlayerScore = 0;
         ScoreMult = MinScoreMult;
-        PlayerBallCount = StartingBallCount;
 
         // Initialize trinkets
         /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
@@ -140,10 +134,10 @@ public class BasicLevelManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && CanGoToNextScreen)
         {
+            PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
             PlayerScore = 0;
             ScoreMult = MinScoreMult;
             ComboCounter = 0;
-            PlayerBallCount = StartingBallCount;
             UiManager.Instance.UpdateBallText();
             UiManager.Instance.UpdateMoneyText();
             UiManager.Instance.ActivateMapScreen();
@@ -164,7 +158,7 @@ public class BasicLevelManager : MonoBehaviour
 
         if (spawnOnPaddle)
         {
-            PlayerBallCount--;
+            PlayerInfo.Instance.PlayerBallCount--;
             UiManager.Instance.UpdateBallText();
             paddleBall = Instantiate(ballPrefab, spawnLocation, Quaternion.identity);
             SpawnedBall?.Invoke(paddleBall);
@@ -205,13 +199,13 @@ public class BasicLevelManager : MonoBehaviour
     /// </summary>
     public void CheckGameOver()
     {
-        if (SpawnedBallCount == 0 && PlayerBallCount > 0)
+        if (SpawnedBallCount == 0 && PlayerInfo.Instance.PlayerBallCount > 0)
         {
             ScreenShake();
 
             SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
         }
-        else if (PlayerBallCount <= 0)
+        else if (PlayerInfo.Instance.PlayerBallCount <= 0)
         {
             Debug.Log("Game Over!");
             ScreenShake();

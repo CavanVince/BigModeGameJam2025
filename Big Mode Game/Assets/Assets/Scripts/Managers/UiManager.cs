@@ -129,7 +129,7 @@ public class UiManager : MonoBehaviour
     /// </summary>
     public void UpdateBallText()
     {
-        ballCounterText.text = BasicLevelManager.Instance.PlayerBallCount.ToString();
+        ballCounterText.text = PlayerInfo.Instance.PlayerBallCount.ToString();
     }
 
     /// <summary>
@@ -251,11 +251,11 @@ public class UiManager : MonoBehaviour
         eventBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
             BasicLevelManager.Instance.ScreenShake();
-            //ShopManager.Instance.AnimateTrinkets();
-            BasicLevelManager.Instance.CanGoToNextScreen = true;
+            BasicLevelManager.Instance.CanGoToNextScreen = false;
 
             // Wizard dialogue
-            DialogueManager.Instance.MoveToBottomCenter("Decisions Decisions...");
+            DialogueManager.Instance.EnableWizardSpeak();
+            DialogueManager.Instance.StartDialogue("Decisions Decisions...");
         });
     }
 

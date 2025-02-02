@@ -18,7 +18,7 @@ public class LifeTree : TrinketParent
         bounceCounter++;
         if (bounceCounter >= 200)
         {
-            BasicLevelManager.Instance.StartingBallCount += 1;
+            PlayerInfo.Instance.StartingBallCount += 1;
             bounceCounter = 0;  
             //ask cav
             UiManager.Instance.UpdateBallText();

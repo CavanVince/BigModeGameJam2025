@@ -49,6 +49,8 @@ public class PlayerInfo : MonoBehaviour
         }
 
         origTrinketImageScale = trinketImages[0].transform.localScale;
+
+        PlayerBallCount = StartingBallCount;
     }
 
     /// <summary>
