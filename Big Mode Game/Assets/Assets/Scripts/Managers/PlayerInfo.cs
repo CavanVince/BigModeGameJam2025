@@ -17,6 +17,12 @@ public class PlayerInfo : MonoBehaviour
     /// </summary>
     public List<TrinketParent> PlayerTrinkets { get; private set; } = new List<TrinketParent> { null, null, null, null, null };
 
+    [SerializeField]
+    private Sprite blackHoleSprite;
+
+    [SerializeField]
+    private Sprite lightningStrikeSprite;
+
     /// <summary>
     /// The player's money
     /// </summary>
@@ -93,16 +99,16 @@ public class PlayerInfo : MonoBehaviour
                         PlayerTrinkets[i] = new SpellOfGigantification();
                         break;
                     case TrinketType.BLACKHOLE:
-                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        PlayerTrinkets[i] = new BlackHoleTrinket(blackHoleSprite);
                         break;
                     case TrinketType.LIGHTNING:
-                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        PlayerTrinkets[i] = new LightningStrikeTrinket(lightningStrikeSprite);
                         break;
                     case TrinketType.MISTAMONEYBAGS:
-                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        PlayerTrinkets[i] = new MistaMoneybags();
                         break;
                     case TrinketType.LIFETREE:
-                        PlayerTrinkets[i] = new SpellOfGigantification();
+                        PlayerTrinkets[i] = new LifeTree();
                         break;
                     default:
                         Debug.Log("ERROR: TRINKET TYPE NOT IN PLAYER INFO!");

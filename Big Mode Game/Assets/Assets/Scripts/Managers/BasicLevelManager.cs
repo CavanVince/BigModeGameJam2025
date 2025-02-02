@@ -23,6 +23,12 @@ public class BasicLevelManager : MonoBehaviour
     [SerializeField]
     Transform tilemapParent;
 
+    [SerializeField]
+    private Sprite blackHoleSprite;
+
+    [SerializeField]
+    private Sprite lightningStrikeSprite;
+
     // The container for the level's brick prefabs
     public Transform BrickParent { get; set; }
 
@@ -117,6 +123,10 @@ public class BasicLevelManager : MonoBehaviour
         /*MistaMoneybags greenBrickBuff = new MistaMoneybags();
         GhostBall blueBrickBuff = new GhostBall();
         Jester redBrickBuff = new Jester();*/
+
+        LightningStrikeTrinket lightningStrikeTrinket = new LightningStrikeTrinket(lightningStrikeSprite);
+        BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket(blackHoleSprite);
+
     }
 
     private void Update()
