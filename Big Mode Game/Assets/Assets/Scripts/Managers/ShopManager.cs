@@ -68,6 +68,10 @@ public class ShopManager : MonoBehaviour
         trinketOne.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
         trinketTwo.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
         trinketThree.DOScale(origTrinketScale, .1f).SetEase(Ease.Linear).SetDelay(1);
+
+        trinketOne.GetComponent<ShopItem>().shouldHover = true;
+        trinketTwo.GetComponent<ShopItem>().shouldHover = true;
+        trinketThree.GetComponent<ShopItem>().shouldHover = true;
     }
 
     /// <summary>

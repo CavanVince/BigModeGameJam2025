@@ -9,7 +9,7 @@ public class ShopItem : MonoBehaviour
 {
     private Vector3 origScale;
     private ShopTrinketScriptableObject currentTrinketSo;
-    private bool shouldHover;
+    public bool shouldHover { get; set; }
 
     [Header("Audio Clips")]
     [SerializeField]
