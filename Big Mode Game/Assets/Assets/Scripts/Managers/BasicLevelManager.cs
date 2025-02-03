@@ -91,7 +91,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             Destroy(this);
         }
-        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+
 
         audioSource = GetComponent<AudioSource>();
 

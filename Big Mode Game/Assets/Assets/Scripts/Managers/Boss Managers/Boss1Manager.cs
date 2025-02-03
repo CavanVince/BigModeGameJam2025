@@ -103,7 +103,7 @@ public class Boss1Manager : BossManagerParent
     {
         BasicLevelManager.Instance.DestroyBallsGlobal();
         canMoveWindow = false;
-        Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+        Screen.SetResolution(1920, 1080, true);
         BasicLevelManager.Instance.ScreenShake();
         Camera.main.GetComponent<AudioSource>().Stop();
         StartCoroutine(WizardExit());
