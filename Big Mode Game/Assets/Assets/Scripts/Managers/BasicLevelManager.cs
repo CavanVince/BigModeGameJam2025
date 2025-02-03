@@ -92,6 +92,11 @@ public class BasicLevelManager : MonoBehaviour
 
         // Player score
         PlayerScore = 0;
+    }
+
+    private void Start()
+    {
+        ScoreMult = PlayerInfo.Instance.MinScoreMult;
 
         // Initialize trinkets
         //SirBounceAlot sirBounceAlot = new SirBounceAlot();
@@ -116,11 +121,6 @@ public class BasicLevelManager : MonoBehaviour
         //Pogo pogo = new Pogo();
         //Arrow arrow = new Arrow();
         //Mirror mirror = new Mirror();
-    }
-
-    private void Start()
-    {
-        ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 
     private void Update()
