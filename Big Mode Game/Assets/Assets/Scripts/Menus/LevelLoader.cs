@@ -40,6 +40,7 @@ public class LevelLoader : MonoBehaviour
     public void LoadMainMenu()
     {
         StartCoroutine(LoadLevel(0));
+        Destroy(FindObjectOfType<PlayerInfo>().gameObject); 
     }
 
     public void QuitGame()
