@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
   m_Name: Jester
   m_EditorClassIdentifier: 
-  trinketSprite: {fileID: 1881305696, guid: 585330f829859ca4fbedc702428d3963, type: 3}
-  trinketPrice: 5
+  trinketSprite: {fileID: 21300000, guid: 1a4e06c317d871044b00cabca14af4d5, type: 3}
+  trinketPrice: 30
   trinketType: 6
   trinketDescription: Adds +4 mult when you hit a red brick
   trinketName: Jester

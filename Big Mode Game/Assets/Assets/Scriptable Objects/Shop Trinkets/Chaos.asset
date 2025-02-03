@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chaos
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: eb9a9e384b17c3b44947e7e35a589b8b, type: 3}
-  trinketPrice: 5
+  trinketPrice: 30
   trinketType: 18
   trinketDescription: ???
   trinketName: Chaos

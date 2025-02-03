@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: e554343e41a8ff64cab9c01bb62a9481, type: 3}
-  trinketPrice: 5
+  trinketPrice: 30
   trinketType: 7
   trinketDescription: Shoots five balls from the paddle
   trinketName: Shotgun

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af58d3801e17aaa4d8b3a8e954daaf6a, type: 3}
   m_Name: Spell Of Gigantification
   m_EditorClassIdentifier: 
-  trinketSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  trinketPrice: 5
+  trinketSprite: {fileID: 21300000, guid: f8d4d32eb68de2a488ca24e106e666d2, type: 3}
+  trinketPrice: 30
   trinketType: 11
   trinketDescription: Makes paddle larger
   trinketName: Spell of Gigantification

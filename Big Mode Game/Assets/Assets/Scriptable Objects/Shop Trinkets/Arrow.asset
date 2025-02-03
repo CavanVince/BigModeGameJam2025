@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: bd462b9490c68294aaa1bc784c84e497, type: 3}
-  trinketPrice: 5
+  trinketPrice: 30
   trinketType: 19
   trinketDescription: Balls pierce 3 bricks every bounce
   trinketName: Arrow

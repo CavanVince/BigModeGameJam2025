@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sir BounceAlot
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: 604197b67acb6de42bf26a31550590bb, type: 3}
-  trinketPrice: 5
+  trinketPrice: 30
   trinketType: 8
   trinketDescription: Every ten bounces spawn another ball
   trinketName: Sir Bouncealot
