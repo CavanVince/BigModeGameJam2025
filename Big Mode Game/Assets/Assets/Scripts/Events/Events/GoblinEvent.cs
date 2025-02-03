@@ -33,7 +33,7 @@ public class GoblinEvent : EventObjectParent
                 EventManager.Instance.YesOption.gameObject.SetActive(false);
                 EventManager.Instance.NoOption.gameObject.SetActive(false);
                 BasicLevelManager.Instance.CanGoToNextScreen = true;
-                return "You've been tricked! The goblin takes everything you have";
+                return "You've been tricked! The goblin takes everything you have. Press Space to Continue";
             } 
         }
     }
