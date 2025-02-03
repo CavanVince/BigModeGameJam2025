@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class LightningStrikeTrinket : TrinketParent
 {
     private int bounceCounter = 0;
-    private AnimatorController lightningAnim;
+    private RuntimeAnimatorController lightningAnim;
     // Start is called before the first frame update
-    public LightningStrikeTrinket(AnimatorController anim)
+    public LightningStrikeTrinket(RuntimeAnimatorController anim)
     {
         BallController.ballBounced += TriggerPassive;
         lightningAnim = anim;

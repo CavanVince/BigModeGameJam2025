@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 /// <summary>
@@ -10,8 +9,8 @@ using UnityEngine;
 public class BlackHoleTrinket : TrinketParent
 {
     private int bounceCounter = 0;
-    private AnimatorController blackHoleAnim;
-    public BlackHoleTrinket(AnimatorController anim) 
+    private RuntimeAnimatorController blackHoleAnim;
+    public BlackHoleTrinket(RuntimeAnimatorController anim) 
     {
             BallController.ballBounced += TriggerPassive;
         blackHoleAnim = anim;

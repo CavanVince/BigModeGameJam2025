@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,10 +18,10 @@ public class PlayerInfo : MonoBehaviour
     public List<TrinketParent> PlayerTrinkets { get; private set; } = new List<TrinketParent> { null, null, null, null, null };
 
     [SerializeField]
-    private AnimatorController blackHoleAnim;
+    private RuntimeAnimatorController blackHoleAnim;
 
     [SerializeField]
-    private AnimatorController lightningStrikeAnim;
+    private RuntimeAnimatorController lightningStrikeAnim;
 
     /// <summary>
     /// The player's money

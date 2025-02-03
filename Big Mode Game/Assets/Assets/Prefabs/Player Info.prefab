@@ -366,6 +366,8 @@ MonoBehaviour:
   - {fileID: 5679186796264880756}
   - {fileID: 3339548297162309990}
   - {fileID: 979467443224195668}
+  blackHoleAnim: {fileID: 9100000, guid: 10995590f735f004db802eed862f913a, type: 2}
+  lightningStrikeAnim: {fileID: 9100000, guid: 9efc19b21c495b149b049fab24aae34d, type: 2}
 --- !u!1 &4641370911464419289
 GameObject:
   m_ObjectHideFlags: 0
