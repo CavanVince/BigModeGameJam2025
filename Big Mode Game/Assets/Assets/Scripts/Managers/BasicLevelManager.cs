@@ -258,11 +258,12 @@ public class BasicLevelManager : MonoBehaviour
     /// <summary>
     /// Helper function to screen shake
     /// </summary>
-    public void ScreenShake()
+    public void ScreenShake(bool playAudio = true)
     {
 
         DOTween.Kill("Camera Shake");
         Camera.main.DOShakePosition(1, 1).SetId("Camera Shake");
+        if (!playAudio) return;
         audioSource.clip = lifeLost;
         audioSource.Play();
     }

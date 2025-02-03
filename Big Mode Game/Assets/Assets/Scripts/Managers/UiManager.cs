@@ -179,17 +179,24 @@ public class UiManager : MonoBehaviour
 
         scoreBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).SetDelay(0.25f).OnComplete(() =>
         {
+            BasicLevelManager.Instance.ScreenShake(false);
             StartCoroutine(UpdateUI());
         });
     }
 
+    // Coroutine to update the post level score
     IEnumerator UpdateUI()
     {
         int score = 0;
         float pitch = 1;
         while (score < BasicLevelManager.Instance.PlayerScore)
         {
-            score = Mathf.Clamp(score + 1000, 0, BasicLevelManager.Instance.PlayerScore);
+            int scalar = 1000;
+            if (BasicLevelManager.Instance.PlayerScore > 50000) 
+            {
+                scalar = 10000;
+            }
+            score = Mathf.Clamp(score + scalar, 0, BasicLevelManager.Instance.PlayerScore);
             postGameScoreText.text = "Score: " + score;
             foreach (AudioSource source in scoreAudioSources)
             {
@@ -249,7 +256,7 @@ public class UiManager : MonoBehaviour
         transitionSource.Play();
         mapBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            //BasicLevelManager.Instance.ScreenShake();
+            BasicLevelManager.Instance.ScreenShake(false);
         });
     }
 
@@ -272,7 +279,7 @@ public class UiManager : MonoBehaviour
         transitionSource.Play();
         level.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            //BasicLevelManager.Instance.ScreenShake();
+            BasicLevelManager.Instance.ScreenShake(false);
             UpdateScoreUI();
             BasicLevelManager.Instance.BrickParent = level.Find("Bricks");
             BasicLevelManager.Instance.SpawnBall(PaddleMovement.Instance.transform.position + (Vector3.up * 0.5f), true);
@@ -297,7 +304,7 @@ public class UiManager : MonoBehaviour
         transitionSource.Play();
         shopBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            //BasicLevelManager.Instance.ScreenShake();
+            BasicLevelManager.Instance.ScreenShake(false);
             ShopManager.Instance.GenerateShopTrinkets();
             ShopManager.Instance.AnimateTrinkets();
             ShopManager.Instance.InShop = true;
@@ -325,7 +332,7 @@ public class UiManager : MonoBehaviour
         transitionSource.Play();
         eventBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
-            //BasicLevelManager.Instance.ScreenShake();
+            BasicLevelManager.Instance.ScreenShake(false);
             BasicLevelManager.Instance.CanGoToNextScreen = false;
 
             // Wizard dialogue
