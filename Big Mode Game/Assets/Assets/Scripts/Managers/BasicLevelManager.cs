@@ -99,9 +99,9 @@ public class BasicLevelManager : MonoBehaviour
         ScoreMult = PlayerInfo.Instance.MinScoreMult;
 
         // Initialize trinkets
-        //SirBounceAlot sirBounceAlot = new SirBounceAlot();
-        //Shotgun shotgun = new Shotgun();
-        //HealthPotion healthPotion = new HealthPotion();
+        SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        Shotgun shotgun = new Shotgun();
+        HealthPotion healthPotion = new HealthPotion();
 
 
         /*SpellOfGigantification spell = new SpellOfGigantification();
@@ -109,18 +109,20 @@ public class BasicLevelManager : MonoBehaviour
         BoosterRocket boosterRocket = new BoosterRocket();*/
 
 
-        /*MistaMoneybags greenBrickBuff = new MistaMoneybags();
+        //MistaMoneybags greenBrickBuff = new MistaMoneybags();
         GhostBall blueBrickBuff = new GhostBall();
-        Jester redBrickBuff = new Jester();*/
+        //Jester redBrickBuff = new Jester();
 
         //LightningStrikeTrinket lightningStrikeTrinket = new LightningStrikeTrinket(lightningStrikeSprite);
         //BlackHoleTrinket blackHoleTrinket = new BlackHoleTrinket(blackHoleSprite);
 
         //WizardCap wizardCap = new WizardCap();
         //Chaos chaos = new Chaos();
-        //Pogo pogo = new Pogo();
+        Pogo pogo = new Pogo();
         //Arrow arrow = new Arrow();
         //Mirror mirror = new Mirror();
+        ElasticShot elasticShot = new ElasticShot();
+        SplitBall splitBall = new SplitBall();
     }
 
     private void Update()

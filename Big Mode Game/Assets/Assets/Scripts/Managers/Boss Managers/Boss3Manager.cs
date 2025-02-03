@@ -105,14 +105,12 @@ public class Boss3Manager : BossManagerParent
     public override void EndLevel()
     {
         BasicLevelManager.Instance.DestroyBallsGlobal();
-        BasicLevelManager.Instance.ScreenShake();
-        Camera.main.GetComponent<AudioSource>().Stop();
         StartCoroutine(WizardExit());
     }
 
     IEnumerator WizardExit()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(15);
         DialogueManager.Instance.MoveToBottomCenter();
         yield return new WaitForSeconds(2);
         DialogueManager.Instance.StartDialogue("Uh oh.");

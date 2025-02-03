@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wizardRunClip: {fileID: 8300000, guid: 0f5484bfb5606f64884196b25db12459, type: 3}
-  bossMusic: {fileID: 8300000, guid: eb8785051fd71774587a86d896d5981a, type: 3}
+  bossMusic: {fileID: 8300000, guid: 9bea7588a11202b4086034616d82003f, type: 3}
   initialWalls:
   - {fileID: 0}
   patterns:
