@@ -12,6 +12,7 @@ public class Dagger : TrinketParent
         PlayerInfo.Instance.MinScoreMult += 2;
         BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
         BallController.ballBounced += TriggerPassive;
+        UiManager.Instance.UpdateBallText();
     }
 
     public override void TriggerPassive(Transform ballTransform)
