@@ -43,9 +43,6 @@ public class UiManager : MonoBehaviour
     TextMeshProUGUI postGameScoreText;
 
     [SerializeField]
-    TextMeshProUGUI postGameComboText;
-
-    [SerializeField]
     TextMeshProUGUI postGameMoneyText;
 
     [SerializeField]
@@ -174,7 +171,6 @@ public class UiManager : MonoBehaviour
         transitionSource.Play();
 
         postGameScoreText.text = "Score: 0";
-        postGameComboText.text = "Max Combo: 0";
         postGameMoneyText.text = "Money: $0";
 
         scoreBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).SetDelay(0.25f).OnComplete(() =>
@@ -211,8 +207,6 @@ public class UiManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        yield return new WaitForSeconds(1);
-        postGameComboText.text = "Max Combo: " + BasicLevelManager.Instance.ComboCounter + 1;
         yield return new WaitForSeconds(1);
 
         int money = 0;

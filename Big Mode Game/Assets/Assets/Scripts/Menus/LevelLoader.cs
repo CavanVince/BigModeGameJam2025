@@ -19,7 +19,7 @@ public class LevelLoader : MonoBehaviour
         {
             Instance = this;
         }
-        else 
+        else
         {
             Destroy(Instance);
         }
@@ -27,7 +27,7 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
+        if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             Animation.enabled = true;
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -35,6 +35,11 @@ public class LevelLoader : MonoBehaviour
         else StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
 
 
+    }
+
+    public void LoadMainMenu()
+    {
+        StartCoroutine(LoadLevel(0));
     }
 
     public void QuitGame()

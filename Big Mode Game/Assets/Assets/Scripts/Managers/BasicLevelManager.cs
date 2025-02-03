@@ -40,6 +40,8 @@ public class BasicLevelManager : MonoBehaviour
 
     public static Action EnteredShop;
 
+    private bool gameOver = false;
+
     #region Player Score
     /// <summary>
     /// The player's score
@@ -162,6 +164,10 @@ public class BasicLevelManager : MonoBehaviour
             UiManager.Instance.ActivateMapScreen();
             CanGoToNextScreen = false;
         }
+        else if (Input.GetKeyDown(KeyCode.Space) && gameOver == true) 
+        {
+            LevelLoader.Instance.LoadMainMenu();
+        }
     }
 
     /// <summary>
@@ -236,6 +242,11 @@ public class BasicLevelManager : MonoBehaviour
 
             DOTween.Kill("Boss 3"); // Kills tweening on boss 3
             DestroyBallsGlobal(); // More boss 3 cleanup
+
+            // Game over
+            DialogueManager.Instance.EnableWizardSpeak();
+            DialogueManager.Instance.StartDialogue("Better luck next time.");
+            gameOver = true;
         }
     }
 
