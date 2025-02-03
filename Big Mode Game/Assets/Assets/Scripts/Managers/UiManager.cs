@@ -172,7 +172,7 @@ public class UiManager : MonoBehaviour
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(scoreBackdrop, 0.25f);
         transitionSource.Play();
-
+        
         postGameScoreText.text = "Score: 0";
         postGameComboText.text = "Max Combo: 0";
         postGameMoneyText.text = "Money: $0";

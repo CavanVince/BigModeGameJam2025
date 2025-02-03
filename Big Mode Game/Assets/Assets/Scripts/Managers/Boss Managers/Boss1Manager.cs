@@ -21,6 +21,7 @@ public class Boss1Manager : BossManagerParent
         bricks.SetActive(false);
         display = Screen.mainWindowDisplayInfo;
         Camera.main.GetComponent<AudioSource>().Stop();
+        BasicLevelManager.Instance.CanInput = false;
         StartCoroutine(FightOpening());
     }
 
@@ -90,6 +91,7 @@ public class Boss1Manager : BossManagerParent
         Camera.main.GetComponent<AudioSource>().Play();
         canMoveWindow = true;
         bricks.SetActive(true);
+        BasicLevelManager.Instance.CanInput = true;
     }
 
     /// <summary>
