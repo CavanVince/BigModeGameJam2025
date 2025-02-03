@@ -38,6 +38,19 @@ public class UiManager : MonoBehaviour
 
     [SerializeField]
     GameObject wizardText;
+
+    [SerializeField]
+    TextMeshProUGUI postGameScoreText;
+
+    [SerializeField]
+    TextMeshProUGUI postGameComboText;
+
+    [SerializeField]
+    TextMeshProUGUI postGameMoneyText;
+
+    [SerializeField]
+    List<AudioSource> scoreAudioSources;
+
     #endregion
 
     #region Other Screens
@@ -159,10 +172,61 @@ public class UiManager : MonoBehaviour
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(scoreBackdrop, 0.25f);
         transitionSource.Play();
+
+        postGameScoreText.text = "Score: 0";
+        postGameComboText.text = "Max Combo: 0";
+        postGameMoneyText.text = "Money: $0";
+
         scoreBackdrop.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).SetDelay(0.25f).OnComplete(() =>
         {
-            //BasicLevelManager.Instance.ScreenShake();
+            StartCoroutine(UpdateUI());
         });
+    }
+
+    IEnumerator UpdateUI()
+    {
+        int score = 0;
+        float pitch = 1;
+        while (score < BasicLevelManager.Instance.PlayerScore)
+        {
+            score = Mathf.Clamp(score + 1000, 0, BasicLevelManager.Instance.PlayerScore);
+            postGameScoreText.text = "Score: " + score;
+            foreach (AudioSource source in scoreAudioSources)
+            {
+                source.pitch = pitch;
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                    pitch = Mathf.Clamp(pitch + 0.025f, 0, 3);
+                    break;
+                }
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        yield return new WaitForSeconds(1);
+        postGameComboText.text = "Max Combo: " + BasicLevelManager.Instance.ComboCounter + 1;
+        yield return new WaitForSeconds(1);
+
+        int money = 0;
+        int totalMoney = BasicLevelManager.Instance.PlayerScore / 2000;
+        while (money < totalMoney)
+        {
+            money += 1;
+            postGameMoneyText.text = "Money: $" + money;
+            postGameScoreText.text = "Score: " + (BasicLevelManager.Instance.PlayerScore - (money * 2000));
+            foreach (AudioSource source in scoreAudioSources)
+            {
+                source.pitch = pitch;
+                if (!source.isPlaying)
+                {
+                    source.Play();
+                    pitch = Mathf.Clamp(pitch - 0.025f, 1, 3);
+                    break;
+                }
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
 

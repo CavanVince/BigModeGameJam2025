@@ -121,7 +121,7 @@ public class BasicLevelManager : MonoBehaviour
         Pogo pogo = new Pogo();
         //Arrow arrow = new Arrow();
         //Mirror mirror = new Mirror();
-        ElasticShot elasticShot = new ElasticShot();
+        //ElasticShot elasticShot = new ElasticShot();
         SplitBall splitBall = new SplitBall();
     }
 
