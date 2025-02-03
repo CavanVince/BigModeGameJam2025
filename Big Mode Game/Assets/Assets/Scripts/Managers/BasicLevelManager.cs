@@ -138,6 +138,13 @@ public class BasicLevelManager : MonoBehaviour
         // Can the user shoot the ball?
         if (!CanInput) return;
 
+        //Ball destroy key
+        if(Input.GetKeyDown(KeyCode.E) && PlayerInfo.Instance.PlayerBallCount > 0 && SpawnedBallCount > 0)
+        {
+            DestroyBallsGlobal();
+            CheckGameOver();
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && paddleBall != null)
         {
             LaunchedBallFromPaddle?.Invoke(paddleBall.transform);
