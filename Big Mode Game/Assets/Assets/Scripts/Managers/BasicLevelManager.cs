@@ -75,6 +75,9 @@ public class BasicLevelManager : MonoBehaviour
     private AudioSource audioSource;
     #endregion
 
+
+    public bool CanInput = true;
+
     private void Awake()
     {
         // Singleton pattern
@@ -127,6 +130,9 @@ public class BasicLevelManager : MonoBehaviour
 
     private void Update()
     {
+        // Can the user shoot the ball?
+        if (!CanInput) return;
+
         if (Input.GetKeyDown(KeyCode.Space) && paddleBall != null)
         {
             LaunchedBallFromPaddle?.Invoke(paddleBall.transform);

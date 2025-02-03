@@ -31,6 +31,7 @@ public class Boss3Manager : BossManagerParent
         BasicLevelManager.Instance.BossManager = this;
         Camera.main.GetComponent<AudioSource>().Stop();
         GameObject.Find("Top Wall").transform.position += Vector3.up * 2;
+        BasicLevelManager.Instance.CanInput = false;
         StartCoroutine(FightOpening());
     }
 
@@ -76,6 +77,7 @@ public class Boss3Manager : BossManagerParent
         DialogueManager.Instance.EnableWizardSpeak();
         DialogueManager.Instance.DisplayPlainText(levelTimer.ToString("0.00"));
         startTimer = true;
+        BasicLevelManager.Instance.CanInput = true;
 
         // Jank to move the first two segments at a similar speed
         moveSpeed /= 2;

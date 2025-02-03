@@ -26,6 +26,7 @@ public class Boss2Manager : BossManagerParent
         canSpawnBricks = false;
         brickSpawnTimer = Random.Range(10, 16);
         Camera.main.GetComponent<AudioSource>().Stop();
+        BasicLevelManager.Instance.CanInput = false;
         StartCoroutine(FightOpening());
     }
 
@@ -74,6 +75,7 @@ public class Boss2Manager : BossManagerParent
         Camera.main.GetComponent<AudioSource>().clip = bossMusic;
         Camera.main.GetComponent<AudioSource>().Play();
         canSpawnBricks = true;
+        BasicLevelManager.Instance.CanInput = true;
     }
 
     /// <summary>
