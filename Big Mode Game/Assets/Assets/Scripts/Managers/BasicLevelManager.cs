@@ -92,11 +92,10 @@ public class BasicLevelManager : MonoBehaviour
 
         // Player score
         PlayerScore = 0;
-        ScoreMult = PlayerInfo.Instance.MinScoreMult;
 
         // Initialize trinkets
         //SirBounceAlot sirBounceAlot = new SirBounceAlot();
-        Shotgun shotgun = new Shotgun();
+        //Shotgun shotgun = new Shotgun();
         //HealthPotion healthPotion = new HealthPotion();
 
 
@@ -119,6 +118,10 @@ public class BasicLevelManager : MonoBehaviour
         //Mirror mirror = new Mirror();
     }
 
+    private void Start()
+    {
+        ScoreMult = PlayerInfo.Instance.MinScoreMult;
+    }
 
     private void Update()
     {
