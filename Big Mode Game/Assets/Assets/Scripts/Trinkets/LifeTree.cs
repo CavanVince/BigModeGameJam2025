@@ -5,7 +5,7 @@ using UnityEngine;
 public class LifeTree : TrinketParent
 {
     /// <summary>
-    ///  every 200 brick kills get a perma ball
+    ///  every 100 brick kills get a perma ball
     /// </summary>
     private int bounceCounter = 0;
 

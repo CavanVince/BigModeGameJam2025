@@ -100,16 +100,18 @@ public class BasicLevelManager : MonoBehaviour
     private void Start()
     {
         ScoreMult = PlayerInfo.Instance.MinScoreMult;
+        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
 
         // Initialize trinkets
-        /*SirBounceAlot sirBounceAlot = new SirBounceAlot();
-        Shotgun shotgun = new Shotgun();
-        HealthPotion healthPotion = new HealthPotion();*/
+        //HealthPotion healthPotion = new HealthPotion();
+        //SirBounceAlot sirBounceAlot = new SirBounceAlot();
+        //Shotgun shotgun = new Shotgun();
 
 
-        /*SpellOfGigantification spell = new SpellOfGigantification();
-        Greaseball greaseBall = new Greaseball();
-        BoosterRocket boosterRocket = new BoosterRocket();*/
+        
+        //SpellOfGigantification spell = new SpellOfGigantification();
+         //Greaseball greaseBall = new Greaseball();
+        //BoosterRocket boosterRocket = new BoosterRocket();
 
 
         //MistaMoneybags greenBrickBuff = new MistaMoneybags();
@@ -123,9 +125,12 @@ public class BasicLevelManager : MonoBehaviour
         //Chaos chaos = new Chaos();
         //Pogo pogo = new Pogo();
         //Arrow arrow = new Arrow();
-        //Mirror mirror = new Mirror();
         //ElasticShot elasticShot = new ElasticShot();
         //SplitBall splitBall = new SplitBall();
+        //Dagger dagger = new Dagger();
+        //GamblersCoin gamblersCoin = new GamblersCoin();
+        //LifeTree lifeTree = new LifeTree();
+        //TimewarpDevice timewarpDevice = new TimewarpDevice();
     }
 
     private void Update()

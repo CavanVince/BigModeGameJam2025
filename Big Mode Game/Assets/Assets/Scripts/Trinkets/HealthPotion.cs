@@ -11,6 +11,7 @@ public class HealthPotion : TrinketParent
     {
         PlayerInfo.Instance.StartingBallCount++;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
+        UiManager.Instance.UpdateBallText();
     }
 
     public override void RemoveTrinket()
