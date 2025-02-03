@@ -26,7 +26,7 @@ public class PlayerInfo : MonoBehaviour
     /// <summary>
     /// The player's money
     /// </summary>
-    public int PlayerMoney { get; set; } = 0;
+    public int PlayerMoney { get; set; } = 25;
 
     // The number of balls the player has left
     public int PlayerBallCount { get; set; } = 0;
