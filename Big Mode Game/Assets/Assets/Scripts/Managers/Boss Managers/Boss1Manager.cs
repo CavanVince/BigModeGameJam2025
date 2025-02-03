@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Boss1Manager : BossManagerParent
@@ -10,10 +11,13 @@ public class Boss1Manager : BossManagerParent
     [SerializeField]
     AudioClip bossMusic;
 
+    [SerializeField]
+    TextMeshProUGUI testText;
+
     private bool canMoveWindow = false;
     private DisplayInfo display;
     private Vector2 directionVector = new Vector2(1, -1f);
-    private const int moveSpeed = 250;
+    private const int moveSpeed = 200;
 
     void Start()
     {
@@ -27,8 +31,10 @@ public class Boss1Manager : BossManagerParent
 
     private void Update()
     {
+        Debug.Log(display.height);
         if (!canMoveWindow) return;
         MoveWindow();
+        testText.text = Screen.mainWindowPosition.x + Screen.width + ", " + (Screen.mainWindowPosition.y + Screen.height).ToString();
     }
 
     /// <summary>
@@ -56,7 +62,7 @@ public class Boss1Manager : BossManagerParent
             directionVector.y = -directionVector.y;
             BasicLevelManager.Instance.ScreenShake();
         }
-        else if (Screen.mainWindowPosition.y + Screen.height >= display.height - 50)
+        else if (Screen.mainWindowPosition.y + Screen.height >= display.height)
         {
             // Bounce up
             directionVector.y = -directionVector.y;
