@@ -6,7 +6,7 @@ public class ElasticShot : TrinketParent
 {
     public ElasticShot()
     {
-        BrickParent.BrickHit += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform brickTransform)
     {
@@ -22,5 +22,10 @@ public class ElasticShot : TrinketParent
     public override void RemoveTrinket()
     {
         BrickParent.BrickHit -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BrickParent.BrickHit += TriggerPassive;
     }
 }

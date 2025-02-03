@@ -27,6 +27,9 @@ public class Boss2Manager : BossManagerParent
         brickSpawnTimer = Random.Range(10, 16);
         Camera.main.GetComponent<AudioSource>().Stop();
         BasicLevelManager.Instance.CanInput = false;
+        PlayerInfo.Instance.DisableTrinkets();
+
+
         StartCoroutine(FightOpening());
     }
 
@@ -101,6 +104,7 @@ public class Boss2Manager : BossManagerParent
         BasicLevelManager.Instance.DestroyBallsGlobal();
         BasicLevelManager.Instance.ScreenShake();
         Camera.main.GetComponent<AudioSource>().Stop();
+        PlayerInfo.Instance.EnableTrinkets();
         StartCoroutine(WizardExit());
     }
 

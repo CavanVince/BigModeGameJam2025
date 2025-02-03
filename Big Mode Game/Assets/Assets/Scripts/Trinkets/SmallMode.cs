@@ -6,9 +6,7 @@ public class SmallMode : TrinketParent
 {
     public SmallMode()
     {
-        BasicLevelManager.SpawnedBall += TriggerPassive;
-        PlayerInfo.Instance.MinScoreMult += 2;
-        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult += 2;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform trans)
     {
@@ -21,6 +19,13 @@ public class SmallMode : TrinketParent
         BasicLevelManager.SpawnedBall -= TriggerPassive;
         PlayerInfo.Instance.MinScoreMult -= 2;
         BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
+    }
+
+    public override void AddTrinket()
+    {
+        BasicLevelManager.SpawnedBall += TriggerPassive;
+        PlayerInfo.Instance.MinScoreMult += 2;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult += 2;
     }
 
 }

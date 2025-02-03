@@ -7,13 +7,18 @@ using UnityEngine;
 /// </summary>
 public class SpellOfGigantification : TrinketParent
 {
-    public SpellOfGigantification() 
+    public SpellOfGigantification()
     {
-        PaddleMovement.Instance.transform.localScale += new Vector3(10,0,0);
+        AddTrinket();
     }
 
     public override void RemoveTrinket()
     {
-        PaddleMovement.Instance.transform.localScale -= new Vector3(10,0,0);
+        PaddleMovement.Instance.transform.localScale -= new Vector3(10, 0, 0);
+    }
+
+    public override void AddTrinket()
+    {
+        PaddleMovement.Instance.transform.localScale += new Vector3(10, 0, 0);
     }
 }

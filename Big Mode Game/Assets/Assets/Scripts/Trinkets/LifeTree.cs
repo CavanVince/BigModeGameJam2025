@@ -9,9 +9,9 @@ public class LifeTree : TrinketParent
     /// </summary>
     private int bounceCounter = 0;
 
-    public LifeTree() 
+    public LifeTree()
     {
-        BallController.ballBounced += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform ballTransform)
     {
@@ -27,5 +27,10 @@ public class LifeTree : TrinketParent
     public override void RemoveTrinket()
     {
         BallController.ballBounced -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BallController.ballBounced += TriggerPassive;
     }
 }

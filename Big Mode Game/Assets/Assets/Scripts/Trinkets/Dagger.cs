@@ -7,12 +7,7 @@ public class Dagger : TrinketParent
     //- 1 life +2 mult
     public Dagger()
     {
-        PlayerInfo.Instance.StartingBallCount -= 3;
-        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-        PlayerInfo.Instance.MinScoreMult += 2;
-        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
-        BallController.ballBounced += TriggerPassive;
-        UiManager.Instance.UpdateBallText();
+        AddTrinket();
     }
 
     public override void TriggerPassive(Transform ballTransform)
@@ -28,11 +23,20 @@ public class Dagger : TrinketParent
 
     public override void RemoveTrinket()
     {
-        PlayerInfo.Instance.StartingBallCount++;
+        PlayerInfo.Instance.StartingBallCount += 3;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
         PlayerInfo.Instance.MinScoreMult -= 2;
         BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
         BrickParent.BrickHit -= TriggerPassive;
     }
 
+    public override void AddTrinket()
+    {
+        PlayerInfo.Instance.StartingBallCount -= 3;
+        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
+        PlayerInfo.Instance.MinScoreMult += 2;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
+        BallController.ballBounced += TriggerPassive;
+        UiManager.Instance.UpdateBallText();
+    }
 }

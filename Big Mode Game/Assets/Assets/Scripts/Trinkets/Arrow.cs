@@ -8,7 +8,7 @@ public class Arrow : TrinketParent
     public Arrow()
 
     {
-        BallController.ballBounced += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform ballTransform)
     {
@@ -22,6 +22,11 @@ public class Arrow : TrinketParent
     public override void RemoveTrinket()
     {
         BrickParent.BrickHit -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BallController.ballBounced += TriggerPassive;
     }
 }
 

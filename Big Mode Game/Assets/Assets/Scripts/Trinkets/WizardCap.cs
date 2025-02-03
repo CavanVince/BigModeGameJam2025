@@ -5,9 +5,9 @@ using UnityEngine;
 public class WizardCap : TrinketParent
 {
     BallController controller;
-    public WizardCap() 
+    public WizardCap()
     {
-        BasicLevelManager.LaunchedBallFromPaddle += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform ballTransform)
     {
@@ -18,5 +18,10 @@ public class WizardCap : TrinketParent
     public override void RemoveTrinket()
     {
         BallController.ballBounced -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BasicLevelManager.LaunchedBallFromPaddle += TriggerPassive;
     }
 }

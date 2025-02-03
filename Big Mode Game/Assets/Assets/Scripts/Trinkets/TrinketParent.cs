@@ -21,4 +21,9 @@ public abstract class TrinketParent
     /// Function to unsubscribe/revert logic when trinket is removed
     /// </summary>
     public virtual void RemoveTrinket() { }
+
+    /// <summary>
+    /// Function to add the trinket functionality
+    /// </summary>
+    public virtual void AddTrinket() { }
 }

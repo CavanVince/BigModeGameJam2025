@@ -9,7 +9,7 @@ public class SplitBall : TrinketParent
     private bool red = false;
     public SplitBall()
     {
-        BrickParent.BrickHit += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform brickTransform)
     {
@@ -40,5 +40,10 @@ public class SplitBall : TrinketParent
     public override void RemoveTrinket()
     {
         BrickParent.BrickHit -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BrickParent.BrickHit += TriggerPassive;
     }
 }

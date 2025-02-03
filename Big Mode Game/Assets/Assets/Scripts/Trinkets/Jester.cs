@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Jester : TrinketParent
 {
-    
-    public Jester() 
+
+    public Jester()
     {
-        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-        PlayerInfo.Instance.MinScoreMult += 3;
-        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
+        AddTrinket();
     }
 
 
@@ -19,5 +17,12 @@ public class Jester : TrinketParent
         BrickParent.BrickHit -= TriggerPassive;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
         PlayerInfo.Instance.MinScoreMult -= 3;
+    }
+
+    public override void AddTrinket()
+    {
+        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
+        PlayerInfo.Instance.MinScoreMult += 3;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 }

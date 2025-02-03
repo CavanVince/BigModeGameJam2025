@@ -7,13 +7,11 @@ using UnityEngine;
 /// </summary>
 public class Greaseball : TrinketParent
 {
-    public Greaseball() 
+    public Greaseball()
     {
-        BasicLevelManager.SpawnedBall += TriggerPassive;
-        PlayerInfo.Instance.MinScoreMult += 1;
-        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
+        AddTrinket();
     }
-    public override void TriggerPassive(Transform trans) 
+    public override void TriggerPassive(Transform trans)
     {
         trans.localScale *= 0.75f;
         trans.GetComponent<TrailRenderer>().startWidth *= 0.75f;
@@ -24,6 +22,13 @@ public class Greaseball : TrinketParent
     {
         BasicLevelManager.SpawnedBall -= TriggerPassive;
         PlayerInfo.Instance.MinScoreMult -= 1;
+        BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
+    }
+
+    public override void AddTrinket()
+    {
+        BasicLevelManager.SpawnedBall += TriggerPassive;
+        PlayerInfo.Instance.MinScoreMult += 1;
         BasicLevelManager.Instance.ScoreMult = PlayerInfo.Instance.MinScoreMult;
     }
 

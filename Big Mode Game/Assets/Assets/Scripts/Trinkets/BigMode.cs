@@ -6,7 +6,7 @@ public class BigMode : TrinketParent
 {
     public BigMode()
     {
-        BasicLevelManager.SpawnedBall += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform trans)
     {
@@ -17,5 +17,10 @@ public class BigMode : TrinketParent
     public override void RemoveTrinket()
     {
            BasicLevelManager.SpawnedBall -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BasicLevelManager.SpawnedBall += TriggerPassive;
     }
 }

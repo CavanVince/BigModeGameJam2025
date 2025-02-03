@@ -5,9 +5,8 @@ using UnityEngine;
 public class Chaos : TrinketParent
 {
     public Chaos()
-
     {
-        BallController.ballBounced += TriggerPassive;
+        AddTrinket();
     }
     public override void TriggerPassive(Transform ballTransform)
     {
@@ -17,5 +16,10 @@ public class Chaos : TrinketParent
     public override void RemoveTrinket()
     {
         BallController.ballBounced -= TriggerPassive;
+    }
+
+    public override void AddTrinket()
+    {
+        BallController.ballBounced += TriggerPassive;
     }
 }

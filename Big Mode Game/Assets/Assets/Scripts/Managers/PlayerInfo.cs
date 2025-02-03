@@ -167,4 +167,26 @@ public class PlayerInfo : MonoBehaviour
         });
     }
 
+    public void DisableTrinkets() 
+    {
+        for (int i = 0; i < PlayerTrinkets.Count; i++) 
+        {
+            if (PlayerTrinkets[i] != null) 
+            {
+                PlayerTrinkets[i].RemoveTrinket();
+            }
+        }
+    }
+
+    public void EnableTrinkets() 
+    {
+        for (int i = 0; i < PlayerTrinkets.Count; i++)
+        {
+            if (PlayerTrinkets[i] != null)
+            {
+                PlayerTrinkets[i].AddTrinket();
+            }
+        }
+    }
+
 }

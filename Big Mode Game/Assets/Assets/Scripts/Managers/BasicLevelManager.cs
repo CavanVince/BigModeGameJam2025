@@ -80,6 +80,7 @@ public class BasicLevelManager : MonoBehaviour
 
     public bool CanInput = true;
 
+
     private void Awake()
     {
         // Singleton pattern

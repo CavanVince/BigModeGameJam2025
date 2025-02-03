@@ -9,14 +9,19 @@ public class HealthPotion : TrinketParent
 {
     public HealthPotion()
     {
-        PlayerInfo.Instance.StartingBallCount++;
-        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-        UiManager.Instance.UpdateBallText();
+        AddTrinket();
     }
 
     public override void RemoveTrinket()
     {
         PlayerInfo.Instance.StartingBallCount--;
         PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
+    }
+
+    public override void AddTrinket()
+    {
+        PlayerInfo.Instance.StartingBallCount++;
+        PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
+        UiManager.Instance.UpdateBallText();
     }
 }
