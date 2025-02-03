@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 17
   trinketDescription: When the ball would be destroyed bounce it back up once
+  trinketName: Pogo

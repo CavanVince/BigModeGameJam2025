@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 5
   trinketDescription: +1 Up
+  trinketName: Health Potion

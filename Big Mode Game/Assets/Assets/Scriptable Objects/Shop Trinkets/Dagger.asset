@@ -15,4 +15,5 @@ MonoBehaviour:
   trinketSprite: {fileID: 21300000, guid: 6b52b7603eab20744a4861306ba4d5ad, type: 3}
   trinketPrice: 5
   trinketType: 2
-  trinketDescription: Ohhh pointy
+  trinketDescription: '*2 mult - 1 ball'
+  trinketName: Dagger

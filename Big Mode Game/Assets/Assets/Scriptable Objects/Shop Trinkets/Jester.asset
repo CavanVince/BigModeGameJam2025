@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 6
   trinketDescription: Adds +4 mult when you hit a red brick
+  trinketName: Jester

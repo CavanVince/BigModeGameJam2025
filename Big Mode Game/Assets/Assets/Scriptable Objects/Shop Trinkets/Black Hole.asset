@@ -15,5 +15,5 @@ MonoBehaviour:
   trinketSprite: {fileID: 21300000, guid: f16958bc4756c58469a78d2f8c64fee1, type: 3}
   trinketPrice: 5
   trinketType: 13
-  trinketDescription: Spawns a black hole that grows in size to break bricks over
-    2.5 seconds
+  trinketDescription: 'Spawns a black hole that grows in size '
+  trinketName: Black Hole

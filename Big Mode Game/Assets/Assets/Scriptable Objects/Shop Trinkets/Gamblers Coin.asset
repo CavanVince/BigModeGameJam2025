@@ -17,3 +17,4 @@ MonoBehaviour:
   trinketType: 14
   trinketDescription: when you enter a shop, lose up to 5 coins or gain up to 10
     coins
+  trinketName: Gamblers Coin

@@ -15,4 +15,5 @@ MonoBehaviour:
   trinketSprite: {fileID: 21300000, guid: 5de2b0a8afbcd9840bc1359afd85fd99, type: 3}
   trinketPrice: 5
   trinketType: 9
-  trinketDescription: Teenie Tiny
+  trinketDescription: smallmode
+  trinketName: smallmode

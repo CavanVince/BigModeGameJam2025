@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 19
   trinketDescription: Balls pierce 3 bricks every bounce
+  trinketName: Arrow

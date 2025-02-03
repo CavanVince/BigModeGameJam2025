@@ -15,4 +15,5 @@ MonoBehaviour:
   trinketSprite: {fileID: -316883646, guid: 7371e2da9d4098a4cb186ed927125969, type: 3}
   trinketPrice: 5
   trinketType: 4
-  trinketDescription: Gives 1 coin every 5 green bricks hit
+  trinketDescription: Gives 1 coin every 5 green gems hit
+  trinketName: Mista Money Bags

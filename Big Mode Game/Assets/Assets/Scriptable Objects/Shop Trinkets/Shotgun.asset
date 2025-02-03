@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 7
   trinketDescription: Shoots five balls from the paddle
+  trinketName: Shotgun

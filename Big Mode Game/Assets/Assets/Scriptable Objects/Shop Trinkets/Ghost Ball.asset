@@ -15,4 +15,5 @@ MonoBehaviour:
   trinketSprite: {fileID: -113970535, guid: 68761f3a23f8fa940a6af58123079952, type: 3}
   trinketPrice: 5
   trinketType: 1
-  trinketDescription: Ghost ball
+  trinketDescription: When you hit a blue gem, spawn a Ghost Ball
+  trinketName: Ghost Ball

@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 12
   trinketDescription: Spawns lightning bolts to destroy gems
+  trinketName: Lightning

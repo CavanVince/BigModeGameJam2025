@@ -16,3 +16,4 @@ MonoBehaviour:
   trinketPrice: 5
   trinketType: 16
   trinketDescription: Ball shoots from paddle at a 45 degree angle
+  trinketName: Wizard Cap
