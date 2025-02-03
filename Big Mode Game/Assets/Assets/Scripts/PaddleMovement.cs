@@ -62,7 +62,7 @@ public class PaddleMovement : MonoBehaviour
             // Reset the player's score multiplier when the ball hits the paddle
             BasicLevelManager.Instance.ResetScoreMult();
         }
-        else if (!invincible && collision.transform.CompareTag("Brick") == true) // Check for brick (used for 3rd boss)
+        else if (invincible == false && collision.transform.CompareTag("Brick") == true) // Check for brick (used for 3rd boss)
         {
             PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.PlayerBallCount - 1; 
             
@@ -88,5 +88,17 @@ public class PaddleMovement : MonoBehaviour
         invincible = true;
         yield return new WaitForSeconds(invTimer);
         invincible = false;
+    }
+
+    public void DisablePaddle() 
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    public void EnablePaddle()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 }

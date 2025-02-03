@@ -284,6 +284,7 @@ public class UiManager : MonoBehaviour
         transitionSource.Play();
         level.DOMoveY(oriPos.y, 0.75f).SetEase(Ease.Linear).OnComplete(() =>
         {
+            PaddleMovement.Instance.EnablePaddle();
             BasicLevelManager.Instance.ScreenShake(false);
             UpdateScoreUI();
             BasicLevelManager.Instance.BrickParent = level.Find("Bricks");

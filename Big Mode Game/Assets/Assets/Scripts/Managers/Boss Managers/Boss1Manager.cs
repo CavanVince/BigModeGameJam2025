@@ -45,7 +45,7 @@ public class Boss1Manager : BossManagerParent
             directionVector.x = -directionVector.x;
             BasicLevelManager.Instance.ScreenShake();
         }
-        else if (Screen.mainWindowPosition.x + Screen.width >= display.width)
+        else if (Screen.mainWindowPosition.x + Screen.width >= display.width - 80)
         {
             // Bounce left
             directionVector.x = -directionVector.x;

@@ -231,6 +231,7 @@ public class BasicLevelManager : MonoBehaviour
         {
             Debug.Log("Game Over!");
             ScreenShake();
+            PaddleMovement.Instance.DisablePaddle();
             UiManager.Instance.ActivatePostLevelScreen(false);
 
             DOTween.Kill("Boss 3"); // Kills tweening on boss 3
