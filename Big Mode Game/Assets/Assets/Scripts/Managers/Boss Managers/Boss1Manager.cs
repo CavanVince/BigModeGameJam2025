@@ -40,22 +40,26 @@ public class Boss1Manager : BossManagerParent
         {
             // Bounce right
             directionVector.x = -directionVector.x;
+            BasicLevelManager.Instance.ScreenShake();
         }
         else if (Screen.mainWindowPosition.x + Screen.width >= display.width)
         {
             // Bounce left
             directionVector.x = -directionVector.x;
+            BasicLevelManager.Instance.ScreenShake();
         }
 
         if (Screen.mainWindowPosition.y <= 0)
         {
             // Bounce down
             directionVector.y = -directionVector.y;
+            BasicLevelManager.Instance.ScreenShake();
         }
         else if (Screen.mainWindowPosition.y + Screen.height >= display.height - 50)
         {
             // Bounce up
             directionVector.y = -directionVector.y;
+            BasicLevelManager.Instance.ScreenShake();
         }
 
         // Move the window

@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0eb5c9992e4d33438a4ff421a21426d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayedText: You come across a travelling merchant who offers you his wares
+  DisplayedText: You come across a travelling merchant who offers you his wares.
+    Press space to continue

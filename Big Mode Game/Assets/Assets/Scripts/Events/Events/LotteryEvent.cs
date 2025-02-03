@@ -10,7 +10,7 @@ public class LotteryEvent : EventObjectParent
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You don't have enough money to enter now";
+            return "You don't have enough money to enter now. Press Space to Continue";
         }
         else if(Random.Range(0, 11) < 10)
         {
@@ -19,7 +19,7 @@ public class LotteryEvent : EventObjectParent
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You win nothing. Better luck next time";
+            return "You win nothing. Better luck next time. Press Space to Continue";
         }
         else
         {
@@ -27,7 +27,7 @@ public class LotteryEvent : EventObjectParent
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             PlayerInfo.Instance.PlayerMoney += 50;
             UiManager.Instance.UpdateMoneyText();
-            return "Congratulations, you've won our grand prize of 50 dollars!";
+            return "Congratulations, you've won our grand prize of 50 dollars! Press Space to Continue";
         }
     }
 
@@ -37,13 +37,13 @@ public class LotteryEvent : EventObjectParent
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You walk away money in hand wondering, what if...?";
+            return "You walk away money in hand wondering, what if...? Press Space to Continue";
         }
         else
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You walk away knowing you couldn't afford it";
+            return "You walk away knowing you couldn't afford it. Press Space to Continue";
         }
     }
 }

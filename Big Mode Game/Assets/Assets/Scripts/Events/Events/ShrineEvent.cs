@@ -11,7 +11,7 @@ public class ShrineEvent : EventObjectParent
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You have no money to donate right now";
+            return "You have no money to donate right now. Press Space to Continue";
         }
         else if(Random.Range(1,6) > 4)
         {
@@ -22,14 +22,15 @@ public class ShrineEvent : EventObjectParent
             UiManager.Instance.UpdateMoneyText();
             PlayerInfo.Instance.StartingBallCount++;
             PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
-            return "A white glow descends towards you. You gain another ball!";
+            UiManager.Instance.UpdateBallText();
+            return "A white glow descends towards you. You gain another ball! Press Space to Continue";
         }
         else
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You feel mystical!?";
+            return "You feel mystical!? Press Space to Continue";
         }
     }
 
@@ -37,18 +38,17 @@ public class ShrineEvent : EventObjectParent
     {
         if (PlayerInfo.Instance.PlayerMoney < 1)
         {
-            //Add a money trinket
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You had no money to give anyway";
+            return "You had no money to give anyway. Press Space to Continue";
         }
         else
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "You walk away";
+            return "You walk away. Press Space to Continue";
         }
     }
 }

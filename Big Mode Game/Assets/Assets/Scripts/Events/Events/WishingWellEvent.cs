@@ -11,7 +11,7 @@ public class WishingWellEvent : EventObjectParent
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You don't have any money to wish away right now";
+            return "You don't have any money to wish away right now. Press Space to Continue";
         }
         else if (Random.Range(1, 26) < 24 && PlayerInfo.Instance.PlayerMoney > 0)
         {
@@ -24,7 +24,7 @@ public class WishingWellEvent : EventObjectParent
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "Your wish has been answered, a new trinket appears before you";
+            return "Your wish has been answered, a new trinket appears before you. Press Space to Continue";
         }
         else
         {
@@ -32,7 +32,7 @@ public class WishingWellEvent : EventObjectParent
             EventManager.Instance.NoOption.gameObject.SetActive(false);
             PlayerInfo.Instance.MinScoreMult += 3;
             UiManager.Instance.UpdateMultUI();
-            return "You're feeling very lucky! +3 Mult";
+            return "You're feeling very lucky! +3 Mult. Press Space to Continue";
         }
     }
 
@@ -40,11 +40,11 @@ public class WishingWellEvent : EventObjectParent
     {
         if (PlayerInfo.Instance.PlayerMoney > 0)
         {
-            return "You walk away with nothing.";
+            return "You walk away with nothing. Press Space to Continue";
         }
         else
         {
-            return "You walk away knowing you can't afford a wish";
+            return "You walk away knowing you can't afford a wish. Press Space to Continue";
         }
     }
 }

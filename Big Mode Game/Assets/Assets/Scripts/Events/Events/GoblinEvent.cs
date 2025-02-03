@@ -13,7 +13,7 @@ public class GoblinEvent : EventObjectParent
             BasicLevelManager.Instance.CanGoToNextScreen = true;
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "The goblin thanks you for your help and gives you 5 dollars!";
+            return "The goblin thanks you for your help and gives you 5 dollars!. Press Space to Continue";
         }
         else
         {
@@ -24,7 +24,7 @@ public class GoblinEvent : EventObjectParent
                 EventManager.Instance.YesOption.gameObject.SetActive(false);
                 EventManager.Instance.NoOption.gameObject.SetActive(false);
                 BasicLevelManager.Instance.CanGoToNextScreen = true;
-                return "You've been tricked! The goblin swindles you for 5 dollars";
+                return "You've been tricked! The goblin swindles you for 5 dollars. Press Space to Continue";
             }
             else
             {
@@ -44,7 +44,7 @@ public class GoblinEvent : EventObjectParent
         {
             EventManager.Instance.YesOption.gameObject.SetActive(false);
             EventManager.Instance.NoOption.gameObject.SetActive(false);
-            return "You walk away. The goblin looks really sad";
+            return "You walk away. The goblin looks really sad. Press Space to Continue";
         }
         else
         {
@@ -54,7 +54,7 @@ public class GoblinEvent : EventObjectParent
             PlayerInfo.Instance.PlayerBallCount = PlayerInfo.Instance.StartingBallCount;
             UiManager.Instance.UpdateBallText();
             BasicLevelManager.Instance.CanGoToNextScreen = true;
-            return "The goblin is angered by your refusal to help and swipes a ball from your back pocket before running off";
+            return "The goblin is angered by your refusal to help and swipes a ball from your back pocket before running off. Press Space to Continue";
         }
     }
 }

@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d2de7f0fc6165409a0a95f73469379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DisplayedText: You come across a horde of breakable objects
+  DisplayedText: You come across a horde of breakable objects. Press Space to continue
