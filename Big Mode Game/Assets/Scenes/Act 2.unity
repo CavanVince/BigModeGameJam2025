@@ -12613,6 +12613,7 @@ MonoBehaviour:
     type: 3}
   paddleBall: {fileID: 0}
   lifeLost: {fileID: 8300000, guid: 651dd2b55a8faf842b6785f7011529d6, type: 3}
+  CanInput: 1
 --- !u!4 &1890342279
 Transform:
   m_ObjectHideFlags: 0
