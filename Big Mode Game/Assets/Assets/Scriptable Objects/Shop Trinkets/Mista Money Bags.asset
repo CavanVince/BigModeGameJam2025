@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mista Money Bags
   m_EditorClassIdentifier: 
   trinketSprite: {fileID: 21300000, guid: 3c3a29862ed8bfc4da00255fce99abca, type: 3}
-  trinketPrice: 30
+  trinketPrice: 10
   trinketType: 4
   trinketDescription: Gives 1 coin every 5 green gems hit
   trinketName: Mista Money Bags
