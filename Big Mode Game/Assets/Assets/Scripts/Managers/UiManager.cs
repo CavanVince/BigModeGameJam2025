@@ -172,7 +172,7 @@ public class UiManager : MonoBehaviour
         // Drop down the brick overlay & current active grid
         AnimateCurrentGridDown(scoreBackdrop, 0.25f);
         transitionSource.Play();
-        
+
         postGameScoreText.text = "Score: 0";
         postGameComboText.text = "Max Combo: 0";
         postGameMoneyText.text = "Money: $0";
@@ -191,12 +191,12 @@ public class UiManager : MonoBehaviour
         float pitch = 1;
         while (score < BasicLevelManager.Instance.PlayerScore)
         {
-            int scalar = 1000;
-            if (BasicLevelManager.Instance.PlayerScore > 50000) 
+            int scoreScalar = 1000;
+            if (BasicLevelManager.Instance.PlayerScore > 50000)
             {
-                scalar = 10000;
+                scoreScalar = 10000;
             }
-            score = Mathf.Clamp(score + scalar, 0, BasicLevelManager.Instance.PlayerScore);
+            score = Mathf.Clamp(score + scoreScalar, 0, BasicLevelManager.Instance.PlayerScore);
             postGameScoreText.text = "Score: " + score;
             foreach (AudioSource source in scoreAudioSources)
             {
@@ -217,9 +217,14 @@ public class UiManager : MonoBehaviour
 
         int money = 0;
         int totalMoney = BasicLevelManager.Instance.PlayerScore / 2000;
+        int moneyScalar = 1;
+        if (BasicLevelManager.Instance.PlayerScore > 50000)
+        {
+            moneyScalar = 10;
+        }
         while (money < totalMoney)
         {
-            money += 1;
+            money = Mathf.Clamp(money + moneyScalar, 0, BasicLevelManager.Instance.PlayerScore / 2000);
             postGameMoneyText.text = "Money: $" + money;
             postGameScoreText.text = "Score: " + (BasicLevelManager.Instance.PlayerScore - (money * 2000));
             foreach (AudioSource source in scoreAudioSources)
