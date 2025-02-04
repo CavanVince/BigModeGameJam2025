@@ -14,7 +14,7 @@ public class Boss1Manager : BossManagerParent
     private bool canMoveWindow = false;
     private DisplayInfo display;
     private Vector2 directionVector = new Vector2(1, -1f);
-    private const int moveSpeed = 200;
+    private const int moveSpeed = 150;
 
     void Start()
     {
@@ -42,26 +42,26 @@ public class Boss1Manager : BossManagerParent
         if (Screen.mainWindowPosition.x <= 0)
         {
             // Bounce right
-            directionVector.x = -directionVector.x;
+            directionVector.x = 1;
             BasicLevelManager.Instance.ScreenShake();
         }
         else if (Screen.mainWindowPosition.x + Screen.width >= display.width - 80)
         {
             // Bounce left
-            directionVector.x = -directionVector.x;
+            directionVector.x = -1;
             BasicLevelManager.Instance.ScreenShake();
         }
 
         if (Screen.mainWindowPosition.y <= 0)
         {
             // Bounce down
-            directionVector.y = -directionVector.y;
+            directionVector.y = 1;
             BasicLevelManager.Instance.ScreenShake();
         }
         else if (Screen.mainWindowPosition.y + Screen.height >= display.height - 80)
         {
             // Bounce up
-            directionVector.y = -directionVector.y;
+            directionVector.y = -1;
             BasicLevelManager.Instance.ScreenShake();
         }
 

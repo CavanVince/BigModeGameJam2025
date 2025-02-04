@@ -26,7 +26,7 @@ public class PlayerInfo : MonoBehaviour
     /// <summary>
     /// The player's money
     /// </summary>
-    public int PlayerMoney { get; set; } = 5;
+    public int PlayerMoney { get; set; } = 10;
 
     // The number of balls the player has left
     public int PlayerBallCount { get; set; } = 0;
@@ -132,7 +132,7 @@ public class PlayerInfo : MonoBehaviour
                         PlayerTrinkets[i] = new ElasticShot();
                         break;
                     case TrinketType.SPLITSHOT:
-                        PlayerTrinkets[i] = new Arrow();
+                        PlayerTrinkets[i] = new SplitBall();
                         break;
                     default:
                         Debug.Log("ERROR: TRINKET TYPE NOT IN PLAYER INFO!");
@@ -167,18 +167,18 @@ public class PlayerInfo : MonoBehaviour
         });
     }
 
-    public void DisableTrinkets() 
+    public void DisableTrinkets()
     {
-        for (int i = 0; i < PlayerTrinkets.Count; i++) 
+        for (int i = 0; i < PlayerTrinkets.Count; i++)
         {
-            if (PlayerTrinkets[i] != null) 
+            if (PlayerTrinkets[i] != null)
             {
                 PlayerTrinkets[i].RemoveTrinket();
             }
         }
     }
 
-    public void EnableTrinkets() 
+    public void EnableTrinkets()
     {
         for (int i = 0; i < PlayerTrinkets.Count; i++)
         {
@@ -186,6 +186,15 @@ public class PlayerInfo : MonoBehaviour
             {
                 PlayerTrinkets[i].AddTrinket();
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        for (int i = 0; i < PlayerTrinkets.Count; i++)
+        {
+            if (PlayerTrinkets[i] != null) PlayerTrinkets[i].RemoveTrinket();
+            PlayerTrinkets[i] = null;
         }
     }
 
